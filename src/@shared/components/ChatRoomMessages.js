@@ -20,7 +20,7 @@ const MessagesContainer = styled.main`
 `;
 
 const MessagesList = styled.ul`
-  padding: 5px;
+  padding: 0px;
 `;
 
 const SentMessageItem = styled.li`
