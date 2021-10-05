@@ -32,6 +32,9 @@ export const ListHeaderContainer = styled.div`
   height: 60px;
   border-bottom: 1px solid ${COLORS.primary};
 
+  justify-content: center;
+  align-items: center;
+
   // tablet version
   @media screen and (max-width: 920px) {
     width: 300px;
