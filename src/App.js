@@ -1,15 +1,18 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import HomeContainer from './pages/HomeContainer';
-import SettingsContainer from './pages/SettingsContainer';
+import Home from './pages/Home';
+import Settings from './pages/Settings';
+
+import GlobalStyle from './GlobalStyle';
 
 const App = () => {
   return (
-    <div>
-      <Route path="/" component={HomeContainer} exact={true} />
-      <Route path="/settings" component={SettingsContainer} />
-    </div>
+    <>
+      <GlobalStyle></GlobalStyle>
+      <Route path="/" component={Home} exact={true} />
+      <Route path="/settings" component={Settings} />
+    </>
   );
 };
 
