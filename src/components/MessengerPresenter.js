@@ -4,6 +4,10 @@ import COLORS from '../constants/colors';
 export const Container = styled.div`
   flex-direction: column;
   background-color: white;
+  // mobile version
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 export const MessengerContentContainer = styled.div`
   height: 75vh;
@@ -25,9 +29,4 @@ export const MessengerHeaderContainer = styled.div`
   width: 560px;
   height: 60px;
   border-bottom: 1px solid ${COLORS.primary};
-
-  // mobile version
-  @media screen and (max-width: 600px) {
-    display: none;
-  }
 `;

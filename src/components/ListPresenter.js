@@ -5,6 +5,11 @@ export const Container = styled.div`
   flex-direction: column;
   border-right: 1px solid ${COLORS.primary};
   background-color: white;
+  // mobile version
+  @media screen and (max-width: 600px) {
+    height: 100vh;
+    width: 100vw;
+  }
 `;
 export const ListContentContainer = styled.ul`
   height: 75vh;
@@ -28,12 +33,15 @@ export const ListHeaderContainer = styled.div`
   border-bottom: 1px solid ${COLORS.primary};
 
   // tablet version
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 920px) {
     width: 300px;
   }
 
   // mobile version
   @media screen and (max-width: 600px) {
-    display: none;
+    width: inherit;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 `;
