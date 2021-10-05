@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
+import Wrap from './components/Wrap';
 import GlobalStyle from './GlobalStyle';
 import Home from './pages/Home';
 import Settings from './pages/Settings';
@@ -11,8 +12,10 @@ const App = () => {
     <>
       <Header />
       <GlobalStyle />
-      <Route path="/" component={Home} exact={true} />
-      <Route path="/settings" component={Settings} />
+      <Wrap>
+        <Route path="/" component={Home} exact={true} />
+        <Route path="/settings" component={Settings} />
+      </Wrap>
     </>
   );
 };

@@ -1,11 +1,15 @@
 import React from 'react';
 
+import MainContainer from '../components/MainContainer';
+import ListContainer from '../components/ListContainer';
+import MessengerContainer from '../components/MessengerContainer';
+
 const Home = () => {
   return (
-    <div>
-      <h1>홈</h1>
-      <p>메신저 표시할 홈페이지</p>
-    </div>
+    <MainContainer>
+      <ListContainer />
+      <MessengerContainer />
+    </MainContainer>
   );
 };
 

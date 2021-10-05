@@ -7,6 +7,7 @@ export const RowContainer = styled.div`
   align-items: center;
   border-bottom: 1px solid #dbdbdb;
   height: 54px;
+  background-color: white;
 
   // mobile version
   @media screen and (max-width: 600px) {
