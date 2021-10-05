@@ -6,14 +6,14 @@ body {
   margin: 0;
 }
 
-body {
+/* body {
   width: 100vw;
   height: 100vh;
 
-  /* Center Container */
+  
   display: flex;
   justify-content: center;
-}
+} */
 
 input,
 button,
