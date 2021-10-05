@@ -9,6 +9,8 @@ export const ProfileImage = styled.div`
   height: ${(props) => props.height};
   margin-right: 10px;
 `;
+
+// props 없을 때 default 설정
 export const Button = styled.div`
   padding-right: 10px;
   padding-left: ${(props) => (props ? props.paddingLeft : 10)};

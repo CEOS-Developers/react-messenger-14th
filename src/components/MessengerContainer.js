@@ -9,7 +9,7 @@ import {
   TextInput,
 } from './MessengerPresenter';
 
-import { ProfileImage, Button } from './icons';
+import { ProfileImage, Button } from './Icons';
 
 const MessengerContainer = () => {
   const [text, setText] = useState('');

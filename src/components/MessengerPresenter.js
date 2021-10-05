@@ -50,7 +50,7 @@ export const MessengerTextFormContainer = styled.div`
   align-items: center;
 
   height: 65px;
-  padding: 20px;
+  padding-bottom: 10px;
   background-color: white;
 
   // mobile version
