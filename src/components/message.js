@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import friendimg from '../img/ryan.png';
-function message() {
+function message({ chatList }) {
   return (
     <MessageContainer>
-      <Img src={friendimg} />
-      <MessageContent>dd</MessageContent>
+      {chatList.map((message, i) => (
+        <MessageContent key={i}>{message.text}</MessageContent>
+      ))}
     </MessageContainer>
   );
 }
 const MessageContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
 `;
 const Img = styled.img`

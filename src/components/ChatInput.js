@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-function ChatInput() {
+function ChatInput({ chatList, setChatList }) {
+  const [message, setMessage] = useState('');
+  const handleInputChange = (e) => {
+    setMessage(e.target.value);
+  };
+  const onClickSendMessage = () => {
+    if (message)
+      setChatList((previousChat) => [
+        ...previousChat,
+        {
+          text: message,
+          user: '나',
+        },
+      ]);
+    //else alert message
+    setMessage('');
+  };
   return (
     <InputBox>
-      <Input placeholder="메시지 전송하기" />
-      <Button>전송</Button>
+      <Input
+        placeholder="메시지 전송하기"
+        onChange={handleInputChange}
+        value={message}
+      />
+      <Button onClick={onClickSendMessage}>전송</Button>
     </InputBox>
   );
 }
