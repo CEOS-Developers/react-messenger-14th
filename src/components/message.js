@@ -26,12 +26,16 @@ function Message({ chatList }) {
 }
 const Wrapper = styled.div`
   flex: 1;
-  overflow: auto hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const MessageContainer = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.sender === 0 ? 'row-reverse' : 'row')};
   align-items: flex-end;
+  margin-bottom: 10px;
 `;
 const Img = styled.img`
   width: 50px;

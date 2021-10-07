@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import Profile from '../components/Profile';
 import ChatInput from '../components/ChatInput';
 import Message from '../components/Message';
+import savedChat from '../data/savedChat';
 function ChatRoom() {
-  const [chatList, setChatList] = useState([]);
+  const [chatList, setChatList] = useState(savedChat);
   const [currentUser, setCurrentUser] = useState(0);
   const handleChangeUser = () => {
     currentUser ? setCurrentUser(0) : setCurrentUser(1);
