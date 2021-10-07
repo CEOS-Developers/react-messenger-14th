@@ -12,6 +12,7 @@ const HeaderContainer = () => {
   const handleSubmitButtonClick = () => {
     // 일단은 아무일도 안 일어나고 초기화만
     setText('');
+    window.alert('미구현입니다~');
   };
   const handleSubmit = (e) => {
     e.preventDefault();
