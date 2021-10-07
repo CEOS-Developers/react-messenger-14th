@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import friendimg from '../img/ryan.png';
+import user from '../data/user';
 function message({ chatList }) {
   return (
     <MessageContainer>

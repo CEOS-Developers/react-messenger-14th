@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import profile from '../img/profile.jpeg';
+import user from '../data/user';
 function Profile() {
+  const [currentUser, setCurrentUser] = useState(0);
+  const handleChangeUser = () => {
+    currentUser ? setCurrentUser(0) : setCurrentUser(1);
+  };
   return (
-    <ProfileWrapper>
-      <ProfileImg src={profile} />
+    <ProfileWrapper onClick={handleChangeUser}>
+      <ProfileImg
+        src={process.env.PUBLIC_URL + '/img/' + user[currentUser].profileImg}
+      />
       <NameWrapper>
-        <div>이름</div>
-        <div>상태메시지</div>
+        <div>{user[currentUser].name}</div>
+        <div>{user[currentUser].status}</div>
       </NameWrapper>
     </ProfileWrapper>
   );
