@@ -8,7 +8,7 @@ const Home = () => {
   // 채팅방에 대한 모든 정보
   const [messengerData, setMessengerData] = useState({
     id: 1,
-    recentChatSend: new Date(2021, 9, 8, 1, 32, 10, 22).getTime(),
+    recentChatSend: new Date(2021, 9, 8, 1, 32, 10, 28).getTime(),
     chatData: [
       {
         date: new Date(2021, 9, 8, 1, 31, 10, 22).getTime(),
@@ -30,9 +30,25 @@ const Home = () => {
 
   // form에서 입력받은대로 submit결과를 핸들링
   const handleSubmit = (input) => {
-    if (input) {
-      console.log(input);
+    const newObj = messengerData;
+    newObj.recentChatSend = input.date;
+    if (input.id) {
+      console.log('내가 보내는 채팅');
+      newObj.chatData = [
+        ...newObj.chatData,
+        { date: input.date, text: input.text, isMe: true },
+      ];
+      // set하지 않았는데 왜 화면에 찍히지?
+    } else {
+      console.log('상대가 보내는 채팅');
+      newObj.chatData = [
+        ...newObj.chatData,
+        { date: input.date, text: input.text, isMe: false },
+      ];
     }
+    // set하지 않았는데 왜 화면에 찍히지?
+    //console.log(newObj);
+    setMessengerData(newObj);
   };
 
   return (
