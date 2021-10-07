@@ -1,0 +1,73 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "구본준",
+      "statusMessage": "I'm happy",
+      "profilePicture": "../img/0.jpg",
+      "dialogue": [
+        {
+          "time": "09:00",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:01",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:02",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "김김김",
+      "statusMessage": "I'm happy",
+      "profilePicture": "../img/0.jpg",
+      "dialogue": [
+        {
+          "time": "09:00",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:01",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:02",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "이이이",
+      "statusMessage": "I'm happy",
+      "profilePicture": "../img/0.jpg",
+      "dialogue": [
+        {
+          "time": "09:00",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:01",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:02",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        }
+      ]
+    }
+  ]
+}
