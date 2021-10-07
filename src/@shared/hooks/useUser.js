@@ -1,17 +1,34 @@
-import useUserAtom, { userAtom, CurrentUserT } from '../atoms/currentUser.atom';
+import { useUserAtom, useCurrentUserAtom } from '../atoms/user.atom';
 
-const useUser = () => {
-  const [currentUser, setCurrentUser] = useUserAtom(userAtom);
+export const useUsers = () => {
+  const [users, setUsers] = useUserAtom();
 
-  const changeCurrentUser = () => {
-    if (currentUser === CurrentUserT.UserA) {
-      setCurrentUser(CurrentUserT.UserB);
-    } else {
-      setCurrentUser(CurrentUserT.UserA);
-    }
+  const handleCreateUser = (newUser) => {
+    setUsers([...users, { ...newUser }]);
   };
 
-  return { currentUser, changeCurrentUser };
+  const handleDeleteUser = () => {};
+
+  const handleUpdateUser = (updatedUser) => {
+    const newUsers = users.map((user) => {
+      if (user.id === updatedUser.id) {
+        return updatedUser;
+      }
+      return user;
+    });
+
+    setUsers(newUsers);
+  };
+
+  return { users, handleCreateUser, handleDeleteUser, handleUpdateUser };
 };
 
-export default useUser;
+export const useCurrentUser = () => {
+  const [currentUser, setCurrentUser] = useCurrentUserAtom();
+
+  const handleChangeCurrentUser = (user) => {
+    setCurrentUser(user);
+  };
+
+  return { currentUser, handleChangeCurrentUser };
+};
