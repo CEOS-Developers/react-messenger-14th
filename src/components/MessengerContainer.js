@@ -7,20 +7,28 @@ import {
   MessengerTextFormContainer,
   Form,
   TextInput,
+  ChatContainer,
+  Chat,
+  ChatBubble,
+  TextBox,
+  TimeBox,
 } from './MessengerPresenter';
 
 import { ProfileImage, Button } from './Icons';
+import dateToString from '../utils/date';
 
-const MessengerContainer = () => {
+const MessengerContainer = ({ messengerData, onSubmit }) => {
   const [text, setText] = useState('');
   const [isMe, setIsMe] = useState(true);
 
   const handleSubmitButtonClick = () => {
     // form이 clear되면서 todoList에 값이 추가되어야 함.
-    // props.onSubmit(text);
-    console.log(text);
-    console.log(new Date().getTime());
-    setText('');
+    if (!text) {
+      window.alert('공백 메시지는 보낼 수 없어요~');
+    } else {
+      onSubmit({ id: isMe, text: text, date: new Date().getTime() });
+      setText('');
+    }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,12 +39,9 @@ const MessengerContainer = () => {
     setText(nextForm);
   };
 
+  // 나인지, 상대인지 토글
   function onClickToggle() {
-    // UserProfile을 바꿔서 보여줘야 함.
-    console.log('messengercontainer에서 클릭');
-
     setIsMe(!isMe);
-    console.log(isMe);
   }
 
   function renderForm() {
@@ -79,13 +84,23 @@ const MessengerContainer = () => {
   }
 
   function renderMessages() {
-    return <div></div>;
+    return messengerData.chatData.map((element, index) => {
+      return (
+        <Chat isMe={element.isMe} key={index}>
+          {renderProfile(element.isMe)}
+          <ChatBubble>
+            <TextBox>{element.text}</TextBox>
+          </ChatBubble>
+          <TimeBox>{dateToString(element.date)}</TimeBox>
+        </Chat>
+      );
+    });
   }
 
-  function renderProfile() {
+  function renderProfile(prop, isTop) {
     return (
-      <UserProfile onClick={onClickToggle}>
-        {isMe ? (
+      <>
+        {!prop ? (
           <>
             <ProfileImage
               alt="profile-img"
@@ -93,7 +108,7 @@ const MessengerContainer = () => {
               width="22px"
               height="22px"
             />
-            <h4>__kiuk</h4>
+            <>{isTop ? <h4>__kiuk</h4> : <></>}</>
           </>
         ) : (
           <>
@@ -103,17 +118,19 @@ const MessengerContainer = () => {
               width="22px"
               height="22px"
             />
-            <h4>n0wkim</h4>
+            <>{isTop ? <h4>n0wkim</h4> : <></>}</>
           </>
         )}
-      </UserProfile>
+      </>
     );
   }
 
   return (
     <Container>
       <MessengerHeaderContainer>
-        {renderProfile()}
+        <UserProfile onClick={onClickToggle}>
+          {renderProfile(isMe, true)}
+        </UserProfile>
         <Button>
           <img
             className="icon"
@@ -124,7 +141,7 @@ const MessengerContainer = () => {
         </Button>
       </MessengerHeaderContainer>
       <MessengerContentContainer>
-        {renderMessages()}
+        <ChatContainer>{renderMessages()}</ChatContainer>
         {renderForm()}
       </MessengerContentContainer>
     </Container>
