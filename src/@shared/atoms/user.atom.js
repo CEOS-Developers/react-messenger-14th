@@ -14,13 +14,13 @@ import { useState } from 'react';
 // Global State for "User"
 class UserAtom {
   constructor() {
-    this.users = {};
+    this.users = [{ name: 'test', id: Date.now() }];
     this.currentUser = {};
     this.setters = [];
   }
 
   setUsers(nextState) {
-    this.users = { ...nextState };
+    this.users = [...nextState];
   }
 
   setCurrentUser(nextState) {
