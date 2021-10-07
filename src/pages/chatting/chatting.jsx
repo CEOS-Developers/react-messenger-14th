@@ -1,6 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const Chatting = () => {
+const Chatting = ({ users, setUsers }) => {
   return (
     <div>
       <h3>채팅</h3>

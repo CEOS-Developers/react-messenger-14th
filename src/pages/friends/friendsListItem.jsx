@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Chattingroom from '../chatting/chattingroom';
 
 const FriendsListItem = ({ user }) => {
+  const name = useRef();
+  const handleClick = (e) => {
+    console.log(name.current.innerText);
+  };
+
   return (
-    <StyledLi>
-      <Styledimg src={user.profilePicture} alt="프로필 사진" />
-      <UserInfo>
-        <UserName>{user.name}</UserName>
-        <UserStatusMessage>{user.statusMessage}</UserStatusMessage>
-      </UserInfo>
-    </StyledLi>
+    <StyledLink to={`/chattingroom/${user.id}`}>
+      <StyledLi onClick={handleClick}>
+        <Styledimg src={user.profilePicture} alt="프로필 사진" />
+        <UserInfo>
+          <UserName ref={name}>{user.name}</UserName>
+          <UserStatusMessage>{user.statusMessage}</UserStatusMessage>
+        </UserInfo>
+      </StyledLi>
+    </StyledLink>
   );
 };
 
@@ -39,6 +48,12 @@ const UserStatusMessage = styled.div`
   font-size: 13px;
   font-weight: 300;
   margin-top: 3px;
+`;
+const StyledLink = styled(Link)`
+  all: unset;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export default FriendsListItem;

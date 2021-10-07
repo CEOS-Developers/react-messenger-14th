@@ -8,6 +8,7 @@ import { FiMoreHorizontal } from 'react-icons/fi';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import * as data from './data/data.json';
+import Chattingroom from './pages/chatting/chattingroom';
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -44,6 +45,11 @@ const App = () => {
           <Route
             path="/more"
             render={() => <More users={users} setUsers={setUsers} />}
+          ></Route>
+          <Route
+            // regular expression
+            path={`/chattingroom/:id(\d+)?:id`}
+            render={() => <Chattingroom hi="hi" />}
           ></Route>
         </Content>
       </Router>
