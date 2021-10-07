@@ -23,5 +23,8 @@ function ChatRoom() {
 }
 const Wrapper = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
 `;
 export default ChatRoom;

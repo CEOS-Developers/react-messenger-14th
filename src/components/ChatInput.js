@@ -29,12 +29,14 @@ function ChatInput({ currentUser, chatList, setChatList }) {
   );
 }
 const InputBox = styled.div`
-  width: 100%;
-  bottom: 0;
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 `;
 const Input = styled.input`
   height: 50px;
+  width: 70%;
   border: 1px solid lightgray;
   border-radius: 20px;
   margin-right: 10px;
