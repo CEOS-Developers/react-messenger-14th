@@ -25,7 +25,8 @@ export const ChatContainer = styled.div`
 `;
 export const Chat = styled.div`
   display: flex;
-  margin-top: 5px;
+  margin-top: 6px;
+  margin-bottom: 6px;
   align-items: flex-end;
   flex-direction: ${(props) => (props.isMe ? 'row-reverse' : 'row')};
 `;
@@ -36,6 +37,7 @@ export const ChatBubble = styled.div`
   max-width: 236px;
   min-height: 44px;
   align-items: center;
+  margin-right: 6px;
 `;
 export const TextBox = styled.span`
   overflow-wrap: break-word;

@@ -23,7 +23,7 @@ const Home = () => {
       {
         date: new Date(2021, 9, 8, 1, 32, 10, 28).getTime(),
         text: '나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어',
-        isMe: false,
+        isMe: true,
       },
     ],
   });
