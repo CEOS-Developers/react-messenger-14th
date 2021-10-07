@@ -1,6 +1,6 @@
 import React from 'react';
 
-const more = () => {
+const More = () => {
   return (
     <div>
       <h3>더보기</h3>
@@ -8,4 +8,4 @@ const more = () => {
   );
 };
 
-export default more;
+export default More;

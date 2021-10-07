@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import chatting from './pages/chatting/chatting';
-import friends from './pages/friends/friends';
-import more from './pages/more/more';
+import Chatting from './pages/chatting/chatting';
+import Friends from './pages/friends/friends';
+import More from './pages/more/more';
 import { BsFillPersonFill, BsFillChatFill } from 'react-icons/bs';
 import { FiMoreHorizontal } from 'react-icons/fi';
 import styled from 'styled-components';
@@ -31,9 +31,21 @@ const App = () => {
             <FiMoreHorizontal />
           </StyledLink>
         </Nav>
-        <Route path="/chatting" component={chatting}></Route>
-        <Route path="/friends" component={friends}></Route>
-        <Route path="/more" component={more}></Route>
+        {/* Route에서 inline으로 component를 넘겨주면 렌더링 할 때마다 새로운 컴포넌트를 만든다. 비추천! */}
+        <Content>
+          <Route
+            path="/chatting"
+            render={() => <Chatting users={users} setUsers={setUsers} />}
+          ></Route>
+          <Route
+            path="/friends"
+            render={() => <Friends users={users} setUsers={setUsers} />}
+          ></Route>
+          <Route
+            path="/more"
+            render={() => <More users={users} setUsers={setUsers} />}
+          ></Route>
+        </Content>
       </Router>
     </AppContainer>
   );
@@ -56,12 +68,13 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 60px;
+  width: 70px;
 `;
 
 const AppContainer = styled.div`
   display: flex;
   flex-direction: row;
+  height: 100vh;
 `;
 
 const StyledLink = styled(Link)`
@@ -70,6 +83,12 @@ const StyledLink = styled(Link)`
   text-align: center;
   font-size: 30px;
   margin-top: 30px;
+`;
+
+const Content = styled.div`
+  height: 100vh;
+  width: 100vh;
+  overflow-y: scroll;
 `;
 
 export default App;

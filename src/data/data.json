@@ -4,7 +4,7 @@
       "id": 0,
       "name": "구본준",
       "statusMessage": "I'm happy",
-      "profilePicture": "../img/0.jpg",
+      "profilePicture": "./profilePictures/0.jpg",
       "dialogue": [
         {
           "time": "09:00",
@@ -25,9 +25,9 @@
     },
     {
       "id": 1,
-      "name": "김김김",
+      "name": "라이언",
       "statusMessage": "I'm happy",
-      "profilePicture": "../img/0.jpg",
+      "profilePicture": "./profilePictures/1.jpg",
       "dialogue": [
         {
           "time": "09:00",
@@ -48,9 +48,124 @@
     },
     {
       "id": 2,
-      "name": "이이이",
+      "name": "죠르디",
       "statusMessage": "I'm happy",
-      "profilePicture": "../img/0.jpg",
+      "profilePicture": "./profilePictures/2.jpg",
+      "dialogue": [
+        {
+          "time": "09:00",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:01",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:02",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "죠르디",
+      "statusMessage": "I'm happy",
+      "profilePicture": "./profilePictures/2.jpg",
+      "dialogue": [
+        {
+          "time": "09:00",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:01",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:02",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "죠르디",
+      "statusMessage": "I'm happy",
+      "profilePicture": "./profilePictures/2.jpg",
+      "dialogue": [
+        {
+          "time": "09:00",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:01",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:02",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "죠르디",
+      "statusMessage": "I'm happy",
+      "profilePicture": "./profilePictures/2.jpg",
+      "dialogue": [
+        {
+          "time": "09:00",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:01",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:02",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "죠르디",
+      "statusMessage": "I'm happy",
+      "profilePicture": "./profilePictures/2.jpg",
+      "dialogue": [
+        {
+          "time": "09:00",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:01",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        },
+        {
+          "time": "09:02",
+          "isMyDialogue": true,
+          "content": "안녕!!"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "죠르디",
+      "statusMessage": "I'm happy",
+      "profilePicture": "./profilePictures/2.jpg",
       "dialogue": [
         {
           "time": "09:00",

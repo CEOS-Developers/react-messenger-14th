@@ -1,6 +1,6 @@
 import React from 'react';
 
-const chatting = () => {
+const Chatting = () => {
   return (
     <div>
       <h3>채팅</h3>
@@ -8,4 +8,4 @@ const chatting = () => {
   );
 };
 
-export default chatting;
+export default Chatting;
