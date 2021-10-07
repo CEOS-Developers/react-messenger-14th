@@ -5,14 +5,23 @@ import ChatInput from '../components/ChatInput';
 import Message from '../components/message';
 function ChatRoom() {
   const [chatList, setChatList] = useState([]);
-  console.log(chatList);
+  const [currentUser, setCurrentUser] = useState(0);
+  const handleChangeUser = () => {
+    currentUser ? setCurrentUser(0) : setCurrentUser(1);
+  };
   return (
     <Wrapper>
-      <Profile />
+      <Profile currentUser={currentUser} handleChangeUser={handleChangeUser} />
       <Message chatList={chatList} />
-      <ChatInput chatList={chatList} setChatList={setChatList}></ChatInput>
+      <ChatInput
+        currentUser={currentUser}
+        chatList={chatList}
+        setChatList={setChatList}
+      ></ChatInput>
     </Wrapper>
   );
 }
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  width: 100%;
+`;
 export default ChatRoom;

@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import user from '../data/user';
-function Profile() {
-  const [currentUser, setCurrentUser] = useState(0);
-  const handleChangeUser = () => {
-    currentUser ? setCurrentUser(0) : setCurrentUser(1);
-  };
+function Profile({ currentUser, handleChangeUser }) {
   return (
     <ProfileWrapper onClick={handleChangeUser}>
       <ProfileImg
@@ -28,6 +24,7 @@ const ProfileImg = styled.img`
   height: 100px;
   border-radius: 70%;
   overflow: hidden;
+  border: 1px solid lightgray;
 `;
 const NameWrapper = styled.div``;
 export default Profile;

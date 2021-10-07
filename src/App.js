@@ -5,6 +5,9 @@ import ChatRoom from './pages/ChatRoom';
 function App() {
   const GlobalStyle = createGlobalStyle`
   body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin:0;
   }
 `;

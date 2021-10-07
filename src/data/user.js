@@ -3,7 +3,7 @@ const user = [
     id: 0,
     name: '춘식이',
     status: '군고구마 사줄 사람 구함',
-    profileImg: 'profile.jpeg',
+    profileImg: 'choonsik.png',
   },
   {
     id: 1,

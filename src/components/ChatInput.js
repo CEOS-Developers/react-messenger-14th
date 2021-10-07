@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-function ChatInput({ chatList, setChatList }) {
+function ChatInput({ currentUser, chatList, setChatList }) {
   const [message, setMessage] = useState('');
   const handleInputChange = (e) => {
     setMessage(e.target.value);
@@ -11,7 +11,7 @@ function ChatInput({ chatList, setChatList }) {
         ...previousChat,
         {
           text: message,
-          user: '나',
+          user: currentUser,
         },
       ]);
     //else alert message
@@ -34,7 +34,6 @@ const InputBox = styled.div`
   position: absolute;
 `;
 const Input = styled.input`
-  width: 80%;
   height: 50px;
   border: 1px solid lightgray;
   border-radius: 20px;
