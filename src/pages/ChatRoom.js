@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Profile from '../components/Profile';
 import ChatInput from '../components/ChatInput';
-import Message from '../components/message';
+import Message from '../components/Message';
 function ChatRoom() {
   const [chatList, setChatList] = useState([]);
   const [currentUser, setCurrentUser] = useState(0);

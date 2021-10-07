@@ -42,6 +42,7 @@ const Input = styled.input`
   margin-right: 10px;
   padding-left: 10px;
   text-align: left;
+  font-family: 'Goyang';
 `;
 const Button = styled.button`
   height: 30px;
@@ -50,5 +51,7 @@ const Button = styled.button`
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 10px;
+  font-family: 'Goyang';
 `;
 export default ChatInput;

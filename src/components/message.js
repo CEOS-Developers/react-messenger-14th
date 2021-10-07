@@ -1,9 +1,14 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
 import user from '../data/user';
-function message({ chatList }) {
+function Message({ chatList }) {
+  const messageRef = useRef();
+  useEffect(() => {
+    if (messageRef.current)
+      messageRef.current.scrollTo(0, messageRef.current.scrollHeight);
+  }, [chatList]);
   return (
-    <Wrapper>
+    <Wrapper ref={messageRef}>
       {chatList.map((message, i) => (
         <MessageContainer sender={message.user}>
           <Img
@@ -21,6 +26,7 @@ function message({ chatList }) {
 }
 const Wrapper = styled.div`
   flex: 1;
+  overflow: auto hidden;
 `;
 const MessageContainer = styled.div`
   display: flex;
@@ -44,4 +50,4 @@ const MessageContent = styled.div`
   background: ${(props) => (props.sender === 0 ? '#ffe990' : '#ffffff')};
   margin: 5px;
 `;
-export default message;
+export default Message;
