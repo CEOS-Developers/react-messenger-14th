@@ -87,7 +87,7 @@ export const useChatRoomUsersAtom = () => {
     setAtom(chatRoomAtom.currentChatRoom.users);
   };
 
-  return [chatRoomAtom.currentChatRoom.users, setState];
+  return [chatRoomAtom.currentChatRoom?.users, setState];
 };
 
 export const useChatRoomMessagesAtom = () => {
@@ -100,7 +100,7 @@ export const useChatRoomMessagesAtom = () => {
     setAtom(chatRoomAtom.currentChatRoom.messages);
   };
 
-  return [chatRoomAtom.currentChatRoom.messages, setState];
+  return [chatRoomAtom.currentChatRoom?.messages, setState];
 };
 
 export const useCurrentChatRoomAtom = () => {
