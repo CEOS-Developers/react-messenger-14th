@@ -12,9 +12,10 @@ import {
   ChatBubble,
   TextBox,
   TimeBox,
+  HeartContainer,
 } from './MessengerPresenter';
 
-import { ProfileImage, Button } from '../Icons';
+import { ProfileImage, Button, HeartImg } from '../Icons';
 import dateToString from '../../utils/date';
 
 const MessengerContainer = ({ messengerData, onSubmit }) => {
@@ -40,7 +41,12 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
     if (!text) {
       window.alert('공백 메시지는 보낼 수 없어요~');
     } else {
-      onSubmit({ id: isMe, text: text, date: new Date().getTime() });
+      onSubmit({
+        id: isMe,
+        text: text,
+        date: new Date().getTime(),
+        isHeart: false,
+      });
       setText('');
       setChatEdit(!chatEdit);
     }
@@ -54,6 +60,18 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
     setText(nextForm);
   };
 
+  const onHeartButtonClick = () => {
+    console.log('heart 누름');
+    // heart submit해야함.
+    setText('');
+    onSubmit({
+      id: isMe,
+      text: text,
+      date: new Date().getTime(),
+      isHeart: true,
+    });
+    setChatEdit(!chatEdit);
+  };
   // 나인지, 상대인지 토글
   function onClickToggle() {
     setIsMe(!isMe);
@@ -85,7 +103,7 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
               alt="emoji"
             />
           </Button>
-          <Button>
+          <Button onClick={onHeartButtonClick}>
             <img
               className="icon"
               src="img/heart.png"
@@ -98,14 +116,31 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
     );
   }
 
+  function renderHeart() {
+    return (
+      <HeartContainer>
+        <HeartImg
+          alt="profile-img"
+          src="img/redHeart.png"
+          width="44px"
+          height="44px"
+        />
+      </HeartContainer>
+    );
+  }
+
   function renderMessages() {
     return messengerData.chatData.map((element, index) => {
       return (
         <Chat isMe={element.isMe} key={index}>
           {renderProfile(element.isMe)}
-          <ChatBubble>
-            <TextBox>{element.text}</TextBox>
-          </ChatBubble>
+          {element.isHeart ? (
+            renderHeart()
+          ) : (
+            <ChatBubble>
+              <TextBox>{element.text}</TextBox>
+            </ChatBubble>
+          )}
           <TimeBox>{dateToString(element.date)}</TimeBox>
         </Chat>
       );

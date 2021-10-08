@@ -14,26 +14,31 @@ const Home = () => {
         date: new Date(2021, 9, 8, 1, 31, 10, 22).getTime(),
         text: '너가 선택한 코딩이다',
         isMe: false,
+        isHeart: false,
       },
       {
         date: new Date(2021, 9, 8, 1, 32, 10, 22).getTime(),
         text: '악으로 깡으로 버텨라',
         isMe: false,
+        isHeart: false,
       },
       {
         date: new Date(2021, 9, 8, 1, 32, 10, 28).getTime(),
         text: '나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어',
         isMe: true,
+        isHeart: false,
       },
       {
         date: new Date(2021, 9, 8, 13, 32, 10, 28).getTime(),
         text: '헐 어제 밤샜구나',
         isMe: false,
+        isHeart: false,
       },
       {
         date: new Date(2021, 9, 8, 13, 32, 10, 28).getTime(),
         text: '그래서 어디까지 했어 코딩',
         isMe: false,
+        isHeart: false,
       },
     ],
   });
@@ -46,14 +51,24 @@ const Home = () => {
       console.log('내가 보내는 채팅');
       newObj.chatData = [
         ...newObj.chatData,
-        { date: input.date, text: input.text, isMe: true },
+        {
+          date: input.date,
+          text: input.text,
+          isMe: true,
+          isHeart: input.isHeart,
+        },
       ];
       // set하지 않았는데 왜 화면에 찍히지?
     } else {
       console.log('상대가 보내는 채팅');
       newObj.chatData = [
         ...newObj.chatData,
-        { date: input.date, text: input.text, isMe: false },
+        {
+          date: input.date,
+          text: input.text,
+          isMe: false,
+          isHeart: input.isHeart,
+        },
       ];
     }
     // set하지 않았는데 왜 화면에 찍히지?

@@ -15,3 +15,14 @@ export const Button = styled.div`
   padding-right: 10px;
   padding-left: ${(props) => (props ? props.paddingLeft : 10)};
 `;
+
+export const HeartImg = styled.div`
+  background-image: ${({ src }) => `url(${src})`};
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  margin-right: 10px;
+`;

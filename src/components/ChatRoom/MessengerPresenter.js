@@ -55,7 +55,11 @@ export const TimeBox = styled.span`
   margin-bottom: 5px;
   color: ${COLORS.grayFont};
 `;
-
+export const HeartContainer = styled.div`
+  vertical-align: baseline;
+  margin-left: 10px;
+  margin-right: 10px;
+`;
 export const MessengerContentContainer = styled.div`
   height: 75vh;
   flex: 1;
