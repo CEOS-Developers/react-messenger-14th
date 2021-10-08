@@ -5,6 +5,12 @@ import { useUsers } from '../../@shared/hooks/useUser';
 const ChatRoomMessages = ({ messages, currentUser }) => {
   const { users } = useUsers();
 
+  useEffect(() => {
+    document
+      .querySelector('#messages-list')
+      .lastChild?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
   const renderMessages = () =>
     messages.map((message) => {
       if (message.userID === currentUser.id) {
@@ -20,7 +26,6 @@ const ChatRoomMessages = ({ messages, currentUser }) => {
       }
 
       const leftUser = users.find((user) => user.id === message.userID);
-      console.log('leftUser: ', leftUser);
       return (
         <LeftMessageItem>
           <ProfileImg src={leftUser.img} />
@@ -34,7 +39,7 @@ const ChatRoomMessages = ({ messages, currentUser }) => {
 
   return (
     <MessagesContainer>
-      <MessagesList>{renderMessages()}</MessagesList>
+      <MessagesList id="messages-list">{renderMessages()}</MessagesList>
     </MessagesContainer>
   );
 };

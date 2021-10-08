@@ -15,6 +15,11 @@ const App = () => {
 
   const handlePostMessage = (e) => {
     e.preventDefault();
+
+    if (e.target[0].value === '') {
+      window.alert('내용을 입력해주세요');
+      return;
+    }
     const newMessage = {
       content: e.target[0].value,
       userID: currentUser.id,
