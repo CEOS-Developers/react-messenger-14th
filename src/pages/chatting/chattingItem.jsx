@@ -28,6 +28,7 @@ const ProfilePicture = styled.img`
   width: 8vh;
   height: 8vh;
   border-radius: 35%;
+  align-self: flex-start;
 `;
 const TextMessageContainer = styled.div`
   background-color: white;
@@ -39,7 +40,7 @@ const TimeContainer = styled.div`
   font-size: 10px;
 
   display: flex;
-  align-items: bottom;
+
   height: 100%;
 
   align-self: flex-end;

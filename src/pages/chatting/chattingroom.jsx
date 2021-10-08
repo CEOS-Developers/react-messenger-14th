@@ -7,19 +7,56 @@ import { UserName, UserInfo } from '../friends/friendsListItem';
 import ChattingItem from './chattingItem';
 
 const Chattingroom = ({ users, setUsers }) => {
-  const [friendData, setFriendData] = useState({});
-  const [myData, setMyData] = useState({});
   const { id } = useParams();
+
+  const [friendData, setFriendData] = useState(
+    users.filter((e) => e.id === parseInt(id))
+  );
+  const [myData, setMyData] = useState(users.filter((e) => e.id === 0));
   const [text, setText] = useState('');
   const textAreaRef = useRef();
+  const mainEndRef = useRef();
 
-  const handleSubmit = (e) => {
-    console.log('전송됨!');
+  const [changableData, setChangableData] = useState(myData);
+
+  const handleChangeProfile = () => {
+    if (friendData.id === 0) {
+      return;
+    }
+    const next = changableData === friendData ? myData : friendData;
+    setChangableData(next);
+  };
+  const scrollToBottom = () => {
+    mainEndRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSubmit = () => {
+    if (text === '') {
+      alert('내용을 입력해주세요!');
+      return;
+    }
+    setUsers([
+      ...users?.map((element) => {
+        if (element.id === parseInt(id)) {
+          const currentTime = new Date();
+          const hour = ('00' + currentTime.getHours()).slice(-2);
+          const minute = ('00' + currentTime.getMinutes()).slice(-2);
+          element.dialogue.push({
+            time: `${hour}:${minute}`,
+            isMyDialogue: changableData.id === 0,
+            content: text,
+          });
+          return element;
+        } else {
+          return element;
+        }
+      }),
+    ]);
     setText('');
   };
 
   const handleKeyDown = (e) => {
-    if (e.keyCode == 13 && e.shiftKey == false) {
+    if (e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
       handleSubmit();
     }
@@ -32,7 +69,6 @@ const Chattingroom = ({ users, setUsers }) => {
 
   const handleChange = (e) => {
     setText(e.target.value);
-    console.log(text);
   };
 
   useEffect(() => {
@@ -47,15 +83,23 @@ const Chattingroom = ({ users, setUsers }) => {
         return e['id'] === 0;
       })
     );
-  }, [users]);
+    scrollToBottom();
+  }, [users, id]);
+
+  useEffect(() => {
+    setChangableData(friendData);
+  }, []);
 
   return (
     <ChattingRoomContainer>
       {/* 로컬 주소로 하면 왜 안될까.. */}
-      <ChangableProfile>
-        <StyledImg src={friendData?.profilePicture} alt="프로필 사진" />
+      <ChangableProfile onClick={handleChangeProfile}>
+        <StyledImg
+          src={changableData?.profilePicture || friendData?.profilePicture}
+          alt="프로필 사진"
+        />
         <UserInfo>
-          <UserName>{friendData?.name}</UserName>
+          <UserName>{changableData?.name || friendData?.name}</UserName>
         </UserInfo>
       </ChangableProfile>
       <Main>
@@ -67,6 +111,7 @@ const Chattingroom = ({ users, setUsers }) => {
             friendData={friendData}
           ></ChattingItem>
         ))}
+        <MainEnd ref={mainEndRef} />
       </Main>
       <Form onSubmit={handleSubmit}>
         <StyledTextArea
@@ -104,6 +149,7 @@ const Main = styled.main`
   background-color: #c2d1e5;
   width: 100%;
   height: 65vh;
+  overflow-y: scroll;
 `;
 
 const Form = styled.form`
@@ -141,4 +187,4 @@ const SubmitButton = styled.button`
   border-color: #d1d100;
 `;
 
-const Dialogue = styled.div``;
+const MainEnd = styled.div``;

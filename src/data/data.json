@@ -3,184 +3,231 @@
     {
       "id": 0,
       "name": "구본준",
-      "statusMessage": "I'm happy",
+      "statusMessage": "리액트는 어려워...",
       "profilePicture": "https://user-images.githubusercontent.com/62752488/136436523-dbaa899b-f98c-4101-9499-d296dec837ab.jpg",
       "dialogue": [
         {
           "time": "09:00",
           "isMyDialogue": true,
-          "content": "안녕!!"
+          "content": "나랑 대화하기"
         },
         {
           "time": "09:01",
           "isMyDialogue": true,
-          "content": "안녕!!"
+          "content": "아직 고쳐야 할 버그가 많다 ..."
         },
         {
           "time": "09:02",
           "isMyDialogue": true,
-          "content": "안녕!!"
+          "content": "돔황챠.."
         }
       ]
     },
     {
       "id": 1,
       "name": "라이언",
-      "statusMessage": "I'm happy",
+      "statusMessage": "곰 아님",
       "profilePicture": "https://user-images.githubusercontent.com/62752488/136430895-e65f359f-3ca7-4557-8eff-c2b4083a51e6.jpg",
       "dialogue": [
         {
           "time": "09:00",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "isMyDialogue": false,
+          "content": "알고 계셨나요?"
         },
         {
           "time": "09:01",
           "isMyDialogue": false,
-          "content": "안녕!!"
+          "content": "저는 곰이 아니라 갈기가 없는 숫사자(!)랍니다"
         },
         {
           "time": "09:02",
+          "isMyDialogue": false,
+          "content": "쿠앙🦁"
+        },
+        {
+          "time": "09:03",
           "isMyDialogue": true,
-          "content": "안녕!!"
+          "content": "아 예..."
         }
       ]
     },
     {
       "id": 2,
       "name": "죠르디",
-      "statusMessage": "I'm happy",
+      "statusMessage": "니니니 니니니니?",
       "profilePicture": "https://user-images.githubusercontent.com/62752488/136436869-0bcd864e-4626-41ee-acd5-d719de0b0cb9.jpg",
       "dialogue": [
         {
           "time": "09:00",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "isMyDialogue": false,
+          "content": "니니니~ 니니니니니?"
         },
         {
           "time": "09:01",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "isMyDialogue": false,
+          "content": "니니닌 니니니 니니니니!!!"
         },
         {
           "time": "09:02",
           "isMyDialogue": true,
-          "content": "안녕!!"
+          "content": "니니니니 니니니니니닝!!"
         }
       ]
     },
     {
       "id": 3,
-      "name": "죠르디",
-      "statusMessage": "I'm happy",
-      "profilePicture": "https://user-images.githubusercontent.com/62752488/136436869-0bcd864e-4626-41ee-acd5-d719de0b0cb9.jpg",
+      "name": "둘 리",
+      "statusMessage": "14기 어서오고",
+      "profilePicture": "https://user-images.githubusercontent.com/62752488/136555498-5964fcd6-3811-410c-b8ca-a09b175ceac0.jpg",
       "dialogue": [
         {
           "time": "09:00",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "isMyDialogue": false,
+          "content": "코테 공부 안해??"
         },
         {
           "time": "09:01",
           "isMyDialogue": true,
-          "content": "안녕!!"
+          "content": "ㄷ..둘리야 지금도 과제하느라 힘들어.."
         },
         {
           "time": "09:02",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "isMyDialogue": false,
+          "content": "아잇~~~"
+        },
+
+        {
+          "time": "09:02",
+          "isMyDialogue": false,
+          "content": "초능력 맛 좀 볼래?"
+        },
+        {
+          "time": "09:02",
+          "isMyDialogue": false,
+          "content": "처신 잘하라고"
         }
       ]
     },
     {
       "id": 4,
-      "name": "죠르디",
-      "statusMessage": "I'm happy",
-      "profilePicture": "https://user-images.githubusercontent.com/62752488/136436869-0bcd864e-4626-41ee-acd5-d719de0b0cb9.jpg",
+      "name": "춘식이",
+      "statusMessage": "응애 나 애기춘식",
+      "profilePicture": "https://user-images.githubusercontent.com/62752488/136556047-8f17700d-c2b1-4c7b-a4e9-afb563e1dc0b.jpg",
       "dialogue": [
         {
           "time": "09:00",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "isMyDialogue": false,
+          "content": "응애!!!!"
         },
         {
           "time": "09:01",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "isMyDialogue": false,
+          "content": "아 이게 아니지"
+        },
+        {
+          "time": "09:02",
+          "isMyDialogue": false,
+          "content": "야옹!!!"
+        },
+        {
+          "time": "09:02",
+          "isMyDialogue": false,
+          "content": "밥줘!!!"
         },
         {
           "time": "09:02",
           "isMyDialogue": true,
-          "content": "안녕!!"
+          "content": "......"
         }
       ]
     },
     {
       "id": 5,
-      "name": "죠르디",
-      "statusMessage": "I'm happy",
-      "profilePicture": "https://user-images.githubusercontent.com/62752488/136436869-0bcd864e-4626-41ee-acd5-d719de0b0cb9.jpg",
+      "name": "햄찌",
+      "statusMessage": "운동하는 햄찌입니당♥",
+      "profilePicture": "https://user-images.githubusercontent.com/62752488/136559485-8169d6b4-76ba-4826-81dc-fafc7b5dec1b.jpg",
       "dialogue": [
         {
           "time": "09:00",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "isMyDialogue": false,
+          "content": "안녕하세요 운동하는 햄찌입니당!!🐹"
         },
         {
           "time": "09:01",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "isMyDialogue": false,
+          "content": "다이어트 겸 운동스타그램 하구 있어요~"
         },
         {
           "time": "09:02",
+          "isMyDialogue": false,
+          "content": "https://www.instagram.com/hamzzi.workout/"
+        },
+        {
+          "time": "09:02",
+          "isMyDialogue": false,
+          "content": "스티커랑 그립톡도 팔고 있어요 놀러오세용~"
+        },
+        {
+          "time": "10:01",
           "isMyDialogue": true,
-          "content": "안녕!!"
+          "content": "좋은 정보 감사합니다."
         }
       ]
     },
     {
       "id": 6,
-      "name": "죠르디",
-      "statusMessage": "I'm happy",
-      "profilePicture": "https://user-images.githubusercontent.com/62752488/136436869-0bcd864e-4626-41ee-acd5-d719de0b0cb9.jpg",
+      "name": "청년",
+      "statusMessage": "아침먹고 땡 집을 나서려는데",
+      "profilePicture": "https://user-images.githubusercontent.com/62752488/136560639-a3cdead3-96e0-4448-9d7e-7671f686130f.jpg",
       "dialogue": [
         {
           "time": "09:00",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "isMyDialogue": false,
+          "content": "아침먹고 땡 집을 나서려는데"
+        },
+        {
+          "time": "09:00",
+          "isMyDialogue": false,
+          "content": "화려한 햇살이 나를 감싸네"
         },
         {
           "time": "09:01",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "isMyDialogue": false,
+          "content": "나만 바라보는 시선을 느끼며"
+        },
+        {
+          "time": "09:01",
+          "isMyDialogue": false,
+          "content": "거들먹 거들먹 걷다가"
         },
         {
           "time": "09:02",
           "isMyDialogue": true,
-          "content": "안녕!!"
+          "content": "💩~ 밟았네 💩~밟았네 💩~ 밟았네 💩"
+        },
+        {
+          "time": "09:03",
+          "isMyDialogue": false,
+          "content": "ㅋㅋㅋ"
         }
       ]
     },
     {
       "id": 7,
-      "name": "죠르디",
-      "statusMessage": "I'm happy",
-      "profilePicture": "https://user-images.githubusercontent.com/62752488/136436869-0bcd864e-4626-41ee-acd5-d719de0b0cb9.jpg",
+      "name": "루피",
+      "statusMessage": "호에에에에",
+      "profilePicture": "https://user-images.githubusercontent.com/62752488/136563883-05eef16f-22a2-4ec0-9735-208ee0543037.jpg",
       "dialogue": [
         {
           "time": "09:00",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "isMyDialogue": false,
+          "content": "후 힘들다"
         },
+
         {
-          "time": "09:01",
-          "isMyDialogue": true,
-          "content": "안녕!!"
-        },
-        {
-          "time": "09:02",
-          "isMyDialogue": true,
-          "content": "안녕!!"
+          "time": "09:00",
+          "isMyDialogue": false,
+          "content": "가상의 프로필 노가다 끝!"
         }
       ]
     }
