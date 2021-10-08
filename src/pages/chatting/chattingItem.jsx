@@ -5,8 +5,6 @@ const ChattingItem = ({ textMessage, myData, friendData }) => {
   const profilePictureSrc = textMessage.isMyDialogue
     ? myData.profilePicture
     : friendData.profilePicture;
-
-  console.log(textMessage);
   return (
     <ChattingItemContainer textMessage={textMessage}>
       <ProfilePicture src={profilePictureSrc}></ProfilePicture>

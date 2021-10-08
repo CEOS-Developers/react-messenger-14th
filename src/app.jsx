@@ -16,7 +16,6 @@ const App = () => {
     setUsers([...data['users']]);
   }, []);
 
-  console.log('users:', users);
   return (
     <AppContainer>
       <GlobalStyle />

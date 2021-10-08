@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react/cjs/react.development';
 import styled from 'styled-components';
@@ -6,10 +6,34 @@ import { StyledImg } from '../friends/friendsListItem';
 import { UserName, UserInfo } from '../friends/friendsListItem';
 import ChattingItem from './chattingItem';
 
-const Chattingroom = ({ users }) => {
+const Chattingroom = ({ users, setUsers }) => {
   const [friendData, setFriendData] = useState({});
   const [myData, setMyData] = useState({});
   const { id } = useParams();
+  const [text, setText] = useState('');
+  const textAreaRef = useRef();
+
+  const handleSubmit = (e) => {
+    console.log('전송됨!');
+    setText('');
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.keyCode == 13 && e.shiftKey == false) {
+      e.preventDefault();
+      handleSubmit();
+    }
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    handleSubmit();
+  };
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+    console.log(text);
+  };
 
   useEffect(() => {
     setFriendData(
@@ -28,27 +52,33 @@ const Chattingroom = ({ users }) => {
   return (
     <ChattingRoomContainer>
       {/* 로컬 주소로 하면 왜 안될까.. */}
-      <Button>
+      <ChangableProfile>
         <StyledImg src={friendData?.profilePicture} alt="프로필 사진" />
         <UserInfo>
           <UserName>{friendData?.name}</UserName>
         </UserInfo>
-      </Button>
+      </ChangableProfile>
       <Main>
-        {friendData?.dialogue?.map((element) => (
-          <>
-            <ChattingItem
-              textMessage={element}
-              myData={myData}
-              friendData={friendData}
-            ></ChattingItem>
-          </>
+        {friendData?.dialogue?.map((element, index) => (
+          <ChattingItem
+            textMessage={element}
+            key={index}
+            myData={myData}
+            friendData={friendData}
+          ></ChattingItem>
         ))}
-        <div>{id}번 방입니다.</div>
       </Main>
-      <Form>
-        <StyledTextArea></StyledTextArea>
-        <SubmitButton>전송</SubmitButton>
+      <Form onSubmit={handleSubmit}>
+        <StyledTextArea
+          ref={textAreaRef}
+          type="text"
+          value={text}
+          onKeyDown={handleKeyDown}
+          onChange={handleChange}
+        />
+        <SubmitButton type="submit" onClick={handleClick}>
+          전송
+        </SubmitButton>
       </Form>
     </ChattingRoomContainer>
   );
@@ -56,7 +86,7 @@ const Chattingroom = ({ users }) => {
 
 export default Chattingroom;
 
-const Button = styled.button`
+const ChangableProfile = styled.button`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
