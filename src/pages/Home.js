@@ -8,7 +8,7 @@ const Home = () => {
   // 채팅방에 대한 모든 정보
   const [messengerData, setMessengerData] = useState({
     id: 1,
-    recentChatSend: new Date(2021, 9, 8, 1, 32, 10, 28).getTime(),
+    recentChatSend: new Date(2021, 9, 8, 13, 32, 10, 28).getTime(),
     chatData: [
       {
         date: new Date(2021, 9, 8, 1, 31, 10, 22).getTime(),
@@ -75,6 +75,31 @@ const Home = () => {
     //console.log(newObj);
     setMessengerData(newObj);
   };
+
+  // local storage
+  //mount 시 로드
+  // useEffect(() => {
+  //   loadDataFromLocalStorage();
+  // }, []);
+  // useEffect(() => {
+  //   saveToLocalStorage(messengerData);
+  // }, [messengerData]);
+
+  // function saveToLocalStorage(data) {
+  //   console.log(data);
+  //   console.log('저장');
+  //   localStorage.setItem('key', JSON.stringify(data));
+  // }
+
+  // function loadDataFromLocalStorage() {
+  //   console.log('로드');
+  //   const data = localStorage.getItem('key');
+  //   if (data) {
+  //     const parsedData = JSON.parse(data);
+  //     console.log(parsedData);
+  //     // setMessengerData(parsedData);
+  //   }
+  // }
 
   return (
     <MainContainer>
