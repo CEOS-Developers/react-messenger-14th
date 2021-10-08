@@ -49,7 +49,7 @@ const App = () => {
           <Route
             // regular expression
             path={`/chattingroom/:id(\d+)?:id`}
-            render={() => <Chattingroom hi="hi" />}
+            render={() => <Chattingroom users={users} setUsers={setUsers} />}
           ></Route>
         </Content>
       </Router>
@@ -74,27 +74,27 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 70px;
+  width: 7vw;
 `;
 
 const AppContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 100vh;
+  width: 100vw;
 `;
 
 const StyledLink = styled(Link)`
   color: var(--color-side-bar-icon);
   width: 100%;
   text-align: center;
-  font-size: 30px;
+  font-size: 3vw;
   margin-top: 30px;
 `;
 
 const Content = styled.div`
   height: 100vh;
-  width: 100vh;
-  overflow-y: scroll;
+  width: 100vw;
 `;
 
 export default App;

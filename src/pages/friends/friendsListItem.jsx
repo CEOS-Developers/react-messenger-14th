@@ -12,7 +12,7 @@ const FriendsListItem = ({ user }) => {
   return (
     <StyledLink to={`/chattingroom/${user.id}`}>
       <StyledLi onClick={handleClick}>
-        <Styledimg src={user.profilePicture} alt="프로필 사진" />
+        <StyledImg src={user.profilePicture} alt="프로필 사진" />
         <UserInfo>
           <UserName ref={name}>{user.name}</UserName>
           <UserStatusMessage>{user.statusMessage}</UserStatusMessage>
@@ -22,9 +22,9 @@ const FriendsListItem = ({ user }) => {
   );
 };
 
-const Styledimg = styled.img`
-  width: 80px;
-  height: 80px;
+export const StyledImg = styled.img`
+  width: 10vh;
+  height: 10vh;
   border-radius: 35%;
 `;
 
@@ -36,11 +36,11 @@ const StyledLi = styled.li`
     background-color: #eeeeee;
   }
 `;
-const UserInfo = styled.div`
-  padding-left: 20px;
+export const UserInfo = styled.div`
+  padding-left: 2vw;
 `;
 
-const UserName = styled.div`
+export const UserName = styled.div`
   font-weight: bold;
   font-size: 15px;
 `;
