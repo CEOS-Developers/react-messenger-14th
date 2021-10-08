@@ -15,7 +15,7 @@ import {
   HeartContainer,
 } from './MessengerPresenter';
 
-import { ProfileImage, Button, HeartImg } from '../Icons';
+import { ProfileImage, Button, HeartImg } from '../icons';
 import dateToString from '../../utils/date';
 
 const MessengerContainer = ({ messengerData, onSubmit }) => {
