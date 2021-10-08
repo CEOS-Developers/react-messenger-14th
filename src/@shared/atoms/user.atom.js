@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 /** TYPE DEFINITION */
 // user = {
@@ -27,7 +27,6 @@ class UserAtom {
       currentUser,
     ];
     this.currentUser = { ...currentUser };
-    this.setters = [];
   }
 
   setUsers(nextState) {
@@ -52,8 +51,7 @@ export const useUserAtom = () => {
   const setState = (nextState) => {
     userAtom.setUsers(nextState);
 
-    // For Reloading Custom Hook
-    setAtom(userAtom.users);
+    setAtom(nextState);
   };
 
   return [userAtom.users, setState];
@@ -65,8 +63,7 @@ export const useCurrentUserAtom = () => {
   const setState = (nextState) => {
     userAtom.setCurrentUser(nextState);
 
-    // For Reloading Custom Hook
-    setAtom(userAtom.currentUser);
+    setAtom(nextState);
   };
 
   return [userAtom.currentUser, setState];

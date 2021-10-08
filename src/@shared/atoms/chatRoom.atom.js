@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { userAtom } from './user.atom';
 
 /** TYPE DEFINITION */
@@ -24,7 +24,6 @@ class ChatRoomAtom {
   constructor(chatRoom) {
     this.chatRooms = [{ ...chatRoom }];
     this.currentChatRoom = { ...chatRoom };
-    this.setters = [];
   }
 
   setChatRooms(nextState) {
@@ -33,32 +32,6 @@ class ChatRoomAtom {
 
   setCurrentChatRoom(nextState) {
     this.currentChatRoom = { ...nextState };
-  }
-
-  setChatRoomUsers(nextState) {
-    this.chatRooms.forEach((chatRoom) => {
-      if (chatRoom.id === this.currentChatRoom.id) {
-        return {
-          id: chatRoom.id,
-          users: [...nextState],
-          messages: chatRoom.messages,
-        };
-      }
-      return chatRoom;
-    });
-  }
-
-  setChatRoomMessages(nextState) {
-    this.chatRooms.forEach((chatRoom) => {
-      if (chatRoom.id === this.currentChatRoom.id) {
-        return {
-          id: chatRoom.id,
-          users: chatRoom.users,
-          messages: [...nextState],
-        };
-      }
-      return chatRoom;
-    });
   }
 }
 
@@ -75,37 +48,11 @@ export const useChatRoomAtom = () => {
   const setState = (nextState) => {
     chatRoomAtom.setChatRooms(nextState);
 
-    // For Reloading Custom Hook
-    setAtom(chatRoomAtom.chatRooms);
+    // for Update
+    setAtom(nextState);
   };
 
   return [chatRoomAtom.chatRooms, setState];
-};
-
-export const useChatRoomUsersAtom = () => {
-  const [atom, setAtom] = useState(chatRoomAtom.currentChatRoom?.users);
-
-  const setState = (nextState) => {
-    chatRoomAtom.setChatRoomUsers(nextState);
-
-    // For Reloading Custom Hook
-    setAtom(chatRoomAtom.currentChatRoom.users);
-  };
-
-  return [chatRoomAtom.currentChatRoom?.users, setState];
-};
-
-export const useChatRoomMessagesAtom = () => {
-  const [atom, setAtom] = useState(chatRoomAtom.currentChatRoom?.messages);
-
-  const setState = (nextState) => {
-    chatRoomAtom.setChatRoomMessages(nextState);
-
-    // For Reloading Custom Hook
-    setAtom(chatRoomAtom.currentChatRoom.messages);
-  };
-
-  return [chatRoomAtom.currentChatRoom?.messages, setState];
 };
 
 export const useCurrentChatRoomAtom = () => {
@@ -114,8 +61,8 @@ export const useCurrentChatRoomAtom = () => {
   const setState = (nextState) => {
     chatRoomAtom.setCurrentChatRoom(nextState);
 
-    // For Reloading Custom Hook
-    setAtom(chatRoomAtom.currentChatRoom);
+    // for Update
+    setAtom(nextState);
   };
 
   return [chatRoomAtom.currentChatRoom, setState];

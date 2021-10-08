@@ -1,7 +1,6 @@
+import { useEffect } from 'react';
 import {
   useChatRoomAtom,
-  useChatRoomMessagesAtom,
-  useChatRoomUsersAtom,
   useCurrentChatRoomAtom,
 } from '../atoms/chatRoom.atom';
 import { useCurrentUser } from './useUser';
@@ -32,26 +31,6 @@ export const useChatRooms = () => {
   };
 };
 
-export const useChatRoomUsers = () => {
-  const [chatRoomUsers, setChatRoomUsers] = useChatRoomUsersAtom();
-
-  const handleAddChatRoomUser = (newUser) => {
-    setChatRoomUsers([...chatRoomUsers, newUser]);
-  };
-
-  return { chatRoomUsers, handleAddChatRoomUser };
-};
-
-export const useChatRoomMessages = () => {
-  const [chatRoomMessages, setChatRoomMessages] = useChatRoomMessagesAtom();
-
-  const handlePostMessage = (newMessage) => {
-    setChatRoomMessages([...chatRoomMessages, newMessage]);
-  };
-
-  return { chatRoomMessages, handlePostMessage };
-};
-
 export const useCurrentChatRoom = () => {
   const [currentChatRoom, setCurrentChatRoom] = useCurrentChatRoomAtom();
 
@@ -59,5 +38,26 @@ export const useCurrentChatRoom = () => {
     setCurrentChatRoom(chatRoom);
   };
 
-  return { currentChatRoom, handleChangeCurrentChatRoom };
+  const handleAddChatRoomUser = (newUser) => {
+    setCurrentChatRoom({
+      id: currentChatRoom.id,
+      users: [...currentChatRoom.users, newUser],
+      messages: currentChatRoom.messages,
+    });
+  };
+
+  const handlePostMessage = (newMessage) => {
+    setCurrentChatRoom({
+      id: currentChatRoom.id,
+      users: currentChatRoom.users,
+      messages: [...currentChatRoom.messages, newMessage],
+    });
+  };
+
+  return {
+    currentChatRoom,
+    handleChangeCurrentChatRoom,
+    handleAddChatRoomUser,
+    handlePostMessage,
+  };
 };
