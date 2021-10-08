@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import Wrap from './components/Wrap';
+import { Wrap } from './components/MainContainer';
 import GlobalStyle from './GlobalStyle';
 import Home from './pages/Home';
 import Settings from './pages/Settings';
-import Header from './components/HeaderContainer';
+import Header from './components/Header/HeaderContainer';
 
 const App = () => {
   return (

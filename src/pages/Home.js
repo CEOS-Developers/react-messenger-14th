@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import MainContainer from '../components/MainContainer';
-import ListContainer from '../components/ListContainer';
-import MessengerContainer from '../components/MessengerContainer';
+import { MainContainer } from '../components/MainContainer';
+import ListContainer from '../components/ChatRoomList/ListContainer';
+import MessengerContainer from '../components/ChatRoom/MessengerContainer';
 
 const Home = () => {
   // 채팅방에 대한 모든 정보

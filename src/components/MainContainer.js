@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import COLORS from '../constants/colors';
 
-const MainContainer = styled.div`
+export const MainContainer = styled.div`
   display: flex;
   flex-direction: row;
 
@@ -25,4 +25,9 @@ const MainContainer = styled.div`
     border: none;
   }
 `;
-export default MainContainer;
+
+export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

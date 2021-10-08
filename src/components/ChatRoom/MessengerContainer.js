@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Container,
   MessengerHeaderContainer,
@@ -14,8 +14,8 @@ import {
   TimeBox,
 } from './MessengerPresenter';
 
-import { ProfileImage, Button } from './Icons';
-import dateToString from '../utils/date';
+import { ProfileImage, Button } from '../Icons';
+import dateToString from '../../utils/date';
 
 const MessengerContainer = ({ messengerData, onSubmit }) => {
   const [text, setText] = useState('');
