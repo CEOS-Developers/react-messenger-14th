@@ -25,6 +25,16 @@ const Home = () => {
         text: '나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어',
         isMe: true,
       },
+      {
+        date: new Date(2021, 9, 8, 13, 32, 10, 28).getTime(),
+        text: '헐 어제 밤샜구나',
+        isMe: false,
+      },
+      {
+        date: new Date(2021, 9, 8, 13, 32, 10, 28).getTime(),
+        text: '그래서 어디까지 했어 코딩',
+        isMe: false,
+      },
     ],
   });
 
