@@ -11,11 +11,22 @@ import { useState } from 'react';
 // userID: user.id
 // }
 
+export const defaultProfileImg = Object.freeze(
+  'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'
+);
+
 // Global State for "User"
 class UserAtom {
-  constructor() {
-    this.users = [{ name: 'test', id: Date.now() }];
-    this.currentUser = {};
+  constructor(currentUser) {
+    this.users = [
+      {
+        name: 'test',
+        id: Date.now() + 1,
+        img: defaultProfileImg,
+      },
+      currentUser,
+    ];
+    this.currentUser = { ...currentUser };
     this.setters = [];
   }
 
@@ -28,7 +39,11 @@ class UserAtom {
   }
 }
 
-export const userAtom = new UserAtom();
+export const userAtom = new UserAtom({
+  name: '양기욱',
+  id: Date.now(),
+  img: defaultProfileImg,
+});
 
 /** Getters & Setters */
 export const useUserAtom = () => {

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { userAtom } from './user.atom';
 
 /** TYPE DEFINITION */
 // chatRoom = {
@@ -20,9 +21,9 @@ import { useState } from 'react';
 // }
 
 class ChatRoomAtom {
-  constructor() {
-    this.chatRooms = [];
-    this.currentChatRoom = {};
+  constructor(chatRoom) {
+    this.chatRooms = [{ ...chatRoom }];
+    this.currentChatRoom = { ...chatRoom };
     this.setters = [];
   }
 
@@ -61,7 +62,11 @@ class ChatRoomAtom {
   }
 }
 
-export const chatRoomAtom = new ChatRoomAtom();
+export const chatRoomAtom = new ChatRoomAtom({
+  id: Date.now(),
+  users: [...userAtom.users],
+  messages: [],
+});
 
 /** Getters & Setters */
 export const useChatRoomAtom = () => {
