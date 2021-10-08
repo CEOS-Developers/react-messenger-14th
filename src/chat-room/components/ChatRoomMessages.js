@@ -1,27 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useCurrentUser } from '../../@shared/hooks/useUser';
-import {
-  useChatRoomMessages,
-  useCurrentChatRoom,
-} from '../../@shared/hooks/useChatRoom';
+import { useUsers } from '../../@shared/hooks/useUser';
 
-const ChatRoomMessages = () => {
-  const { currentChatRoom } = useCurrentChatRoom();
-  const { chatRoomMessages } = useChatRoomMessages();
-  const { currentUser } = useCurrentUser();
+const ChatRoomMessages = ({ messages, currentUser }) => {
+  const { users } = useUsers();
+
+  const renderMessages = () =>
+    messages.map((message) => {
+      if (message.userID === currentUser.id) {
+        return (
+          <RightMessageItem>
+            <ProfileImg src={currentUser.img} />
+            <TextContainer>
+              <RightUserName>{currentUser.name}</RightUserName>
+              <RightUserMessageText>{message.content}</RightUserMessageText>
+            </TextContainer>
+          </RightMessageItem>
+        );
+      }
+
+      const leftUser = users.find((user) => user.id === message.userID);
+      console.log('leftUser: ', leftUser);
+      return (
+        <LeftMessageItem>
+          <ProfileImg src={leftUser.img} />
+          <TextContainer>
+            <LeftUserName>{leftUser.name}</LeftUserName>
+            <LeftUserMessageText>{message.content}</LeftUserMessageText>
+          </TextContainer>
+        </LeftMessageItem>
+      );
+    });
 
   return (
     <MessagesContainer>
-      <MessagesList>
-        <RightMessageItem>
-          <ProfileImg src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" />
-          <TextContainer>
-            <RightUserName>양기욱</RightUserName>
-            <RightUserMessageText>lorem ipsum lorem</RightUserMessageText>
-          </TextContainer>
-        </RightMessageItem>
-      </MessagesList>
+      <MessagesList>{renderMessages()}</MessagesList>
     </MessagesContainer>
   );
 };

@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useChatRoomMessages } from '../../@shared/hooks/useChatRoom';
 
-const ChatRoomMessageForm = () => {
-  const { handlePostMessage } = useChatRoomMessages();
+const ChatRoomMessageForm = ({ handlePostMessage }) => {
   return (
     <MessageFormContainer>
-      <MessageForm>
+      <MessageForm onSubmit={handlePostMessage}>
         <MessageInput
           type="text"
           placeholder="메세지를 입력해주세요"

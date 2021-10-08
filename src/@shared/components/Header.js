@@ -1,24 +1,9 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useCurrentUser, useUsers } from '../hooks/useUser';
+import { useUsers } from '../hooks/useUser';
 
-const Header = () => {
-  const { currentUser, handleChangeCurrentUser } = useCurrentUser();
+const Header = ({ currentUser, handleChangeProfile }) => {
   const { users } = useUsers();
-
-  const handleChangeProfile = (e) => {
-    const selectedIdx = e.target.options.selectedIndex;
-
-    if (selectedIdx === 0) {
-      return;
-    }
-
-    const id = e.target[selectedIdx].id;
-
-    const currentUser = users.find((user) => Number(user.id) === Number(id));
-
-    handleChangeCurrentUser(currentUser);
-  };
 
   return (
     <ProfileHeader>

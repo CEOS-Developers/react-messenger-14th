@@ -1,19 +1,58 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 import Route from './@shared/hoc/Route';
 import Header from './@shared/components/Header';
 import ChatRoomMessages from './chat-room/components/ChatRoomMessages';
 import ChatRoomMessageForm from './chat-room/components/ChatRoomMessageForm';
+import { useUsers } from './@shared/hooks/useUser';
+import { userAtom } from './@shared/atoms/user.atom';
 
 const App = () => {
+  const { users } = useUsers();
+  const [messages, setMessages] = useState([]);
+  const [currentUser, setCurrentUser] = useState(userAtom.currentUser);
+
+  const handlePostMessage = (e) => {
+    e.preventDefault();
+    const newMessage = {
+      content: e.target[0].value,
+      userID: currentUser.id,
+    };
+    setMessages([...messages, newMessage]);
+    e.target[0].value = '';
+  };
+
+  const handleChangeProfile = (e) => {
+    const selectedIdx = e.target.options.selectedIndex;
+
+    if (selectedIdx === 0) {
+      return;
+    }
+
+    const id = e.target[selectedIdx].id;
+
+    const currentUser = users.find((user) => Number(user.id) === Number(id));
+
+    setCurrentUser(currentUser);
+  };
+
   return (
     <>
       <GlobalStyle />
-      <Header></Header>
+      <Header
+        handleChangeProfile={handleChangeProfile}
+        currentUser={currentUser}
+      ></Header>
       <RootContainer>
-        <ChatRoomMessages></ChatRoomMessages>
-        <ChatRoomMessageForm></ChatRoomMessageForm>
+        <ChatRoomMessages
+          messages={messages}
+          currentUser={currentUser}
+        ></ChatRoomMessages>
+        <ChatRoomMessageForm
+          handlePostMessage={handlePostMessage}
+          currentUser={currentUser}
+        ></ChatRoomMessageForm>
       </RootContainer>
     </>
   );
