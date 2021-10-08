@@ -7,18 +7,11 @@ import savedChat from '../data/savedChat';
 function ChatRoom() {
   const [chatList, setChatList] = useState(savedChat);
   const [currentUser, setCurrentUser] = useState(0);
-  const handleChangeUser = () => {
-    currentUser ? setCurrentUser(0) : setCurrentUser(1);
-  };
   return (
     <Wrapper>
-      <Profile currentUser={currentUser} handleChangeUser={handleChangeUser} />
+      <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Message chatList={chatList} />
-      <ChatInput
-        currentUser={currentUser}
-        chatList={chatList}
-        setChatList={setChatList}
-      ></ChatInput>
+      <ChatInput currentUser={currentUser} setChatList={setChatList} />
     </Wrapper>
   );
 }

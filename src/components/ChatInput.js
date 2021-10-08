@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-function ChatInput({ currentUser, chatList, setChatList }) {
+function ChatInput({ currentUser, setChatList }) {
   const [message, setMessage] = useState('');
   const handleInputChange = (e) => {
     setMessage(e.target.value);
   };
-  const onClickSendMessage = () => {
+  const handleSendMessageBtnClick = () => {
     if (message)
       setChatList((previousChat) => [
         ...previousChat,
         {
           text: message,
-          user: currentUser,
+          userId: currentUser,
         },
       ]);
-    //else alert message
+    else {
+      alert('내용을 입력하세요');
+    }
     setMessage('');
   };
   return (
@@ -24,7 +26,7 @@ function ChatInput({ currentUser, chatList, setChatList }) {
         onChange={handleInputChange}
         value={message}
       />
-      <Button onClick={onClickSendMessage}>전송</Button>
+      <Button onClick={handleSendMessageBtnClick}>전송</Button>
     </InputBox>
   );
 }

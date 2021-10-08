@@ -16,7 +16,10 @@ function App() {
 const GlobalStyle = createGlobalStyle`
   body {
     display:flex;
+    width: 100vw;
+    height: 100vh;
     justify-content:center;
+    align-items: center;
     margin:0;
     font-family:'Goyang';
   }
@@ -30,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   width: 400px;
-  height: 100vh;
+  height: 700px;
   box-shadow: rgb(0 0 0 / 25%) 0px 0px 25px;
   background: white;
 `;

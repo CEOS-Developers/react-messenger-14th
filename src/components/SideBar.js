@@ -12,16 +12,16 @@ function SideBar() {
   );
 }
 const style = {
-  'margin-top': '20px',
+  marginTop: '20px',
   size: '25',
   color: '#949494',
 };
 const Wrapper = styled.div`
   width: 100px;
-  height: 100vh;
   background: #e8e8e8;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 30px 0;
 `;
 export default SideBar;

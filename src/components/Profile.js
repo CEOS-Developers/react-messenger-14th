@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import user from '../data/user';
-function Profile({ currentUser, handleChangeUser }) {
+function Profile({ currentUser, setCurrentUser }) {
+  const handleChangeUser = () => {
+    currentUser ? setCurrentUser(0) : setCurrentUser(1);
+  };
   return (
     <ProfileWrapper onClick={handleChangeUser}>
       <ProfileImg

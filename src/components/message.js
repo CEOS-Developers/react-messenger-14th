@@ -9,14 +9,14 @@ function Message({ chatList }) {
   }, [chatList]);
   return (
     <Wrapper ref={messageRef}>
-      {chatList.map((message, i) => (
-        <MessageContainer sender={message.user}>
+      {chatList.map((message, key) => (
+        <MessageContainer key={key} sender={message.userId}>
           <Img
             src={
-              process.env.PUBLIC_URL + '/img/' + user[message.user].profileImg
+              process.env.PUBLIC_URL + '/img/' + user[message.userId].profileImg
             }
           ></Img>
-          <MessageContent key={i} sender={message.user}>
+          <MessageContent sender={message.userId}>
             {message.text}
           </MessageContent>
         </MessageContainer>
@@ -48,7 +48,7 @@ const MessageContent = styled.div`
   display: flex;
   align-items: center;
   height: fit-content;
-  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 5px 5px -5px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   padding: 10px;
   background: ${(props) => (props.sender === 0 ? '#ffe990' : '#ffffff')};
