@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react/cjs/react.development';
 import styled from 'styled-components';
 import { StyledImg } from '../friends/friendsListItem';
 import { UserName, UserInfo } from '../friends/friendsListItem';

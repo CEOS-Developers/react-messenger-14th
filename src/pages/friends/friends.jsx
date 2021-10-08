@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import FriendsListItem from './friendsListItem';
-import { BrowserRouter as Router, Route, Link } from 'react-router';
 
 const Friends = ({ users, setUsers }) => {
   return (

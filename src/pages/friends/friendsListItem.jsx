@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Chattingroom from '../chatting/chattingroom';
 
 const FriendsListItem = ({ user }) => {
   const name = useRef();
