@@ -5,13 +5,10 @@ import Chattingroom from '../chatting/chattingroom';
 
 const FriendsListItem = ({ user }) => {
   const name = useRef();
-  const handleClick = (e) => {
-    console.log(name.current.innerText);
-  };
 
   return (
     <StyledLink to={`/chattingroom/${user.id}`}>
-      <StyledLi onClick={handleClick}>
+      <StyledLi>
         <StyledImg src={user.profilePicture} alt="프로필 사진" />
         <UserInfo>
           <UserName ref={name}>{user.name}</UserName>

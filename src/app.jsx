@@ -47,7 +47,7 @@ const App = () => {
           ></Route>
           <Route
             // regular expression
-            path={`/chattingroom/:id(d+)?:id`}
+            path={`/chattingroom/:id(\d+)?:id`}
             render={() => <Chattingroom users={users} setUsers={setUsers} />}
           ></Route>
         </Content>
