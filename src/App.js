@@ -83,8 +83,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const RootContainer = styled.div`
-  width: 550px;
-  height: 800px;
+  width: 400px;
+  height: 550px;
 
   border-radius: 30px;
 
