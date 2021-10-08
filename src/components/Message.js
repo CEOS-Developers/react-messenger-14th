@@ -41,7 +41,6 @@ const Img = styled.img`
   width: 50px;
   height: 50px;
   border-radius: 70%;
-  overflow: hidden;
   border: 1px solid lightgray;
 `;
 const MessageContent = styled.div`
