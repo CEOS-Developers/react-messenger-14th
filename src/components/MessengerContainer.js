@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import {
   Container,
   MessengerHeaderContainer,
@@ -21,6 +21,20 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
   const [text, setText] = useState('');
   const [isMe, setIsMe] = useState(true);
 
+  //scroll 조절
+  const scrollRef = useRef();
+  const [chatEdit, setChatEdit] = useState(false);
+
+  function scrollToBottom() {
+    scrollRef.current.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: 'smooth',
+    });
+  }
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatEdit]);
+
   const handleSubmitButtonClick = () => {
     // form이 clear되면서 todoList에 값이 추가되어야 함.
     if (!text) {
@@ -28,6 +42,7 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
     } else {
       onSubmit({ id: isMe, text: text, date: new Date().getTime() });
       setText('');
+      setChatEdit(!chatEdit);
     }
   };
   const handleSubmit = (e) => {
@@ -141,7 +156,7 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
         </Button>
       </MessengerHeaderContainer>
       <MessengerContentContainer>
-        <ChatContainer>{renderMessages()}</ChatContainer>
+        <ChatContainer ref={scrollRef}>{renderMessages()}</ChatContainer>
         {renderForm()}
       </MessengerContentContainer>
     </Container>
