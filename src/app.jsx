@@ -34,10 +34,6 @@ const App = () => {
         {/* Route에서 inline으로 component를 넘겨주면 렌더링 할 때마다 새로운 컴포넌트를 만든다. 비추천! */}
         <Content>
           <Route
-            path="/chatting"
-            render={() => <Chatting users={users} setUsers={setUsers} />}
-          ></Route>
-          <Route
             path="/friends"
             render={() => <Friends users={users} setUsers={setUsers} />}
           ></Route>
