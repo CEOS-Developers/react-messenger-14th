@@ -2,12 +2,9 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import user from './user';
 
-function Profile({currentUser, setCurrentUser}) {
-  const handleChangeUser = () => {
-    currentUser ? setCurrentUser(0) : setCurrentUser(1);
-  };
+function Profile({ currentUser, handleChangeUser }) {
   return (
-    <ProfileWrapper onClick={handleChangeUser}>
+    <Wrap onClick={handleChangeUser}>
       <ProfileImg
         src={process.env.PUBLIC_URL + '/assets/' + user[currentUser].profileImg}
       />
@@ -15,10 +12,10 @@ function Profile({currentUser, setCurrentUser}) {
         <div>{user[currentUser].name}</div>
         <div>{user[currentUser].profileMessage}</div>
       </NameWrapper>
-    </ProfileWrapper>
+    </Wrap>
   );
 }
-const ProfileWrapper = styled.div`
+const Wrap = styled.div`
   display: flex;
   height: 12vh;
   align-items: center;

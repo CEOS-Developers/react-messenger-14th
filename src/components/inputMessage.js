@@ -11,7 +11,7 @@ function InputMessage({ chatList, setChatList, currentUser }) {
         ...previousChat,
         {
           text: message,
-          user: 'currentUser',
+          user: currentUser,
         },
       ]);
     setMessage('');
