@@ -1,18 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
-import muziImage from '../assets/muzi.PNG';
-function Profile() {
+import user from './user';
+
+function Profile({currentUser, setCurrentUser}) {
+  const handleChangeUser = () => {
+    currentUser ? setCurrentUser(0) : setCurrentUser(1);
+  };
   return (
-    <Wrapper>
-      <ProfileImg src={muziImage} />
+    <ProfileWrapper onClick={handleChangeUser}>
+      <ProfileImg
+        src={process.env.PUBLIC_URL + '/assets/' + user[currentUser].profileImg}
+      />
       <NameWrapper>
-        <div>my name</div>
-        <div>my profile messsge</div>
+        <div>{user[currentUser].name}</div>
+        <div>{user[currentUser].profileMessage}</div>
       </NameWrapper>
-    </Wrapper>
+    </ProfileWrapper>
   );
 }
-const Wrapper = styled.div`
+const ProfileWrapper = styled.div`
   display: flex;
   height: 12vh;
   align-items: center;

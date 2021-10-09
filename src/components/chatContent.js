@@ -1,21 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import counterImage from '../assets/corn.PNG';
+import user from './user'
+
 function chatContent({chatList}) {
   return (
-    <MessageContainer>
-      <Img src={counterImage} />
-      <MessageContent>counterpart text message</MessageContent>
+    <>
       {chatList.map((message, i) => (
-        <MessageContent key={i}>{message.text}</MessageContent>
+  
+        <MessageContainer sender={message.user}>
+          <Img
+            src={
+              process.env.PUBLIC_URL + '/assets/' + user[message.user].profileImg
+            }
+          ></Img>
+          <MessageContent key={i}>{message.text}</MessageContent>
+        </MessageContainer>
       ))}
-    </MessageContainer>
+    </>
   );
 }
 const MessageContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: ${(props) => (props.sender === 0 ? 'row-reverse' : 'row')};
+  align-items: flex-end;
 `;
 
 const MessageContent = styled.div`
@@ -29,7 +36,7 @@ const MessageContent = styled.div`
 
 const Img = styled.img`
   width: 80px;
-  height: 80px;
+  height: fit-content;
   border-radius: 30%;
 
 `;
