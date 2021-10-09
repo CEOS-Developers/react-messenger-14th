@@ -1,10 +1,31 @@
-import React from 'react';
+import React, {useState}from 'react';
 import styled from 'styled-components';
-function inputMessage() {
+function InputMessage({ chatList, setChatList }) {
+  const [message, setMessage] = useState('');
+  const handleInputChange = (e) => {
+    setMessage(e.target.value);
+  };
+  const onClickSendMessage = () => {
+    if (message)
+      setChatList((previousChat) => [
+        ...previousChat,
+        {
+          text: message,
+          user: '나',
+        },
+      ]);
+    //else alert message
+    setMessage('');
+  };
   return (
     <InputBox>
-      <Input placeholder="문구를 입력해주세요.."/>
-      <Button>전송하기</Button>
+
+      <Input
+        placeholder="문구를 입력해주세요.."
+        onChange={handleInputChange}
+        value={message}
+      />
+      <Button onClick={onClickSendMessage}>전송하기</Button>
     </InputBox>
   );
 }
@@ -29,4 +50,4 @@ const Button = styled.button`
   color: white;
   border: none;
 `;
-export default inputMessage
+export default InputMessage

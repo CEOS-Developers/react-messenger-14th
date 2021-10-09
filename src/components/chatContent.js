@@ -1,16 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import counterImage from '../assets/corn.PNG';
-function chatContent() {
+function chatContent({chatList}) {
   return (
     <MessageContainer>
       <Img src={counterImage} />
       <MessageContent>counterpart text message</MessageContent>
+      {chatList.map((message, i) => (
+        <MessageContent key={i}>{message.text}</MessageContent>
+      ))}
     </MessageContainer>
   );
 }
 const MessageContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
 `;
 
