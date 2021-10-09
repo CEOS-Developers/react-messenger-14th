@@ -85,8 +85,7 @@ const Chattingroom = ({ users, setUsers }) => {
 
     scrollToBottom();
   }, [users, id]);
-  console.log('출력');
-  console.log(myData);
+
   return (
     <ChattingRoomContainer>
       {/* 로컬 주소로 하면 왜 안될까.. */}
