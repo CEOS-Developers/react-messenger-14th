@@ -7,16 +7,16 @@ import ChattingItem from './chattingItem';
 
 const Chattingroom = ({ users, setUsers }) => {
   const { id } = useParams();
-
   const [friendData, setFriendData] = useState(
     users.filter((e) => e.id === parseInt(id))
   );
   const [myData, setMyData] = useState(users.filter((e) => e.id === 0));
+  const [changableData, setChangableData] = useState(
+    users.filter((e) => e.id === 0)
+  );
   const [text, setText] = useState('');
   const textAreaRef = useRef();
   const mainEndRef = useRef();
-
-  const [changableData, setChangableData] = useState(myData);
 
   const handleChangeProfile = () => {
     if (friendData.id === 0) {
@@ -82,23 +82,21 @@ const Chattingroom = ({ users, setUsers }) => {
         return e['id'] === 0;
       })
     );
+    setChangableData(
+      ...users.filter((e) => {
+        return e['id'] === parseInt(id);
+      })
+    );
     scrollToBottom();
   }, [users, id]);
-
-  useEffect(() => {
-    setChangableData(friendData);
-  }, []);
 
   return (
     <ChattingRoomContainer>
       {/* 로컬 주소로 하면 왜 안될까.. */}
       <ChangableProfile onClick={handleChangeProfile}>
-        <StyledImg
-          src={changableData?.profilePicture || friendData?.profilePicture}
-          alt="프로필 사진"
-        />
+        <StyledImg src={changableData?.profilePicture} alt="프로필 사진" />
         <UserInfo>
-          <UserName>{changableData?.name || friendData?.name}</UserName>
+          <UserName>{changableData?.name}</UserName>
         </UserInfo>
       </ChangableProfile>
       <Main>
