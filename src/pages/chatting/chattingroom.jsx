@@ -20,9 +20,9 @@ const Chattingroom = ({ users, setUsers }) => {
 
   const handleChangeProfile = () => {
     if (friendData.id === 0) {
-      return;
+      setChangableData(myData);
     }
-    const next = changableData === friendData ? myData : friendData;
+    const next = changableData === myData ? friendData : myData;
     setChangableData(next);
   };
   const scrollToBottom = () => {
@@ -42,7 +42,8 @@ const Chattingroom = ({ users, setUsers }) => {
           const minute = ('00' + currentTime.getMinutes()).slice(-2);
           element.dialogue.push({
             time: `${hour}:${minute}`,
-            isMyDialogue: changableData.id === 0,
+            isMyDialogue:
+              changableData == false ? true : changableData.id === 0,
             content: text,
           });
           return element;
@@ -82,21 +83,21 @@ const Chattingroom = ({ users, setUsers }) => {
         return e['id'] === 0;
       })
     );
-    setChangableData(
-      ...users.filter((e) => {
-        return e['id'] === parseInt(id);
-      })
-    );
+
     scrollToBottom();
   }, [users, id]);
-
+  console.log('출력');
+  console.log(myData);
   return (
     <ChattingRoomContainer>
       {/* 로컬 주소로 하면 왜 안될까.. */}
       <ChangableProfile onClick={handleChangeProfile}>
-        <StyledImg src={changableData?.profilePicture} alt="프로필 사진" />
+        <StyledImg
+          src={changableData?.profilePicture || friendData?.profilePicture}
+          alt="프로필 사진"
+        />
         <UserInfo>
-          <UserName>{changableData?.name}</UserName>
+          <UserName>{changableData?.name || friendData?.name}</UserName>
         </UserInfo>
       </ChangableProfile>
       <Main>
