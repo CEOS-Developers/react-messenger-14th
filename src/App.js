@@ -1,11 +1,10 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import Chatting from './components/Chatting';
 
 function App() {
   return (
-     <div>
-       messenger app
-     </div>
+      <Chatting />
   );
 }
+
 export default App;
