@@ -42,8 +42,7 @@ const Chattingroom = ({ users, setUsers }) => {
           const minute = ('00' + currentTime.getMinutes()).slice(-2);
           element.dialogue.push({
             time: `${hour}:${minute}`,
-            isMyDialogue:
-              changableData == false ? true : changableData.id === 0,
+            isMyDialogue: parseInt(id) === 0 ? true : changableData.id === 0,
             content: text,
           });
           return element;
