@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import user from './user'
 
+
 function chatContent({chatList}) {
   return (
     <>

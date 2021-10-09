@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 import Chatting from './components/Chatting';
+
 const GlobalStyle = createGlobalStyle`
   body {
     display:flex;
@@ -14,7 +15,7 @@ const Container = styled.div`
   display: flex;
   width: 400px;
   height: 700px;
-  box-shadow: rgb(0 0 0 / 25%) 0px 0px 25px;
+  box-shadow: rgb(0 0 0 / 50%) 0px 0px 20px;
   background: white;
 
 `;
