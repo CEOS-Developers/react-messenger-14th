@@ -1,10 +1,11 @@
 import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
 
 function App() {
   return (
-    <div > 14기 프론트엔드 짱 =_=
-    </div>
+     <div>
+       messenger app
+     </div>
   );
 }
-
 export default App;
