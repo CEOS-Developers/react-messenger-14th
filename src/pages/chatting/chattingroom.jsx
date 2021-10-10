@@ -19,6 +19,7 @@ const Chattingroom = ({ users, setUsers }) => {
   const handleChangeProfile = () => {
     if (friendData.id === 0) {
       setChangableData(myData);
+      return;
     }
     const next = changableData === myData ? friendData : myData;
     setChangableData(next);
