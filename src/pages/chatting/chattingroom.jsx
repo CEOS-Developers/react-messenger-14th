@@ -11,9 +11,7 @@ const Chattingroom = ({ users, setUsers }) => {
     users.filter((e) => e.id === parseInt(id))
   );
   const [myData, setMyData] = useState(users.filter((e) => e.id === 0));
-  const [changableData, setChangableData] = useState(
-    users.filter((e) => e.id === 0)
-  );
+  const [changableData, setChangableData] = useState();
   const [text, setText] = useState('');
   const textAreaRef = useRef();
   const mainEndRef = useRef();
@@ -42,9 +40,10 @@ const Chattingroom = ({ users, setUsers }) => {
           const minute = ('00' + currentTime.getMinutes()).slice(-2);
           element.dialogue.push({
             time: `${hour}:${minute}`,
-            isMyDialogue: parseInt(id) === 0 ? true : changableData.id === 0,
+            isMyDialogue: parseInt(id) === 0 ? true : changableData?.id === 0,
             content: text,
           });
+
           return element;
         } else {
           return element;
