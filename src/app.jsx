@@ -87,7 +87,7 @@ const StyledLink = styled(Link)`
   color: var(--color-side-bar-icon);
   width: 100%;
   text-align: center;
-  font-size: 3vw;
+  font-size: 3vmax;
   margin-top: 30px;
 `;
 
