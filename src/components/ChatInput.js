@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-function ChatInput({ currentUser, setChatList }) {
+function ChatInput({ currentUser, chatList, setChatList }) {
   const [message, setMessage] = useState('');
   const handleInputChange = (e) => {
     setMessage(e.target.value);
   };
   const handleSendMessageBtnClick = () => {
     if (message)
-      setChatList((previousChat) => [
-        ...previousChat,
+      setChatList([
+        ...chatList,
         {
           text: message,
           userId: currentUser,

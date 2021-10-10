@@ -11,7 +11,11 @@ function ChatRoom() {
     <Wrapper>
       <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Message chatList={chatList} />
-      <ChatInput currentUser={currentUser} setChatList={setChatList} />
+      <ChatInput
+        currentUser={currentUser}
+        chatList={chatList}
+        setChatList={setChatList}
+      />
     </Wrapper>
   );
 }

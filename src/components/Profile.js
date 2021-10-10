@@ -5,14 +5,13 @@ function Profile({ currentUser, setCurrentUser }) {
   const handleChangeUser = () => {
     currentUser ? setCurrentUser(0) : setCurrentUser(1);
   };
+  const { profileImg, name, status } = user[currentUser];
   return (
     <ProfileWrapper onClick={handleChangeUser}>
-      <ProfileImg
-        src={process.env.PUBLIC_URL + '/img/' + user[currentUser].profileImg}
-      />
+      <ProfileImg src={process.env.PUBLIC_URL + '/img/' + profileImg} />
       <NameWrapper>
-        <Name>{user[currentUser].name}</Name>
-        <Status>{user[currentUser].status}</Status>
+        <Name>{name}</Name>
+        <Status>{status}</Status>
       </NameWrapper>
     </ProfileWrapper>
   );
