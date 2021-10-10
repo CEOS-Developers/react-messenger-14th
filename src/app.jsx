@@ -38,6 +38,10 @@ const App = () => {
             render={() => <Friends users={users} setUsers={setUsers} />}
           ></Route>
           <Route
+            path="/chatting"
+            render={() => <Chatting users={users} setUsers={setUsers} />}
+          ></Route>
+          <Route
             path="/more"
             render={() => <More users={users} setUsers={setUsers} />}
           ></Route>
