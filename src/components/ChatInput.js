@@ -10,6 +10,7 @@ function ChatInput({ currentUser, chatList, setChatList }) {
       setChatList([
         ...chatList,
         {
+          chatId: chatList.length,
           text: message,
           userId: currentUser,
         },

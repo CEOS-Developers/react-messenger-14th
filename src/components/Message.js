@@ -9,8 +9,8 @@ function Message({ chatList }) {
   }, [chatList]);
   return (
     <Wrapper ref={messageRef}>
-      {chatList.map((message, key) => (
-        <MessageContainer key={key} sender={message.userId}>
+      {chatList.map((message) => (
+        <MessageContainer key={message.chatId} sender={message.userId}>
           <Img
             src={
               process.env.PUBLIC_URL + '/img/' + user[message.userId].profileImg
