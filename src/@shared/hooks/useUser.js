@@ -1,34 +1,37 @@
-import { useUserAtom, useCurrentUserAtom } from '../atoms/user.atom';
+import { useContext } from 'react';
+import { UserContext } from '../contexts/user';
+import { defaultProfileImg } from '../contexts/user';
 
-export const useUsers = () => {
-  const [users, setUsers] = useUserAtom();
+const useUserContext = () => {
+  const { userContext, dispatchUserContext } = useContext(UserContext);
 
-  const handleCreateUser = (newUser) => {
-    setUsers([...users, { ...newUser }]);
+  const getUsers = () => {
+    return userContext.users;
   };
 
-  const handleDeleteUser = () => {};
-
-  const handleUpdateUser = (updatedUser) => {
-    const newUsers = users.map((user) => {
-      if (user.id === updatedUser.id) {
-        return updatedUser;
-      }
-      return user;
+  const addUser = (newUser) => {
+    dispatchUserContext({
+      type: 'user/addUser',
+      payload: {
+        id: Date.now(),
+        name: newUser.name,
+        img: defaultProfileImg,
+      },
     });
-
-    setUsers(newUsers);
   };
 
-  return { users, handleCreateUser, handleDeleteUser, handleUpdateUser };
-};
-
-export const useCurrentUser = () => {
-  const [currentUser, setCurrentUser] = useCurrentUserAtom();
-
-  const handleChangeCurrentUser = (user) => {
-    setCurrentUser(user);
+  const getCurrentUser = () => {
+    return userContext.currentUser;
   };
 
-  return { currentUser, handleChangeCurrentUser };
+  const setCurrentUser = (newCurrentUser) => {
+    dispatchUserContext({
+      type: 'user/setCurrentUser',
+      payload: newCurrentUser,
+    });
+  };
+
+  return { getUsers, addUser, getCurrentUser, setCurrentUser };
 };
+
+export default useUserContext;

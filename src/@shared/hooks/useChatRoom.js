@@ -1,63 +1,62 @@
-import { useEffect } from 'react';
-import {
-  useChatRoomAtom,
-  useCurrentChatRoomAtom,
-} from '../atoms/chatRoom.atom';
-import { useCurrentUser } from './useUser';
+import { useContext } from 'react';
+import { ChatRoomContext } from '../contexts/chatRoom';
 
-export const useChatRooms = () => {
-  const [chatRooms, setChatRooms] = useChatRoomAtom();
-  const [currentChatRoom, setCurrentChatRoom] = useCurrentChatRoomAtom();
-  const [currentUser] = useCurrentUser();
+const useChatRoom = () => {
+  const { chatRoomContext, dispatchChatRoomContext } =
+    useContext(ChatRoomContext);
 
-  const handleCreateChatRoom = (user) => {
-    const newChatRoom = {
-      id: Date.now(),
-      users: [{ ...currentUser }, { ...user }],
-      messages: [],
-    };
-
-    setChatRooms([...chatRooms, newChatRoom]);
-
-    setCurrentChatRoom(newChatRoom);
+  const getChatRooms = () => {
+    return chatRoomContext.chatRooms;
   };
 
-  const handleDeleteChatRoom = () => {};
-
-  return {
-    chatRooms,
-    handleCreateChatRoom,
-    handleDeleteChatRoom,
-  };
-};
-
-export const useCurrentChatRoom = () => {
-  const [currentChatRoom, setCurrentChatRoom] = useCurrentChatRoomAtom();
-
-  const handleChangeCurrentChatRoom = (chatRoom) => {
-    setCurrentChatRoom(chatRoom);
+  const getCurrentChatRoom = () => {
+    return chatRoomContext.currentChatRoom;
   };
 
-  const handleAddChatRoomUser = (newUser) => {
-    setCurrentChatRoom({
-      id: currentChatRoom.id,
-      users: [...currentChatRoom.users, newUser],
-      messages: currentChatRoom.messages,
+  const setCurrentChatRoom = (newCurrentChatRoom) => {
+    dispatchChatRoomContext({
+      type: 'chatRoom/setCurrentChatRoom',
+      payload: newCurrentChatRoom,
     });
   };
 
-  const handlePostMessage = (newMessage) => {
-    setCurrentChatRoom({
-      id: currentChatRoom.id,
-      users: currentChatRoom.users,
-      messages: [...currentChatRoom.messages, newMessage],
+  const getMessages = () => {
+    return chatRoomContext.currentChatRoom.messages;
+  };
+
+  const postMessage = (newMessage) => {
+    dispatchChatRoomContext({
+      type: 'chatRoom/postMessage',
+      payload: newMessage,
     });
   };
 
+  const inviteUser = (invitedUser) => {
+    dispatchChatRoomContext({
+      type: 'chatRoom/inviteUser',
+      payload: invitedUser,
+    });
+  };
+
+  const addChatRoom = (newChatRoom) => {
+    dispatchChatRoomContext({
+      type: 'chatRoom/addChatRoom',
+      payload: newChatRoom,
+    });
+  };
+
+  const deleteChatRoom = () => {};
+
   return {
-    currentChatRoom,
-    handleChangeCurrentChatRoom,
-    handleAddChatRoomUser,
-    handlePostMessage,
+    getChatRooms,
+    getCurrentChatRoom,
+    setCurrentChatRoom,
+    getMessages,
+    postMessage,
+    inviteUser,
+    addChatRoom,
+    deleteChatRoom,
   };
 };
+
+export default useChatRoom;
