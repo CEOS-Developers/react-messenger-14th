@@ -1,13 +1,19 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useUsers } from '../../@shared/hooks/useUser';
+import useChatRoomContext from '../../@shared/hooks/useChatRoom';
+import useUserContext from '../../@shared/hooks/useUser';
 
-const ChatRoomMessages = ({ messages, currentUser }) => {
-  const { users } = useUsers();
+const ChatRoomMessages = () => {
+  const { getUsers, getCurrentUser } = useUserContext();
+  const users = getUsers();
+  const currentUser = getCurrentUser();
+
+  const { getMessages } = useChatRoomContext();
+  const messages = getMessages();
 
   useEffect(() => {
     document
-      .querySelector('#messages-list')
+      .querySelector('.messages-list')
       .lastChild?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
@@ -39,7 +45,7 @@ const ChatRoomMessages = ({ messages, currentUser }) => {
 
   return (
     <MessagesContainer>
-      <MessagesList id="messages-list">{renderMessages()}</MessagesList>
+      <MessagesList className="messages-list">{renderMessages()}</MessagesList>
     </MessagesContainer>
   );
 };

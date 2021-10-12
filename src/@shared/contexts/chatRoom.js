@@ -23,11 +23,19 @@ export const ChatRoomContext = createContext();
 
 const ChatRoomReducer = (state, action) => {
   switch (action.type) {
+    case 'chatRoom/inviteUser':
+      return {
+        ...state,
+        currentChatRoom: {
+          ...state.currentChatRoom,
+          users: [...state.currentChatRoom.users, action.payload],
+        },
+      };
     case 'chatRoom/postMessage':
       return {
         ...state,
         currentChatRoom: {
-          ...currentChatRoom,
+          ...state.currentChatRoom,
           messages: [...state.currentChatRoom.messages, action.payload],
         },
       };

@@ -1,65 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
-import Route from './@shared/hoc/Route';
+import { UserContextProvider } from './@shared/contexts/user';
+import { ChatRoomContextProvider } from './@shared/contexts/chatRoom';
+
 import Header from './@shared/components/Header';
 import ChatRoomMessages from './chat-room/components/ChatRoomMessages';
 import ChatRoomMessageForm from './chat-room/components/ChatRoomMessageForm';
-import { useUsers } from './@shared/hooks/useUser';
-import { userAtom } from './@shared/atoms/user.atom';
 
 const App = () => {
-  const { users } = useUsers();
-  const [messages, setMessages] = useState([]);
-  const [currentUser, setCurrentUser] = useState(userAtom.currentUser);
-
-  const handlePostMessage = (e) => {
-    e.preventDefault();
-
-    if (e.target[0].value === '') {
-      window.alert('내용을 입력해주세요');
-      return;
-    }
-    const newMessage = {
-      content: e.target[0].value,
-      userID: currentUser.id,
-    };
-    setMessages([...messages, newMessage]);
-    e.target[0].value = '';
-  };
-
-  const handleChangeProfile = (e) => {
-    const selectedIdx = e.target.options.selectedIndex;
-
-    if (selectedIdx === 0) {
-      return;
-    }
-
-    const id = e.target[selectedIdx].id;
-
-    const currentUser = users.find((user) => Number(user.id) === Number(id));
-
-    setCurrentUser(currentUser);
-  };
-
   return (
-    <>
-      <GlobalStyle />
-      <Header
-        handleChangeProfile={handleChangeProfile}
-        currentUser={currentUser}
-      ></Header>
-      <RootContainer>
-        <ChatRoomMessages
-          messages={messages}
-          currentUser={currentUser}
-        ></ChatRoomMessages>
-        <ChatRoomMessageForm
-          handlePostMessage={handlePostMessage}
-          currentUser={currentUser}
-        ></ChatRoomMessageForm>
-      </RootContainer>
-    </>
+    <UserContextProvider>
+      <ChatRoomContextProvider>
+        <GlobalStyle />
+        <Header></Header>
+        <RootContainer>
+          <ChatRoomMessages></ChatRoomMessages>
+          <ChatRoomMessageForm></ChatRoomMessageForm>
+        </RootContainer>
+      </ChatRoomContextProvider>
+    </UserContextProvider>
   );
 };
 

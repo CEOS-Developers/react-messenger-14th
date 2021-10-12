@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
+import useUserContext from '../../@shared/hooks/useUser';
+import useChatRoomContext from '../../@shared/hooks/useChatRoom';
 
-const ChatRoomMessageForm = ({ handlePostMessage }) => {
+const ChatRoomMessageForm = () => {
+  const { getCurrentUser } = useUserContext();
+  const { postMessage } = useChatRoomContext();
+  const currentUser = getCurrentUser();
+
+  const handlePostMessage = (e) => {
+    e.preventDefault();
+
+    if (e.target[0].value === '') {
+      window.alert('내용을 입력해주세요');
+      return;
+    }
+    const newMessage = {
+      content: e.target[0].value,
+      userID: currentUser.id,
+    };
+    postMessage(newMessage);
+    e.target[0].value = '';
+  };
+
   return (
     <MessageFormContainer>
       <MessageForm onSubmit={handlePostMessage}>
