@@ -1,12 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { BsFillPersonFill, BsFillChatFill } from 'react-icons/bs';
 import { FiMoreHorizontal } from 'react-icons/fi';
+import FriendsList from '../pages/FriendsList';
+import ChatRoom from '../pages/ChatRoom';
 function SideBar() {
   return (
     <Wrapper>
-      <BsFillPersonFill size={30} style={style} />
-      <BsFillChatFill size={25} style={style} />
+      <Link to="/friends">
+        <BsFillPersonFill size={30} style={style} />
+      </Link>
+      <Link to="/chat">
+        <BsFillChatFill size={25} style={style} />
+      </Link>
       <FiMoreHorizontal size={25} style={style} />
     </Wrapper>
   );

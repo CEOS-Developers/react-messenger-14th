@@ -1,14 +1,19 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import SideBar from './components/SideBar';
 import ChatRoom from './pages/ChatRoom';
+import FriendsList from './pages/FriendsList';
 function App() {
   return (
     <>
       <GlobalStyle />
       <Container>
         <SideBar />
-        <ChatRoom />
+        <Switch>
+          <Route path="/friends" component={FriendsList} />
+          <Route path="/chat" component={ChatRoom} />
+        </Switch>
       </Container>
     </>
   );

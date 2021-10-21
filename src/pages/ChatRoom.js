@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Profile from '../components/Profile';
-import ChatInput from '../components/ChatInput';
-import Message from '../components/Message';
+import ChatInput from '../components/Chat/ChatInput';
+import Message from '../components/Chat/Message';
 import savedChat from '../data/savedChat';
 function ChatRoom() {
   const [chatList, setChatList] = useState(savedChat);
@@ -20,7 +20,7 @@ function ChatRoom() {
   );
 }
 const Wrapper = styled.div`
-  width: 100%;
+  width: 300px;
   display: flex;
   flex-direction: column;
   padding: 0 10px;

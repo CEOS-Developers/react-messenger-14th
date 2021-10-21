@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import user from '../data/user';
+import user from '../../data/user';
 function Message({ chatList }) {
   const messageRef = useRef();
   useEffect(() => {
