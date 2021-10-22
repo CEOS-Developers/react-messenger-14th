@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import SideBar from './components/SideBar';
-import ChatRoom from './pages/ChatRoom';
+import ChattingList from './pages/ChattingList';
 import FriendsList from './pages/FriendsList';
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Body>
           <Switch>
             <Route path="/friends" component={FriendsList} />
-            <Route path="/chat" component={ChatRoom} />
+            <Route path="/chat" component={ChattingList} />
           </Switch>
         </Body>
       </Container>
