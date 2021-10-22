@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { BsFillPersonFill, BsFillChatFill } from 'react-icons/bs';
 import { FiMoreHorizontal } from 'react-icons/fi';
-import FriendsList from '../pages/FriendsList';
-import ChatRoom from '../pages/ChatRoom';
 function SideBar() {
   return (
     <Wrapper>
@@ -24,7 +22,7 @@ const style = {
   color: '#949494',
 };
 const Wrapper = styled.div`
-  width: 100px;
+  width: 4vw;
   background: #e8e8e8;
   display: flex;
   flex-direction: column;

@@ -10,10 +10,12 @@ function App() {
       <GlobalStyle />
       <Container>
         <SideBar />
-        <Switch>
-          <Route path="/friends" component={FriendsList} />
-          <Route path="/chat" component={ChatRoom} />
-        </Switch>
+        <Body>
+          <Switch>
+            <Route path="/friends" component={FriendsList} />
+            <Route path="/chat" component={ChatRoom} />
+          </Switch>
+        </Body>
       </Container>
     </>
   );
@@ -41,5 +43,9 @@ const Container = styled.div`
   height: 700px;
   box-shadow: rgb(0 0 0 / 25%) 0px 0px 25px;
   background: white;
+`;
+const Body = styled.div`
+  width: 100%;
+  display: flex;
 `;
 export default App;

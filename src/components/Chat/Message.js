@@ -30,6 +30,7 @@ const Wrapper = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+  width: 300px;
 `;
 const MessageContainer = styled.div`
   display: flex;

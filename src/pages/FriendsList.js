@@ -4,7 +4,7 @@ import users from '../data/user';
 import TopBar from '../components/TopBar';
 function FriendsList() {
   return (
-    <div>
+    <Container>
       <TopBar />
       {users.map((user) => (
         <Wrapper>
@@ -15,9 +15,12 @@ function FriendsList() {
           </NameWrapper>
         </Wrapper>
       ))}
-    </div>
+    </Container>
   );
 }
+const Container = styled.div`
+  width: 100%;
+`;
 const NameWrapper = styled.div`
   line-height: 25px;
   margin-left: 10px;

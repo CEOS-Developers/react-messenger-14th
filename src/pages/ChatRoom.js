@@ -20,7 +20,6 @@ function ChatRoom() {
   );
 }
 const Wrapper = styled.div`
-  width: 300px;
   display: flex;
   flex-direction: column;
   padding: 0 10px;

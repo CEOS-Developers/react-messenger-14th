@@ -35,7 +35,7 @@ const InputBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  padding: 10px 0;
 `;
 const Input = styled.input`
   height: 50px;

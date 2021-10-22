@@ -20,7 +20,6 @@ const ProfileWrapper = styled.div`
   display: flex;
   height: 15vh;
   align-items: center;
-  margin-left: 20px;
 `;
 const ProfileImg = styled.img`
   width: 50px;
