@@ -5,9 +5,9 @@ import TopBar from '../components/TopBar';
 function FriendsList() {
   return (
     <Container>
-      <TopBar />
+      <TopBar current="friends" />
       {users.map((user) => (
-        <Wrapper>
+        <Wrapper key={user.id}>
           <Img src={process.env.PUBLIC_URL + '/img/' + user.profileImg}></Img>
           <NameWrapper>
             <Name>{user.name}</Name>
@@ -27,7 +27,7 @@ const NameWrapper = styled.div`
 `;
 const Wrapper = styled.div`
   display: flex;
-  height: 10vh;
+  height: 70px;
   align-items: center;
   margin-left: 20px;
 `;

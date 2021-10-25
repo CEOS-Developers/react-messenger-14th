@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { AiOutlineSearch } from 'react-icons/ai';
-function TopBar() {
+function TopBar({ current }) {
+  const menu = { friends: '친구', chat: '채팅', settings: '설정' };
   return (
     <Wrapper>
-      <Title>친구</Title>
+      <Title>{menu[current]}</Title>
       <AiOutlineSearch size={30}></AiOutlineSearch>
     </Wrapper>
   );

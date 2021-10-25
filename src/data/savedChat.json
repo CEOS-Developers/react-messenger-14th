@@ -18,5 +18,25 @@
         "userId": 1
       }
     ]
+  },
+  {
+    "userId": 2,
+    "chat": [
+      {
+        "chatId": 0,
+        "text": "안녕",
+        "userId": 2
+      },
+      {
+        "chatId": 1,
+        "text": "춘식아 사랑해",
+        "userId": 2
+      },
+      {
+        "chatId": 2,
+        "text": "약간 부담..",
+        "userId": 0
+      }
+    ]
   }
 ]

@@ -11,5 +11,11 @@ const user = [
     status: '여행중..',
     profileImg: 'ryan.png',
   },
+  {
+    id: 2,
+    name: '탱',
+    status: '과제중',
+    profileImg: 'taeeun.png',
+  },
 ];
 export default user;

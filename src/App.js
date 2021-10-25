@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import SideBar from './components/SideBar';
 import ChattingList from './pages/ChattingList';
 import FriendsList from './pages/FriendsList';
+import ChatRoom from './pages/ChatRoom';
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
           <Switch>
             <Route path="/friends" component={FriendsList} />
             <Route path="/chat" component={ChattingList} />
+            <Route path="/chatroom/:id" component={ChatRoom} />
           </Switch>
         </Body>
       </Container>
