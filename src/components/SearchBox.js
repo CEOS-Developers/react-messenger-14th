@@ -1,0 +1,29 @@
+import React from 'react';
+import styled from 'styled-components';
+function SearchBox({ searchClick, setSearchClick }) {
+  const onExitButtonClicked = () => {
+    setSearchClick(!searchClick);
+  };
+  return (
+    <Wrapper>
+      <Input />
+      <ExitButton onClick={onExitButtonClicked}>❌</ExitButton>
+    </Wrapper>
+  );
+}
+export default SearchBox;
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+`;
+const Input = styled.input`
+  border: 1px solid gray;
+  border-radius: 20px;
+  height: 30px;
+  width: 80%;
+`;
+const ExitButton = styled.button`
+  border: none;
+  background: none;
+`;
