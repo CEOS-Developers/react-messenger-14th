@@ -3,17 +3,19 @@
   flex-direction: row;
   align-items: center;
   background-color: white;
-  width: 90%;
-
+  width: calc(100% - 90px);
+  justify-content: flex-end;
   h1 {
     font-size: 2rem;
     margin-left: 20px;
     margin-right: auto;
   }
+  .Buttons {
+    margin-left: auto;
+  }
   img {
     opacity: 90%;
     margin-left: 40px;
-    margin-right: 20px;
     width: 30px;
     height: 30px;
     &:hover {

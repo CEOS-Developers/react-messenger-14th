@@ -9,20 +9,22 @@ function Header() {
     <>
       <div className="Header" style={{ position: "fixed" }}>
         <h1>친구</h1>
-        <img
-          src={searchIcon}
-          alt="search"
-          onClick={() => {
-            alert("아직 개발중입니다!");
-          }}
-        ></img>
-        <img
-          src={addFriendIcon}
-          alt="add"
-          onClick={() => {
-            alert("아직 개발중입니다!");
-          }}
-        ></img>
+        <div className="Buttons">
+          <img
+            src={searchIcon}
+            alt="search"
+            onClick={() => {
+              alert("아직 개발중입니다!");
+            }}
+          ></img>
+          <img
+            src={addFriendIcon}
+            alt="add"
+            onClick={() => {
+              alert("아직 개발중입니다!");
+            }}
+          ></img>
+        </div>
       </div>
       <div className="MainProfile">
         <img src={mainProfilePicture} alt="MainProfilePic" />
