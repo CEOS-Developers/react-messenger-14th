@@ -8,7 +8,7 @@ import { Route, Switch, Link } from "react-router-dom";
 
 function SideBar() {
   return (
-    <div>
+    <>
       <div className="sidenav">
         <Link to={`/profile`}>
           <img src={userIcon} className="user" alt="user" />
@@ -20,7 +20,7 @@ function SideBar() {
           <img src={moreIcon} className="more" alt="more" />
         </Link>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.scss";
 import { Switch, Route } from "react-router";
 import SideBar from "./components/sidebar/sidebar.components";
 import Chatroom from "./components/chatroom/chatroom.components";
@@ -7,10 +8,10 @@ import Other from "./components/other/other.components";
 
 function App() {
   return (
-    <>
-      <Switch>
-        <SideBar></SideBar>
-        <Route path="/profile">
+    <div className="App">
+      <SideBar></SideBar>
+      <div className="Main">
+        <Route exact path="/profile">
           <Profile />
         </Route>
         <Route path="/chatroom">
@@ -19,8 +20,8 @@ function App() {
         <Route path="/other">
           <Other />
         </Route>
-      </Switch>
-    </>
+      </div>
+    </div>
   );
 }
 
