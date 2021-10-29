@@ -1,0 +1,16 @@
+.List {
+  margin-left: 20px;
+}
+
+.Friend {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 30%;
+    margin-right: 15px;
+  }
+}
