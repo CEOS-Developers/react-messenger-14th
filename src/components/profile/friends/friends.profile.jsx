@@ -18,7 +18,7 @@ function Friends() {
   let [friendsList, setFriendsList] = useState(Data);
   return (
     <div className="List">
-      <p>친구들</p>
+      <p>친구 {friendsList.length}</p>
       {friendsList.map((friend, i) => {
         return (
           <Friend
