@@ -7,7 +7,7 @@ import addFriendIcon from "./add.png";
 function Header() {
   return (
     <>
-      <div className="Header" style={{ position: "fixed" }}>
+      <div className="Header">
         <h1>친구</h1>
         <div className="Buttons">
           <img
