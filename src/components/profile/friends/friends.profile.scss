@@ -1,8 +1,9 @@
 .List {
-  margin-left: 20px;
+  text-decoration: none;
 }
 
 .Friend {
+  padding-left: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -12,5 +13,8 @@
     height: 80px;
     border-radius: 30%;
     margin-right: 15px;
+  }
+  &:hover {
+    background-color: rgb(245, 245, 245);
   }
 }

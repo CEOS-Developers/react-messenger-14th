@@ -53,16 +53,4 @@ export default [
     description: "일병 오!수!혁!",
     img: "/images/profile9.jpeg",
   },
-  {
-    id: 10,
-    name: "박진우",
-    description: "이병 박!진!우!",
-    img: "/images/profile9.jpeg",
-  },
-  {
-    id: 11,
-    name: "오수혁",
-    description: "일병 오!수!혁!",
-    img: "/images/profile9.jpeg",
-  },
 ];

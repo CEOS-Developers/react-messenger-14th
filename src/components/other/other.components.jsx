@@ -1,7 +1,12 @@
 import React from "react";
+import Header from "./header.other";
 
 function Other() {
-  return <p>Other</p>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default Other;
