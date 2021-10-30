@@ -11,7 +11,7 @@ export default [
       },
       {
         id: 1,
-        chat: "안녕안녕",
+        chat: "주뇰 주뇰 모하눙",
       },
     ],
   },
@@ -27,7 +27,7 @@ export default [
       },
       {
         id: 1,
-        chat: "안녕안녕",
+        chat: "진짜 플레가면 롤 접음",
       },
     ],
   },
@@ -43,7 +43,7 @@ export default [
       },
       {
         id: 1,
-        chat: "안녕안녕",
+        chat: "생물 진짜 재밌어",
       },
     ],
   },
@@ -59,7 +59,7 @@ export default [
       },
       {
         id: 1,
-        chat: "안녕안녕",
+        chat: "ㅇㅅㅇ",
       },
     ],
   },
@@ -75,7 +75,7 @@ export default [
       },
       {
         id: 1,
-        chat: "안녕안녕",
+        chat: "ㅇㅋ",
       },
     ],
   },
@@ -91,7 +91,7 @@ export default [
       },
       {
         id: 1,
-        chat: "안녕안녕",
+        chat: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
       },
     ],
   },
@@ -107,7 +107,7 @@ export default [
       },
       {
         id: 1,
-        chat: "안녕안녕",
+        chat: "ㄱㅅ",
       },
     ],
   },
@@ -123,7 +123,7 @@ export default [
       },
       {
         id: 1,
-        chat: "안녕안녕",
+        chat: "굳",
       },
     ],
   },
@@ -139,7 +139,7 @@ export default [
       },
       {
         id: 1,
-        chat: "안녕안녕",
+        chat: ";",
       },
     ],
   },

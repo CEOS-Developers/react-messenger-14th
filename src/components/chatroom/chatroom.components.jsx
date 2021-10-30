@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./header.chatroom";
+import Header from "./header/header.chatroom";
 import Chat from "./chat/chat.chatroom";
 import ChatList from "./chatlist/chatlist.chatroom";
 import { Route } from "react-router";
