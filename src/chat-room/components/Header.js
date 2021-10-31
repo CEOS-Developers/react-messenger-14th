@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import useUserContext from '../hooks/useUser';
+import useUserContext from '../../@shared/hooks/useUser';
 
 const Header = () => {
   const { getUsers, getCurrentUser, setCurrentUser } = useUserContext();
@@ -41,7 +41,7 @@ const Header = () => {
 
 const ProfileHeader = styled.header`
   width: 100%;
-  height: 10%;
+  height: 15%;
 
   margin-bottom: 1rem;
 

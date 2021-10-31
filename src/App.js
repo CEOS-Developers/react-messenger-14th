@@ -4,19 +4,17 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { UserContextProvider } from './@shared/contexts/user';
 import { ChatRoomContextProvider } from './@shared/contexts/chatRoom';
 
-import Header from './@shared/components/Header';
-import ChatRoomMessages from './chat-room/components/ChatRoomMessages';
-import ChatRoomMessageForm from './chat-room/components/ChatRoomMessageForm';
+import ChatRoom from './chat-room/ChatRoom';
+import Sidebar from './sidebar/Sidebar';
 
 const App = () => {
   return (
     <UserContextProvider>
       <ChatRoomContextProvider>
         <GlobalStyle />
-        <Header></Header>
         <RootContainer>
-          <ChatRoomMessages></ChatRoomMessages>
-          <ChatRoomMessageForm></ChatRoomMessageForm>
+          <Sidebar />
+          <ChatRoom />
         </RootContainer>
       </ChatRoomContextProvider>
     </UserContextProvider>
@@ -25,6 +23,7 @@ const App = () => {
 
 const GlobalStyle = createGlobalStyle`
     *:focus {
+        /* all: unset; */
         outline: none;
     }
     body {
@@ -43,17 +42,13 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const RootContainer = styled.div`
-  width: 400px;
-  height: 550px;
-
-  border-radius: 30px;
-
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
-  background: white;
+  width: 100vw;
+  height: 100vh;
 `;
 
 export default App;
