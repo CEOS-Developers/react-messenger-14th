@@ -5,6 +5,8 @@ import calendar from "./calendar.png";
 import call from "./phone-call.png";
 import videocall from "./video-calling.png";
 
+import "./form.chatroom.scss";
+
 function Buttons() {
   return (
     <div className="buttons">
@@ -43,7 +45,9 @@ function Buttons() {
   );
 }
 
-function Form({ user, addChat }) {
+function addChat({ id, setChats, value }) {}
+
+function Form({ id, setChats }) {
   const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -56,14 +60,14 @@ function Form({ user, addChat }) {
     }
     // window.alert("user:" + user);
     // window.alert("value:" + value);
-    // addChat(user, value);
+    addChat(id, setChats, value);
 
     //reset value
     setValue("");
   };
 
   return (
-    <div>
+    <div className="ChatInput">
       <Buttons />
       <form className="container" onSubmit={handleSubmit}>
         <input

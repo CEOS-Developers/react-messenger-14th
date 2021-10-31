@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import Data from "./friends";
+import "./chatlog.chatroom.scss";
 
-function ChatLog({ id }) {
-  let [chats, setChats] = useState(Data[id - 1].chats);
+function ChatLog({ id, chats, url }) {
   return (
-    <>
+    <div className="chatroom">
       {chats.map((chat, i) => {
-        return <div>{chat.chat}</div>;
+        return (
+          <div className={`user${chat.id}`}>
+            <img src={url} alt="user" />
+            <p>{chat.chat}</p>
+          </div>
+        );
       })}
-    </>
+    </div>
   );
 }
 
