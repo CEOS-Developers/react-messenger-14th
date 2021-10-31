@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import SearchBox from './SearchBox';
 import { AiOutlineSearch } from 'react-icons/ai';
-function TopBar({ current }) {
-  const [searchClick, setSearchClick] = useState(false);
+function TopBar({ current, onSearchButtonClicked }) {
   const menu = { friends: '친구', chat: '채팅', settings: '설정' };
-  const onSearchButtonClicked = () => {
-    setSearchClick(!searchClick);
-  };
   return (
     <>
       <Wrapper>
@@ -17,11 +12,6 @@ function TopBar({ current }) {
           onClick={onSearchButtonClicked}
         ></AiOutlineSearch>
       </Wrapper>
-      {searchClick ? (
-        <SearchBox searchClick={searchClick} setSearchClick={setSearchClick} />
-      ) : (
-        ''
-      )}
     </>
   );
 }

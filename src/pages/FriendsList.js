@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import users from '../data/user';
 import TopBar from '../components/TopBar';
+import SearchBox from '../components/SearchBox';
 function FriendsList() {
+  const [searchClick, setSearchClick] = useState(false);
+  const [search, setSearch] = useState('');
+  const onSearchButtonClicked = () => {
+    setSearchClick(!searchClick);
+  };
+  const handleSearchInputChange = (e) => {
+    setSearch(e.target.value);
+  };
+  const userSearchResult = users.filter((user) => {
+    return user.name.includes(search);
+  });
   return (
     <Container>
-      <TopBar current="friends" />
-      {users.map((user) => (
+      <TopBar current="friends" onSearchButtonClicked={onSearchButtonClicked} />
+      {searchClick ? (
+        <SearchBox
+          searchClick={searchClick}
+          setSearchClick={setSearchClick}
+          handleInputChange={handleSearchInputChange}
+        />
+      ) : (
+        ''
+      )}
+      {userSearchResult.map((user) => (
         <Wrapper key={user.id}>
           <Img src={process.env.PUBLIC_URL + '/img/' + user.profileImg}></Img>
           <NameWrapper>

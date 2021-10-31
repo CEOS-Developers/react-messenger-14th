@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-function SearchBox({ searchClick, setSearchClick }) {
+function SearchBox({ searchClick, setSearchClick, handleInputChange }) {
   const onExitButtonClicked = () => {
     setSearchClick(!searchClick);
   };
   return (
     <Wrapper>
-      <Input />
+      <Input onChange={handleInputChange} />
       <ExitButton onClick={onExitButtonClicked}>❌</ExitButton>
     </Wrapper>
   );
