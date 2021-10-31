@@ -1,0 +1,31 @@
+.buttons {
+  display: flex;
+  width: calc(100% - 80px);
+  position: fixed;
+  bottom: 4rem;
+
+  img {
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .right {
+    margin-left: auto;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  opacity: 50%;
+  width: calc(100% - 80px);
+  height: 3rem;
+  bottom: 0px;
+  position: fixed;
+}
