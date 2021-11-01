@@ -45,9 +45,9 @@ function Buttons() {
   );
 }
 
-function addChat({ id, setChats, value }) {}
+function addChat({ id, setChats, userId, value }) {}
 
-function Form({ id, setChats }) {
+function Form({ id, userId, setChats }) {
   const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -60,7 +60,7 @@ function Form({ id, setChats }) {
     }
     // window.alert("user:" + user);
     // window.alert("value:" + value);
-    addChat(id, setChats, value);
+    addChat(id, setChats, userId, value);
 
     //reset value
     setValue("");

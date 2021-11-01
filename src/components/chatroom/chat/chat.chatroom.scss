@@ -1,6 +1,6 @@
 .buttons {
   display: flex;
-  width: calc(100% - 80px);
+  width: calc(100% - 70px);
   position: fixed;
   bottom: 4rem;
 
@@ -17,15 +17,14 @@
   }
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-}
-
 .input {
   opacity: 50%;
-  width: calc(100% - 80px);
+  width: calc(100% - 70px);
   height: 3rem;
   bottom: 0px;
   position: fixed;
+}
+
+.Chat {
+  margin-left: 10px;
 }
