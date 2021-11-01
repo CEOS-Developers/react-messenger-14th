@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./chatlog.chatroom.scss";
 
 function ChatLog({ id, chats, url }) {

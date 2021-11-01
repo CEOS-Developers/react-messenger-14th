@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Data from "./friends";
+import Data from "../friends";
 import { Link } from "react-router-dom";
 import "./chatlist.chatroom.scss";
 
@@ -15,12 +15,11 @@ function Preview({ user, name, lastChat, url }) {
   );
 }
 
-function ChatList() {
-  let [chat, setChat] = useState(Data);
+function ChatList({ chats, setChats }) {
   return (
     <>
       <div className="chatlist">
-        {chat.map((object, i) => {
+        {chats.map((object, i) => {
           return (
             <Link
               to={`/chatroom/${object.id}`}

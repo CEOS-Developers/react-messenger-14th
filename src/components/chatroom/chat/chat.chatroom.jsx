@@ -3,12 +3,12 @@ import { useParams } from "react-router-dom";
 import "./chat.chatroom.scss";
 import Form from "./form/form.chatroom";
 import ChatLog from "./chatlog/chatlog.chatroom";
-import Data from "./friends";
+
 import Header from "./header/header.chatroom";
 
-function Chat() {
+function Chat({ chats, setChats }) {
   let { id } = useParams();
-  let [chats, setChats] = useState(Data);
+
   let [userId, setUserId] = useState(0);
 
   return (
