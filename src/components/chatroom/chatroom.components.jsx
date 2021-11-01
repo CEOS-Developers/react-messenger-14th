@@ -11,7 +11,7 @@ function Chatroom() {
   return (
     <>
       <Route exact path="/chatroom">
-        <Header />
+        <Header chats={chats} setChats={setChats} />
         <ChatList chats={chats} setChats={setChats} />
       </Route>
       <Route path="/chatroom/:id">
