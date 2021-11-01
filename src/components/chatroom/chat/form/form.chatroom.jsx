@@ -45,20 +45,6 @@ function Buttons() {
   );
 }
 
-// function addChat({ id, setChats, userId, chats, value }) {
-//   let tempChats = chats;
-//   console.log(id);
-//   console.log(setChats);
-//   console.log(userId);
-//   console.log(chats);
-//   console.log(value);
-//   tempChats[id - 1].chats.push({
-//     id: { userId },
-//     chat: { value },
-//   });
-//   setChats(tempChats);
-// }
-
 function Form({ id, userId, chats, setChats }) {
   const [value, setValue] = useState("");
 
