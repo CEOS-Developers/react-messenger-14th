@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import "./chat.chatroom.scss";
-import Form from "./form.chatroom";
-import ChatLog from "./chatlog.chatroom";
+import Form from "./form/form.chatroom";
+import ChatLog from "./chatlog/chatlog.chatroom";
 import Data from "./friends";
-import Header from "./header.chatroom";
+import Header from "./header/header.chatroom";
 
 function Chat() {
   let { id } = useParams();
@@ -25,7 +25,7 @@ function Chat() {
         className="inputForm"
         id={id}
         userId={userId}
-        setUserId={setUserId}
+        chats={chats}
         setChats={setChats}
       />
     </div>

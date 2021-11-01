@@ -45,9 +45,21 @@ function Buttons() {
   );
 }
 
-function addChat({ id, setChats, userId, value }) {}
+// function addChat({ id, setChats, userId, chats, value }) {
+//   let tempChats = chats;
+//   console.log(id);
+//   console.log(setChats);
+//   console.log(userId);
+//   console.log(chats);
+//   console.log(value);
+//   tempChats[id - 1].chats.push({
+//     id: { userId },
+//     chat: { value },
+//   });
+//   setChats(tempChats);
+// }
 
-function Form({ id, userId, setChats }) {
+function Form({ id, userId, chats, setChats }) {
   const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -60,7 +72,19 @@ function Form({ id, userId, setChats }) {
     }
     // window.alert("user:" + user);
     // window.alert("value:" + value);
-    addChat(id, setChats, userId, value);
+    // console.log(id);
+    // console.log(setChats);
+    // console.log(userId);
+    // console.log(chats);
+    // console.log(value);
+    let tempChats = [...chats];
+    tempChats[id - 1].chats.push({
+      id: userId,
+      chat: value,
+    });
+    console.log(tempChats);
+    console.log(chats);
+    setChats(tempChats);
 
     //reset value
     setValue("");
