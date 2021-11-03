@@ -6,6 +6,7 @@ const Friends = ({ users, setUsers }) => {
   return (
     <FriendsContainer>
       <FriendsPageTitle>친구</FriendsPageTitle>
+
       <FriendsList>
         {users &&
           users.map((element) => (

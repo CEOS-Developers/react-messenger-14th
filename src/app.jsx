@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import * as data from './data/data.json';
 import Chattingroom from './pages/chatting/chattingroom';
+import Cover from './pages/cover/cover';
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -34,22 +35,27 @@ const App = () => {
         {/* Route에서 inline으로 component를 넘겨주면 렌더링 할 때마다 새로운 컴포넌트를 만든다. 비추천! */}
         <Content>
           <Route
+            exact
+            path="/"
+            render={() => <Cover users={users} setUsers={setUsers} />}
+          />
+          <Route
             path="/friends"
             render={() => <Friends users={users} setUsers={setUsers} />}
-          ></Route>
+          />
           <Route
             path="/chatting"
             render={() => <Chatting users={users} setUsers={setUsers} />}
-          ></Route>
+          />
           <Route
             path="/more"
             render={() => <More users={users} setUsers={setUsers} />}
-          ></Route>
+          />
           <Route
             // regular expression
             path={`/chattingroom/:id(\d+)?:id`}
             render={() => <Chattingroom users={users} setUsers={setUsers} />}
-          ></Route>
+          />
         </Content>
       </Router>
     </AppContainer>
