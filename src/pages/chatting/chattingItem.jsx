@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const ChattingItem = ({ textMessage, myData, friendData }) => {
-  const profilePictureSrc = textMessage.isMyDialogue
-    ? myData.profilePicture
-    : friendData.profilePicture;
+  const [profilePictureSrc, setProfilePictureSrc] = useState(
+    textMessage.isMyDialogue ? myData.profilePicture : friendData.profilePicture
+  );
+
   return (
     <ChattingItemContainer textMessage={textMessage}>
       <ProfilePicture src={profilePictureSrc}></ProfilePicture>
