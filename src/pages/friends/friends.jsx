@@ -1,9 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import FriendsListItem from './friendsListItem';
 import { BsSearch } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
-import { useEffect } from 'react/cjs/react.development';
 
 const Friends = ({ users, setUsers }) => {
   const [searchingText, setSearchingText] = useState('');
