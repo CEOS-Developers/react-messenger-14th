@@ -5,7 +5,8 @@ function ChatInput({ currentUser, chatList, setChatList }) {
   const handleInputChange = (e) => {
     setMessage(e.target.value);
   };
-  const handleSendMessageBtnClick = () => {
+  const handleSendMessageSubmit = (e) => {
+    e.preventDefault();
     if (message)
       setChatList([
         ...chatList,
@@ -21,17 +22,17 @@ function ChatInput({ currentUser, chatList, setChatList }) {
     setMessage('');
   };
   return (
-    <InputBox>
+    <InputForm onSubmit={handleSendMessageSubmit}>
       <Input
         placeholder="메시지 전송하기"
         onChange={handleInputChange}
         value={message}
       />
-      <Button onClick={handleSendMessageBtnClick}>전송</Button>
-    </InputBox>
+      <Button type="submit">전송</Button>
+    </InputForm>
   );
 }
-const InputBox = styled.div`
+const InputForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
