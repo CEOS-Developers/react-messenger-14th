@@ -12,7 +12,9 @@ function SideBar() {
       <Link to="/chat">
         <BsFillChatFill size={25} style={style} />
       </Link>
-      <FiMoreHorizontal size={25} style={style} />
+      <Link to="/settings">
+        <FiMoreHorizontal size={25} style={style} />
+      </Link>
     </Wrapper>
   );
 }

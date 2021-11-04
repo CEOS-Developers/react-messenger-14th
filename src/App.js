@@ -5,6 +5,7 @@ import SideBar from './components/SideBar';
 import ChattingList from './pages/ChattingList';
 import FriendsList from './pages/FriendsList';
 import ChatRoom from './pages/ChatRoom';
+import Settings from './pages/Settings';
 function App() {
   return (
     <>
@@ -13,9 +14,10 @@ function App() {
         <SideBar />
         <Body>
           <Switch>
-            <Route path="/friends" component={FriendsList} />
+            <Route path="/friends" hello={'안녕'} component={FriendsList} />
             <Route path="/chat" component={ChattingList} />
             <Route path="/chatroom/:id" component={ChatRoom} />
+            <Route path="/settings" component={Settings} />
           </Switch>
         </Body>
       </Container>
