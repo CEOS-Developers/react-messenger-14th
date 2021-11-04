@@ -7,26 +7,17 @@ import {
   ColContainer,
   RecentMessageContainer,
 } from './ListPresenter';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ProfileImage } from '../icons';
+import ModalComponent from './Modal';
 
 const ListContainer = ({ messengerData }) => {
-  useEffect(() => {
-    console.log(messengerData);
-  }, [messengerData]);
-
   return (
     <Container>
       <ListHeaderContainer>
         <RowContainer>
           <h4>n0wkim</h4>
-          <img
-            style={{ marginLeft: 10 }}
-            src="img/magnifying.png"
-            width="20"
-            height="20px"
-            alt="arrow"
-          ></img>
+          <ModalComponent messengerData={messengerData} />
         </RowContainer>
       </ListHeaderContainer>
       <ListContentContainer>
@@ -52,7 +43,6 @@ const ListContainer = ({ messengerData }) => {
             );
           })}
         </ul>
-        <Outlet />
       </ListContentContainer>
     </Container>
   );

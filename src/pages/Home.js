@@ -33,7 +33,7 @@ const Home = () => {
       },
     ];
     // set하지 않았는데 왜 화면에 찍히지?
-    setMessengerData(newObj, show());
+    setMessengerData(newObj);
   };
   function show() {
     alert('done');
@@ -42,7 +42,6 @@ const Home = () => {
 
   useEffect(() => {
     setMessengerData(chatdata);
-    console.log(`This page's url is ${path}`);
   }, [path]);
 
   return (
