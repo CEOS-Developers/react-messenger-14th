@@ -20,7 +20,7 @@ import dateToString from '../../utils/date';
 
 const MessengerContainer = ({ messengerData, onSubmit }) => {
   const [text, setText] = useState('');
-  const [isMe, setIsMe] = useState(true);
+  const [isMe, setIsMe] = useState(0);
 
   //scroll 조절
   const scrollRef = useRef();
@@ -42,7 +42,7 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
       window.alert('공백 메시지는 보낼 수 없어요~');
     } else {
       onSubmit({
-        id: isMe,
+        userId: isMe,
         text: text,
         date: new Date().getTime(),
         isHeart: false,
@@ -56,16 +56,14 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
     handleSubmitButtonClick();
   };
   const onChange = (e) => {
-    const nextForm = e.target.value;
-    setText(nextForm);
+    setText(e.target.value);
   };
 
   const onHeartButtonClick = () => {
-    console.log('heart 누름');
     // heart submit해야함.
-    setText('');
+    setText('❤️');
     onSubmit({
-      id: isMe,
+      userId: isMe,
       text: text,
       date: new Date().getTime(),
       isHeart: true,
@@ -130,10 +128,10 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
   }
 
   function renderMessages() {
-    return messengerData.chatData.map((element, index) => {
+    return messengerData.chatData.map((element) => {
       return (
-        <Chat isMe={element.isMe} key={index}>
-          {renderProfile(element.isMe)}
+        <Chat isMe={element.userId} key={element.date}>
+          {renderProfile(element.userId)}
           {element.isHeart ? (
             renderHeart()
           ) : (
@@ -150,7 +148,7 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
   function renderProfile(prop, isTop) {
     return (
       <>
-        {!prop ? (
+        {prop ? (
           <>
             <ProfileImage
               alt="profile-img"

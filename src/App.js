@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { Wrap } from './components/MainContainer';
 import GlobalStyle from './GlobalStyle';
@@ -13,8 +13,10 @@ const App = () => {
       <Header />
       <GlobalStyle />
       <Wrap>
-        <Route path="/" component={Home} exact={true} />
-        <Route path="/settings" component={Settings} />
+        <Routes>
+          <Route path="/" element={<Home />} exact={true} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
       </Wrap>
     </>
   );

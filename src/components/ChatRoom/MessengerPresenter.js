@@ -28,7 +28,7 @@ export const Chat = styled.div`
   margin-top: 6px;
   margin-bottom: 6px;
   align-items: flex-end;
-  flex-direction: ${(props) => (props.isMe ? 'row-reverse' : 'row')};
+  flex-direction: ${(props) => (props.isMe ? 'row' : 'row-reverse')};
 `;
 export const ChatBubble = styled.div`
   display: flex;

@@ -15,7 +15,9 @@ export const RowContainer = styled.div`
   }
 `;
 export const IconContainer = styled.div`
-  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
   .icon {
     margin-right: 24px;
   }

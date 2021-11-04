@@ -11,6 +11,23 @@ export const Container = styled.div`
     width: 100vw;
   }
 `;
+export const RowContainer = styled.div`
+  flex-direction: row;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  margin: 15px;
+`;
+export const RecentMessageContainer = styled.div`
+  font-size: 14px;
+  color: gray;
+`;
+export const ColContainer = styled.div`
+  flex-direction: column;
+  background-color: white;
+  display: flex;
+  margin-left: 10px;
+`;
 export const ListContentContainer = styled.ul`
   height: 75vh;
   flex: 1;

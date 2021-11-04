@@ -5,6 +5,8 @@ import {
   RowContainer,
   IconContainer,
 } from './HeaderPresenter';
+import { Link } from 'react-router-dom';
+import { ProfileImage } from '../icons';
 
 const HeaderContainer = () => {
   const [text, setText] = useState('');
@@ -36,24 +38,24 @@ const HeaderContainer = () => {
       </Form>
       <IconContainer>
         <img className="icon" src="img/home.png" width="22px" alt="home"></img>
-        <img
-          className="icon"
-          src="img/plane.png"
-          width="22px"
-          alt="plane"
-        ></img>
+        <Link to="/">
+          <img className="icon" src="img/plane.png" width="22px" alt="plane" />
+        </Link>
         <img
           className="icon"
           src="img/compass.png"
           width="22px"
           alt="compass"
-        ></img>
-        <img
-          className="icon"
-          src="img/heart.png"
-          width="22px"
-          alt="heart"
-        ></img>
+        />
+        <img className="icon" src="img/heart.png" width="22px" alt="heart" />
+        <Link to="settings">
+          <ProfileImage
+            alt="profile-img"
+            src="img/noImg.png"
+            width="22px"
+            height="22px"
+          />
+        </Link>
       </IconContainer>
     </RowContainer>
   );
