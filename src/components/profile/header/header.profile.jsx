@@ -4,19 +4,14 @@ import mainProfilePicture from "./profile1.jpeg";
 import searchIcon from "./mag.png";
 import addFriendIcon from "./add.png";
 
-function Header() {
+function Header({ onSearchChange }) {
   let [searchToggle, setSearchToggle] = useState(false);
   return (
     <>
       <div className="Header">
         <h1>친구</h1>
         {searchToggle === true ? (
-          <input
-            placeholder="검색"
-            // onChange={(e) => {
-            //   Search(chats, setChats, e.target.value);
-            // }}
-          />
+          <input placeholder="검색" onChange={onSearchChange} />
         ) : null}
         <div className="Buttons">
           <img

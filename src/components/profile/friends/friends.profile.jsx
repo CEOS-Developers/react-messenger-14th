@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Data from "./friends";
+
 import "./friends.profile.scss";
 
 import { Link } from "react-router-dom";
@@ -16,8 +16,7 @@ function Friend({ id, name, description, img }) {
   );
 }
 
-function Friends() {
-  let [friendsList, setFriendsList] = useState(Data);
+function Friends({ friendsList }) {
   return (
     <div className="List">
       <p style={{ marginLeft: "25px" }}>친구 {friendsList.length}</p>

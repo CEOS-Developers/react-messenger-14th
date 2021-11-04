@@ -1,29 +1,14 @@
 import React, { useState } from "react";
 import searchIcon from "./mag.png";
 
-function Search(chats, setChats, value) {
-  let tempChats = chats.filter((chat) => {
-    chat.name.includes(value) ||
-      chat.chats[chat.chats.length - 1].chat.includes(value);
-  });
-  // console.log(tempChats);
-  console.log(value);
-  // setChats(tempChats);
-}
-
-function Header({ chats, setChats }) {
+function Header({ onSearchChange }) {
   let [searchToggle, setSearchToggle] = useState(false);
 
   return (
     <div className="Header">
       <h1>채팅</h1>
       {searchToggle === true ? (
-        <input
-          placeholder="검색"
-          onChange={(e) => {
-            Search(chats, setChats, e.target.value);
-          }}
-        />
+        <input placeholder="검색" onChange={onSearchChange} />
       ) : null}
       <div className="Buttons">
         <img

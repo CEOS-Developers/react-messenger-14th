@@ -7,12 +7,22 @@ import Data from "./friends";
 
 function Chatroom() {
   let [chats, setChats] = useState(Data);
+  let [searchData, setSearchData] = useState("");
+  let tempChats = chats.filter(
+    (chat) =>
+      chat.name.includes(searchData) ||
+      chat.chats[chat.chats.length - 1].chat.includes(searchData)
+  );
+
+  function onSearchChange(e) {
+    setSearchData(e.target.value);
+  }
 
   return (
     <>
       <Route exact path="/chatroom">
-        <Header chats={chats} setChats={setChats} />
-        <ChatList chats={chats} setChats={setChats} />
+        <Header onSearchChange={onSearchChange} />
+        <ChatList chats={tempChats} setChats={setChats} />
       </Route>
       <Route path="/chatroom/:id">
         <Chat chats={chats} setChats={setChats} />
