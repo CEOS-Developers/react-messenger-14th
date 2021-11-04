@@ -4,6 +4,7 @@ import { MainContainer } from '../components/MainContainer';
 import ListContainer from '../components/ChatRoomList/ListContainer';
 import MessengerContainer from '../components/ChatRoom/MessengerContainer';
 import chatdata from '../data/chats.json';
+import { useParams } from 'react-router-dom';
 
 const Home = () => {
   // 채팅방에 대한 모든 정보
@@ -15,13 +16,15 @@ const Home = () => {
     },
   ]);
 
+  const { path } = useParams();
+
   // form에서 입력받은대로 submit결과를 핸들링
   const handleSubmit = (input) => {
-    console.log(input);
     const newObj = messengerData;
-    newObj.recentChatSend = input.date;
-    newObj.chatData = [
-      ...newObj.chatData,
+    //console.log(input);
+    newObj[input.with - 1].recentChatSend = input.date;
+    newObj[input.with - 1].chatData = [
+      ...newObj[input.with - 1].chatData,
       {
         date: input.date,
         text: input.text,
@@ -30,20 +33,24 @@ const Home = () => {
       },
     ];
     // set하지 않았는데 왜 화면에 찍히지?
-    //console.log(newObj);
-    setMessengerData(newObj);
+    setMessengerData(newObj, show());
   };
+  function show() {
+    alert('done');
+    console.log(messengerData);
+  }
 
   useEffect(() => {
     setMessengerData(chatdata);
-  }, []);
+    console.log(`This page's url is ${path}`);
+  }, [path]);
 
   return (
     <MainContainer>
       <ListContainer messengerData={messengerData} />
       <MessengerContainer
         onSubmit={handleSubmit}
-        messengerData={messengerData[0]}
+        messengerData={messengerData[path - 1]}
       />
     </MainContainer>
   );

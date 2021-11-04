@@ -46,6 +46,7 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
         text: text,
         date: new Date().getTime(),
         isHeart: false,
+        with: messengerData.id,
       });
       setText('');
       setChatEdit(!chatEdit);
@@ -61,12 +62,13 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
 
   const onHeartButtonClick = () => {
     // heart submit해야함.
-    setText('❤️');
+    setText('');
     onSubmit({
       userId: isMe,
-      text: text,
+      text: '❤️',
       date: new Date().getTime(),
       isHeart: true,
+      with: messengerData.id,
     });
     setChatEdit(!chatEdit);
   };
@@ -152,11 +154,11 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
           <>
             <ProfileImage
               alt="profile-img"
-              src="img/1.png"
+              src={`img/${messengerData.id}.png`}
               width="22px"
               height="22px"
             />
-            <>{isTop ? <h4>__kiuk</h4> : <></>}</>
+            <>{isTop ? <h4>{messengerData.name}</h4> : <></>}</>
           </>
         ) : (
           <>

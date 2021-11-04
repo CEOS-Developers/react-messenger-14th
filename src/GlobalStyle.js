@@ -7,7 +7,10 @@ body {
   margin: 0;
   background-color: ${COLORS.background};
 }
-
+a{
+  text-decoration-line : none;
+  color: black;
+}
 /* body {
   width: 100vw;
   height: 100vh;

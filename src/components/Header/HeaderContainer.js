@@ -14,7 +14,7 @@ const HeaderContainer = () => {
   const handleSubmitButtonClick = () => {
     // 일단은 아무일도 안 일어나고 초기화만
     setText('');
-    window.alert('미구현입니다~');
+    window.alert('집가고싶다 나 자고싶다 이제 그만하고싶어');
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +27,9 @@ const HeaderContainer = () => {
 
   return (
     <RowContainer>
-      <img src="img/logo.png" width="103px" height="29px" alt="logo"></img>
+      <Link to="/">
+        <img src="img/logo.png" width="103px" height="29px" alt="logo"></img>
+      </Link>
       <Form onSubmit={handleSubmit}>
         <TextInput
           type="text"
@@ -38,7 +40,7 @@ const HeaderContainer = () => {
       </Form>
       <IconContainer>
         <img className="icon" src="img/home.png" width="22px" alt="home"></img>
-        <Link to="/">
+        <Link to="/1">
           <img className="icon" src="img/plane.png" width="22px" alt="plane" />
         </Link>
         <img

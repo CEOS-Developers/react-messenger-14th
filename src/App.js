@@ -14,12 +14,12 @@ const App = () => {
       <GlobalStyle />
       <Wrap>
         <Routes>
-          <Route path="/" element={<Home />} exact={true} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/" element={<></>} />
+          <Route path="/:path" element={<Home />} />
+          <Route path="settings" element={<Settings />} />
         </Routes>
       </Wrap>
     </>
   );
 };
-
 export default App;

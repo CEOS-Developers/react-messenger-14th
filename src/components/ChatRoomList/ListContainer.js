@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Container,
   ListHeaderContainer,
@@ -7,9 +7,14 @@ import {
   ColContainer,
   RecentMessageContainer,
 } from './ListPresenter';
+import { Link, Outlet } from 'react-router-dom';
 import { ProfileImage } from '../icons';
 
-const ListContainer = ({ messengerData }) => {
+const ListContainer = ({ messengerData, idHandle }) => {
+  useEffect(() => {
+    console.log(messengerData);
+  }, [messengerData]);
+
   return (
     <Container>
       <ListHeaderContainer>
@@ -19,23 +24,26 @@ const ListContainer = ({ messengerData }) => {
         <ul>
           {messengerData.map((element) => {
             return (
-              <RowContainer>
-                <ProfileImage
-                  alt="profile-img"
-                  src={`img/${element.id}.png`}
-                  width="56px"
-                  height="56px"
-                />
-                <ColContainer>
-                  <p>{element.name}</p>
-                  <RecentMessageContainer>
-                    {element.chatData.slice(-1)[0].text}
-                  </RecentMessageContainer>
-                </ColContainer>
-              </RowContainer>
+              <Link to={`/${element.id}`}>
+                <RowContainer key={element.id}>
+                  <ProfileImage
+                    alt="profile-img"
+                    src={`img/${element.id}.png`}
+                    width="56px"
+                    height="56px"
+                  />
+                  <ColContainer>
+                    <p>{element.name}</p>
+                    <RecentMessageContainer>
+                      {element.chatData.slice(-1)[0].text}
+                    </RecentMessageContainer>
+                  </ColContainer>
+                </RowContainer>
+              </Link>
             );
           })}
         </ul>
+        <Outlet />
       </ListContentContainer>
     </Container>
   );
