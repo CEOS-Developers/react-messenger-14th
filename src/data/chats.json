@@ -33,11 +33,17 @@
   {
     "id": 2,
     "name": "pickyfarm",
-    "recentChatSend": 1636024754016,
+    "recentChatSend": 1636024754036,
     "chatData": [
       {
         "date": 1636024754016,
         "text": "안녕하세요~",
+        "userId": 2,
+        "isHeart": false
+      },
+      {
+        "date": 1636024754036,
+        "text": "혹시 사과 좋아하세요?",
         "userId": 2,
         "isHeart": false
       }

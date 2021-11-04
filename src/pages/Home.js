@@ -16,13 +16,15 @@ const Home = () => {
     },
   ]);
 
+  const [room, setRoom] = useState(true);
+
   const { path } = useParams();
 
   // form에서 입력받은대로 submit결과를 핸들링
   const handleSubmit = (input) => {
     const newObj = messengerData;
-    console.log(input);
-    console.log(newObj);
+    // console.log(input);
+    // console.log(newObj);
     newObj[input.with - 1].recentChatSend = input.date;
     newObj[input.with - 1].chatData = [
       ...newObj[input.with - 1].chatData,
@@ -33,19 +35,30 @@ const Home = () => {
         isHeart: input.isHeart,
       },
     ];
-    //set하지 않았는데 왜 화면에 찍히지?
     setMessengerData(newObj);
   };
 
   useEffect(() => {
     setMessengerData(chatdata);
-    console.log(chatdata);
+    // console.log(chatdata);
   }, [path]);
+
+  const handleRoom = (input) => {
+    console.log('after:');
+    console.log(input);
+    setRoom(input);
+  };
 
   return (
     <MainContainer>
-      <ListContainer messengerData={messengerData} />
+      <ListContainer
+        messengerData={messengerData}
+        room={room}
+        toggleRoom={handleRoom}
+      />
       <MessengerContainer
+        room={!room}
+        toggleRoom={handleRoom}
         onSubmit={handleSubmit}
         messengerData={messengerData[path - 1]}
       />

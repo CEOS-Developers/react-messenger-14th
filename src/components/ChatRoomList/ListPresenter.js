@@ -7,6 +7,7 @@ export const Container = styled.div`
   background-color: white;
   // mobile version
   @media screen and (max-width: 600px) {
+    display: ${(props) => (props.room ? 'flex' : 'none')};
     height: 100vh;
     width: 100vw;
   }

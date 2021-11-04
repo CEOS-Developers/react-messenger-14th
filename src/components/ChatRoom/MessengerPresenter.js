@@ -6,9 +6,24 @@ export const Container = styled.div`
   background-color: white;
   // mobile version
   @media screen and (max-width: 600px) {
-    display: none;
+    display: ${(props) => (props.room ? 'flex' : 'none')};
+    height: 100vh;
+    width: 100vw;
   }
 `;
+export const GoBack = styled.div`
+  @media screen and (max-width: 600px) {
+    background-image: ${({ src }) => `url(${src})`};
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: ${(props) => props.width};
+    height: ${(props) => props.height};
+    margin-left: 10px;
+  }
+`;
+
 export const ChatContainer = styled.div`
   height: inherit;
   display: flex;
@@ -84,8 +99,13 @@ export const UserProfile = styled.div`
 
   align-items: center;
   justify-content: center;
+  margin-left: 15px;
+`;
+export const TopContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 
-  margin-left: 40px;
+  align-items: center;
 `;
 
 export const MessengerTextFormContainer = styled.div`

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Container,
   ListHeaderContainer,
@@ -11,9 +11,15 @@ import { Link } from 'react-router-dom';
 import { ProfileImage } from '../icons';
 import ModalComponent from './Modal';
 
-const ListContainer = ({ messengerData }) => {
+const ListContainer = ({ messengerData, room, toggleRoom }) => {
+  const handleClick = () => {
+    console.log('before : ');
+    console.log(room);
+    toggleRoom(!room);
+  };
+
   return (
-    <Container>
+    <Container room={room}>
       <ListHeaderContainer>
         <RowContainer>
           <h4>n0wkim</h4>
@@ -25,7 +31,7 @@ const ListContainer = ({ messengerData }) => {
           {messengerData.map((element) => {
             return (
               <Link to={`/${element.id}`}>
-                <RowContainer key={element.id}>
+                <RowContainer key={element.id} onClick={handleClick}>
                   <ProfileImage
                     alt="profile-img"
                     src={`img/${element.id}.png`}

@@ -13,13 +13,15 @@ import {
   TextBox,
   TimeBox,
   HeartContainer,
+  GoBack,
+  TopContainer,
 } from './MessengerPresenter';
 
 import { ProfileImage, Button, HeartImg } from '../icons';
 import dateToString from '../../utils/date';
 import { useParams } from 'react-router-dom';
 
-const MessengerContainer = ({ messengerData, onSubmit }) => {
+const MessengerContainer = ({ messengerData, onSubmit, room, toggleRoom }) => {
   const { path } = useParams();
   const [text, setText] = useState('');
   const [isMe, setIsMe] = useState(0);
@@ -184,20 +186,30 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
       </>
     );
   }
+  const handleRoomClick = () => {
+    console.log('before : ');
+    console.log(room);
+    toggleRoom(room);
+  };
 
   return (
-    <Container>
+    <Container room={room}>
       <MessengerHeaderContainer>
-        <UserProfile onClick={onClickToggle}>
-          {renderProfile(isMe, true)}
-        </UserProfile>
-        <Button>
-          <img
-            className="icon"
-            src="img/info.png"
+        <TopContainer>
+          <GoBack
+            room={room}
+            onClick={handleRoomClick}
+            alt="profile-img"
+            src="img/goback.png"
             width="22px"
-            alt="info"
-          ></img>
+            height="22px"
+          />
+          <UserProfile onClick={onClickToggle}>
+            {renderProfile(isMe, true)}
+          </UserProfile>
+        </TopContainer>
+        <Button>
+          <img className="icon" src="img/info.png" width="22px" alt="info" />
         </Button>
       </MessengerHeaderContainer>
       <MessengerContentContainer>
