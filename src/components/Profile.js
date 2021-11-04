@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import user from '../data/user';
 function Profile({ currentUser, setCurrentUser, userId }) {
   const handleChangeUser = () => {
-    currentUser ? setCurrentUser(0) : setCurrentUser(userId);
+    currentUser ? setCurrentUser(0) : setCurrentUser(userId.id);
   };
   const { profileImg, name, status } = user[currentUser];
   return (
