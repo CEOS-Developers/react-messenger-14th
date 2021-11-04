@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import user from '../data/user';
+import users from '../data/user';
 import savedChat from '../data/savedChat';
 import TopBar from '../components/TopBar';
+import SearchBox from '../components/SearchBox';
 function ChattingList() {
+  const [searchClick, setSearchClick] = useState(false);
+  const [search, setSearch] = useState('');
+  const onSearchButtonClicked = () => {
+    setSearchClick(!searchClick);
+  };
+  const handleSearchInputChange = (e) => {
+    setSearch(e.target.value);
+  };
+  const searchResult = savedChat.filter((chat) => {
+    return chat.name.includes(search);
+  });
   return (
     <Container>
-      <TopBar current="chat" />
-      {savedChat.map((chats) => {
+      <TopBar current="chat" onSearchButtonClicked={onSearchButtonClicked} />
+      {searchClick ? (
+        <SearchBox
+          searchClick={searchClick}
+          setSearchClick={setSearchClick}
+          handleInputChange={handleSearchInputChange}
+        />
+      ) : (
+        ''
+      )}
+      {searchResult.map((chats) => {
         const lenChat = chats.chat.length;
         return (
           <StyledLink to={`/chatroom/${chats.userId}`} key={chats.userId}>
@@ -17,11 +38,11 @@ function ChattingList() {
                 src={
                   process.env.PUBLIC_URL +
                   '/img/' +
-                  user[chats.userId].profileImg
+                  users[chats.userId].profileImg
                 }
               />
               <NameWrapper>
-                <Name>{user[chats.userId].name}</Name>
+                <Name>{users[chats.userId].name}</Name>
                 <div>{chats.chat[lenChat - 1].text}</div>
               </NameWrapper>
             </Wrapper>

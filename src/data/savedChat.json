@@ -1,6 +1,7 @@
 [
   {
     "userId": 1,
+    "name": "라이언",
     "chat": [
       {
         "chatId": 0,
@@ -21,6 +22,7 @@
   },
   {
     "userId": 2,
+    "name": "탱",
     "chat": [
       {
         "chatId": 0,

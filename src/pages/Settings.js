@@ -17,6 +17,7 @@ function Settings() {
 const Container = styled.div`
   width: 100%;
 `;
+
 const Img = styled.img`
   width: 100px;
 `;

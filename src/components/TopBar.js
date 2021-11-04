@@ -7,10 +7,14 @@ function TopBar({ current, onSearchButtonClicked }) {
     <>
       <Wrapper>
         <Title>{menu[current]}</Title>
-        <AiOutlineSearch
-          size={30}
-          onClick={onSearchButtonClicked}
-        ></AiOutlineSearch>
+        {current === 'friends' || 'chat' ? (
+          <AiOutlineSearch
+            size={30}
+            onClick={onSearchButtonClicked}
+          ></AiOutlineSearch>
+        ) : (
+          ''
+        )}
       </Wrapper>
     </>
   );
