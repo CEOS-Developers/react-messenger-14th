@@ -49,7 +49,7 @@ const Chatting = ({ users, setUsers }) => {
       )}
       <FriendsList>
         {currentUsers &&
-          currentUsers
+          [...currentUsers] //users가 정렬되지 않도록!
             .sort((a, b) => {
               return a.dialogue[a.dialogue.length - 1].time <
                 b.dialogue[b.dialogue.length - 1].time
