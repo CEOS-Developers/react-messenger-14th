@@ -11,7 +11,7 @@
 
 # 🚩 결과물
 
-- 배포 주소 : https://react-messenger-14th-one.vercel.app/friends
+- 배포 주소 : https://react-messenger-14th-one.vercel.app
 - 예시 화면
 
 1. 홈 화면
