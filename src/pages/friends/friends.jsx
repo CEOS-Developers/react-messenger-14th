@@ -75,10 +75,10 @@ const SearchButton = styled.section`
 const SearchBar = styled.input`
   margin-left: 20px;
   width: 60vw;
-  height: 3vmax;
+  height: 30px;
   border-radius: 3vw;
   border: 1px solid;
-  text-align: center;
+  padding-left: 15px;
 `;
 
 const FriendsPageTitle = styled.div`
