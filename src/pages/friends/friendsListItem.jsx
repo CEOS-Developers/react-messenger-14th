@@ -1,20 +1,18 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const FriendsListItem = ({ user }) => {
-  const name = useRef();
-
   return (
-    <StyledLink to={`/chattingroom/${user.id}`}>
-      <StyledLi>
+    <FriendsListItemLink to={`/chattingroom/${user.id}`}>
+      <ListItem>
         <StyledImg src={user.profilePicture} alt="프로필 사진" />
         <UserInfo>
-          <UserName ref={name}>{user.name}</UserName>
+          <UserName>{user.name}</UserName>
           <UserStatusMessage>{user.statusMessage}</UserStatusMessage>
         </UserInfo>
-      </StyledLi>
-    </StyledLink>
+      </ListItem>
+    </FriendsListItemLink>
   );
 };
 
@@ -24,7 +22,7 @@ export const StyledImg = styled.img`
   border-radius: 35%;
 `;
 
-const StyledLi = styled.li`
+const ListItem = styled.li`
   padding: 10px 25px;
   display: flex;
   align-items: center;
@@ -45,7 +43,7 @@ const UserStatusMessage = styled.div`
   font-weight: 300;
   margin-top: 3px;
 `;
-const StyledLink = styled(Link)`
+const FriendsListItemLink = styled(Link)`
   all: unset;
   :hover {
     cursor: pointer;
