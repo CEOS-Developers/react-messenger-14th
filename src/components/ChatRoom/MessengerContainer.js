@@ -17,8 +17,10 @@ import {
 
 import { ProfileImage, Button, HeartImg } from '../icons';
 import dateToString from '../../utils/date';
+import { useParams } from 'react-router-dom';
 
 const MessengerContainer = ({ messengerData, onSubmit }) => {
+  const { path } = useParams();
   const [text, setText] = useState('');
   const [isMe, setIsMe] = useState(0);
 
@@ -35,6 +37,10 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
   useEffect(() => {
     scrollToBottom();
   }, [chatEdit]);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [path]);
 
   const handleSubmitButtonClick = () => {
     // form이 clear되면서 todoList에 값이 추가되어야 함.
@@ -74,7 +80,11 @@ const MessengerContainer = ({ messengerData, onSubmit }) => {
   };
   // 나인지, 상대인지 토글
   function onClickToggle() {
-    setIsMe(!isMe);
+    if (isMe) {
+      setIsMe(0);
+    } else {
+      setIsMe(messengerData.id);
+    }
   }
 
   function renderForm() {

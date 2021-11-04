@@ -21,7 +21,8 @@ const Home = () => {
   // form에서 입력받은대로 submit결과를 핸들링
   const handleSubmit = (input) => {
     const newObj = messengerData;
-    //console.log(input);
+    console.log(input);
+    console.log(newObj);
     newObj[input.with - 1].recentChatSend = input.date;
     newObj[input.with - 1].chatData = [
       ...newObj[input.with - 1].chatData,
@@ -32,16 +33,13 @@ const Home = () => {
         isHeart: input.isHeart,
       },
     ];
-    // set하지 않았는데 왜 화면에 찍히지?
+    //set하지 않았는데 왜 화면에 찍히지?
     setMessengerData(newObj);
   };
-  function show() {
-    alert('done');
-    console.log(messengerData);
-  }
 
   useEffect(() => {
     setMessengerData(chatdata);
+    console.log(chatdata);
   }, [path]);
 
   return (

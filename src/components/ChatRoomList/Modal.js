@@ -33,14 +33,21 @@ const ModalComponent = ({ messengerData }) => {
 
   // text = input값으로, 검색. -> text가 바뀔 때마다 검색하면 됨.
   useEffect(() => {
-    handleSearch(text);
+    if (text) {
+      handleSearch(text);
+    }
   }, [text]);
+
+  useEffect(() => {
+    setSearchedData(messengerData);
+  }, [messengerData]);
 
   function handleSearch(input) {
     const result = messengerData.filter((data) => {
+      console.log(data.name);
+      console.log(input);
       return data.name.search(input) !== -1;
     });
-    console.log(result);
     setSearchedData(result);
   }
 
@@ -50,11 +57,10 @@ const ModalComponent = ({ messengerData }) => {
 
   function closeModal() {
     setIsOpen(false);
+    setText('');
   }
 
   const handleClicked = (e) => {
-    console.log('handle clicked!');
-    console.log(e.target.id);
     navigate(`/${e.target.id}`);
     closeModal();
   };
