@@ -14,8 +14,26 @@ const user = [
   {
     id: 2,
     name: '탱',
-    status: '과제중',
+    status: '휴학라이프 행복ㅎ',
     profileImg: 'taeeun.png',
+  },
+  {
+    id: 3,
+    name: '행운의 고양이',
+    status: '행운을 드립니다',
+    profileImg: 'cat.jpg',
+  },
+  {
+    id: 4,
+    name: 'sook',
+    status: '아직 시험 안끝남..',
+    profileImg: 'sook.png',
+  },
+  {
+    id: 5,
+    name: '옞니',
+    status: 'ㅇ.<',
+    profileImg: 'yejin.png',
   },
 ];
 export default user;

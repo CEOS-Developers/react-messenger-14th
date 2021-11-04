@@ -36,6 +36,69 @@
       },
       {
         "chatId": 2,
+        "text": "나도",
+        "userId": 0
+      }
+    ]
+  },
+  {
+    "userId": 3,
+    "name": "행운의 고양이",
+    "chat": [
+      {
+        "chatId": 0,
+        "text": "안녕",
+        "userId": 3
+      },
+      {
+        "chatId": 1,
+        "text": "너도 고양이야?",
+        "userId": 3
+      },
+      {
+        "chatId": 2,
+        "text": "...",
+        "userId": 0
+      }
+    ]
+  },
+  {
+    "userId": 4,
+    "name": "sook",
+    "chat": [
+      {
+        "chatId": 0,
+        "text": "안녕",
+        "userId": 4
+      },
+      {
+        "chatId": 1,
+        "text": "춘식아 사랑해",
+        "userId": 4
+      },
+      {
+        "chatId": 2,
+        "text": "약간 부담..",
+        "userId": 0
+      }
+    ]
+  },
+  {
+    "userId": 5,
+    "name": "옞니",
+    "chat": [
+      {
+        "chatId": 0,
+        "text": "안녕",
+        "userId": 5
+      },
+      {
+        "chatId": 1,
+        "text": "춘식아 사랑해",
+        "userId": 5
+      },
+      {
+        "chatId": 2,
         "text": "약간 부담..",
         "userId": 0
       }
