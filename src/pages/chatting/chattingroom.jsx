@@ -166,6 +166,8 @@ const StyledTextArea = styled.textarea`
   resize: none;
   outline: none;
   box-shadow: none;
+  font-family: 고딕, arial;
+  font-size: 20px;
 `;
 
 const ChattingRoomContainer = styled.div`
