@@ -13,7 +13,6 @@ export const Container = styled.div`
 `;
 export const RowContainer = styled.div`
   flex-direction: row;
-  background-color: white;
   display: flex;
   align-items: center;
   margin: 15px;

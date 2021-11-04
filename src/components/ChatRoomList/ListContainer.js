@@ -10,7 +10,7 @@ import {
 import { Link, Outlet } from 'react-router-dom';
 import { ProfileImage } from '../icons';
 
-const ListContainer = ({ messengerData, idHandle }) => {
+const ListContainer = ({ messengerData }) => {
   useEffect(() => {
     console.log(messengerData);
   }, [messengerData]);
@@ -18,7 +18,16 @@ const ListContainer = ({ messengerData, idHandle }) => {
   return (
     <Container>
       <ListHeaderContainer>
-        <h4>n0wkim</h4>
+        <RowContainer>
+          <h4>n0wkim</h4>
+          <img
+            style={{ marginLeft: 10 }}
+            src="img/magnifying.png"
+            width="20"
+            height="20px"
+            alt="arrow"
+          ></img>
+        </RowContainer>
       </ListHeaderContainer>
       <ListContentContainer>
         <ul>
