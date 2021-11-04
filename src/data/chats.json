@@ -46,24 +46,31 @@
   {
     "id": 3,
     "name": "j__hy_n",
-    "recentChatSend": 1636055381219,
+    "recentChatSend": 1636057089143,
     "chatData": [
       {
         "date": 1636055381219,
-        "text": "음......",
+        "text": "음",
         "userId": 3,
         "isHeart": false
       },
       {
-        "date": 1636055381219,
-        "text": "알아서 해주세요~",
+        "date": 1636058030294,
+        "text": "하하하하ㅏ하",
         "userId": 3,
         "isHeart": false
-      },
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "dddd",
+    "recentChatSend": 1636057100752,
+    "chatData": [
       {
-        "date": 1636055381219,
-        "text": "아 왜 오류가 생기지",
-        "userId": 0,
+        "date": 1636057100752,
+        "text": "어림도없지",
+        "userId": 4,
         "isHeart": false
       }
     ]
