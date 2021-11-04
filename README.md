@@ -2,13 +2,28 @@
 
 이 저장소는 IT창업동아리 CEOS(https://www.ceos.or.kr/) 프론트엔드 팀에서 스터디를 하며 수행한 미션의 결과를 공유합니다.
 
-# 🚩 미션 원문 링크
+# 🚩 미션 내용
 
-https://github.com/CEOS-Developers/react-messenger-14th
+- 원문링크: https://github.com/CEOS-Developers/react-messenger-14th
+- CEOS 4주차 미션은 react를 이용하여 메신저(카톡, 인스타 등 자유)를 클론코딩하는 것입니다.
+- react-dom을 이용해 친구 목록/ 채팅방 목록/ 더보기 페이지를 구현했습니다.
+- json으로 지정된 파일을 받아와서 읽고, 대화방에서 상단 프로필 클릭시 대화 상대를 전환할 수 있습니다.
 
-# 🚩 결과물 링크(vercel로 배포)
+# 🚩 결과물
 
-https://react-messenger-14th-one.vercel.app/friends
+- 배포 주소 : https://react-messenger-14th-one.vercel.app/friends
+- 예시 화면
+
+1. 홈 화면
+   ![01](public/01.png)
+2. 친구 목록 화면
+   ![02](public/02.png)
+3. 채팅방 목록 화면
+   ![03](public/03.png)
+4. 채팅방 내부
+   ![04](public/04.png)
+5. 더보기
+   ![05](public/05.png)
 
 # 🚩 미션 목표
 
@@ -27,18 +42,14 @@ https://react-messenger-14th-one.vercel.app/friends
 - [x] 컴포넌트 이름을 역할이 잘 드러나게 짓는다.
 - [x] 개발자도구에서 Style을 복사하지말고, 직접 styled-components를 사용하여 만드는 연습을 한다ㅠㅠ.
 - [x] 결과 화면을 구현한다.
+- [x] router-dom 이용
+- [x] 검색 기능 구현
 
 # ✔ 참고사항
 
-- 아직 프로필 전환과 관련하여 버그가 있습니다.ㅠㅠ
-- router-dom을 이용하여 여러 페이지를 만들어보려고 했습니다.
-- input태그를 사용하는 대신 textarea태그를 활용하여 조금 더 카카오톡과 같은 UI를 나타내고자 했습니다.abs
+- input태그를 사용하는 대신 textarea태그를 활용하여 조금 더 카카오톡과 같은 UI를 나타내고자 했습니다.
 - 미션의 결과화면과 다르게 친구 목록에서 바로 채팅방으로 이동할 수 있도록 했습니다. 후에 구현될 채팅방 목록 탭에서는 조금 다른 식으로 구현해보는 것이 목표입니다.
 - css는 카카오톡과 최대한 비슷한 느낌을 내도록 만들었습니다.색상이나 위치를 뽑을 때 다른 레퍼런스를 참고하지는 않았습니다.
-
-## 🤔 Key Questions
-
-- 이번 주는 Key Question이 없군요! 음하핫
 
 ## 😀 로컬 실행방법
 
@@ -51,4 +62,4 @@ https://react-messenger-14th-one.vercel.app/friends
 
 - 데이터가 오지 않았을 때 : 옵셔널 체이닝 활용
 
-- 프로필 전환 관련 오류: 준비 중입니다.
+- 프로필 전환 관련 오류: 해결 완료
