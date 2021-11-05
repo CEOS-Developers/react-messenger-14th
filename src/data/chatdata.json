@@ -1,0 +1,28 @@
+{
+    "friendList" : [
+        {
+            "id": 1,
+            "name": "라이언",
+            "image": "https://raw.githubusercontent.com/yunaisme/react-messenger-12th/yunaisme/src/img/red.PNG",
+            "state": "나는 라이언."
+        },
+        {
+            "id": 2,
+            "name": "무지",
+            "image": "https://github.com/yunaisme/react-messenger-12th/blob/yunaisme/src/img/orange.PNG?raw=true",
+            "state": "나는 무지."
+        },
+        {
+            "id": 3,
+            "name": "콘",
+            "image": "https://github.com/yunaisme/react-messenger-12th/blob/yunaisme/src/img/yellow.PNG?raw=true",
+            "state": "나는 콘."
+        },
+        {
+            "id": 4,
+            "name": "춘식",
+            "image": "https://github.com/yunaisme/react-messenger-12th/blob/yunaisme/src/img/green.PNG?raw=true",
+            "state": "나는 춘식."
+        }
+    ]
+}

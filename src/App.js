@@ -30,8 +30,8 @@ function App() {
      <MenuBar />
     <GlobalStyle />
     <Container>
-      <User />
-      <Route path="./components/chatting" component={Chatting} />
+      <Route path = "/" component = {User} />
+      <Route path = "/chatting" component={Chatting} />
     </Container>
     </>
     </HashRouter>

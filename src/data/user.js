@@ -11,4 +11,4 @@ const user = [
       },
   ];
   
-export default user;
+  export default user;

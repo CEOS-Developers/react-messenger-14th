@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import User from './main'
 import Chatting from './chatting'
@@ -16,7 +16,7 @@ const MenuButton = styled.button`
   background: none;
   border: none;
   padding: 0;
-  margin: 5px;
+  margin-top: 50px;
 
   &:focus {
     outline: none;
@@ -27,8 +27,8 @@ const MenuButton = styled.button`
   }
 `;
 const ButtonImage = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 30px;
+  height: 30px;
   background-position: 0px 0px;
   &:focus {
     outline: none;
@@ -38,14 +38,14 @@ const ButtonImage = styled.img`
 function MenuBar() {
   return (
     <MenuContainer>
-      <Link to="/main">
+      <Link to="/main" >
         <MenuButton>
-          <ButtonImage src={process.env.PUBLIC_URL + "./assets/corn.PNG"} />
+          <ButtonImage src={process.env.PUBLIC_URL + "./assets/humanicon.png"} />
         </MenuButton>
       </Link>
-      <Link to="/chatting">
+      <Link to="/chatlist">
         <MenuButton>
-          <ButtonImage src={process.env.PUBLIC_URL + "./assets/corn.PNG"} />
+          <ButtonImage src={process.env.PUBLIC_URL + "./assets/messageicon.png"} />
         </MenuButton>
       </Link>
     </MenuContainer>
