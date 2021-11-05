@@ -7,7 +7,7 @@ function SearchBox({ searchClick, setSearchClick, handleInputChange }) {
   return (
     <Wrapper>
       <Input onChange={handleInputChange} />
-      <ExitButton onClick={onExitButtonClicked}>❌</ExitButton>
+      <CloseButton onClick={onExitButtonClicked}>❌</CloseButton>
     </Wrapper>
   );
 }
@@ -23,7 +23,7 @@ const Input = styled.input`
   height: 30px;
   width: 80%;
 `;
-const ExitButton = styled.button`
+const CloseButton = styled.button`
   border: none;
   background: none;
 `;

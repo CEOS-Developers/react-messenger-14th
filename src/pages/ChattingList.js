@@ -76,7 +76,8 @@ const Name = styled.div`
 `;
 const StyledLink = styled(Link)`
   text-decoration: none;
-  &:visited {
+  &:visited,
+  &:link {
     color: inherit;
   }
 `;
