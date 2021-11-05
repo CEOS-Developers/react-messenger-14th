@@ -4,7 +4,7 @@ const Settings = () => {
   return (
     <div>
       <h1>세팅</h1>
-      <p>사용자 프로필, 이름 수정 페이지</p>
+      <p>세팅페이지입니다</p>
     </div>
   );
 };

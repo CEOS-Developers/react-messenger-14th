@@ -13,8 +13,6 @@ import ModalComponent from './Modal';
 
 const ListContainer = ({ messengerData, room, toggleRoom }) => {
   const handleClick = () => {
-    console.log('before : ');
-    console.log(room);
     toggleRoom(!room);
   };
 

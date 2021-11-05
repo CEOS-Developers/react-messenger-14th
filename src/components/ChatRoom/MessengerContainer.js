@@ -187,8 +187,6 @@ const MessengerContainer = ({ messengerData, onSubmit, room, toggleRoom }) => {
     );
   }
   const handleRoomClick = () => {
-    console.log('before : ');
-    console.log(room);
     toggleRoom(room);
   };
 
