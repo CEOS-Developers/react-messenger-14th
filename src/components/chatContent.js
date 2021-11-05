@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import user from './user'
 
 
-function chatContent({chatList}) {
+function Chatcontent({chatList}) {
   return (
     <>
       {chatList.map((message, i) => (
@@ -42,4 +42,4 @@ const Img = styled.img`
 
 `;
 
-export default chatContent;
+export default Chatcontent;

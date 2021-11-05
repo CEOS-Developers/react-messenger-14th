@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import Profile from './Profile';
-import ChatContent from './ChatContent';
-import InputMessage from './InputMessage';
+import Chatcontent from './chatcontent';
+import Inputmessage from './inputmessage';
+import Profile from './profile';
 
 function Chatting() {
     const [chatList, setChatList] = useState([]);
@@ -13,12 +13,12 @@ function Chatting() {
   return (
     <Wrapper>
       <Profile currentUser={currentUser} handleChangeUser={handleChangeUser}/>
-      <ChatContent 
+      <Chatcontent 
         chatList={chatList}
         />
-      <InputMessage currentUser={currentUser}
+      <Inputmessage currentUser={currentUser}
         chatList={chatList}
-        setChatList={setChatList}></InputMessage>
+        setChatList={setChatList}></Inputmessage>
     </Wrapper>
   );
 }

@@ -1,6 +1,6 @@
 import React, {useState}from 'react';
 import styled from 'styled-components';
-function InputMessage({ chatList, setChatList, currentUser }) {
+function Inputmessage({ chatList, setChatList, currentUser }) {
   const [message, setMessage] = useState('');
   const handleInputChange = (e) => {
     setMessage(e.target.value);
@@ -49,4 +49,4 @@ const Button = styled.button`
   color: white;
   border: none;
 `;
-export default InputMessage
+export default Inputmessage

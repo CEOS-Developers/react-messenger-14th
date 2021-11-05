@@ -1,6 +1,9 @@
 import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
-import Chatting from './components/Chatting';
+import Chatting from './components/chatting';
+import { Route } from "react-router-dom";
+import MenuBar from './components/sidebar';
+
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -22,8 +25,10 @@ const Container = styled.div`
 function App() {
   return (
     <>
+     <MenuBar />
     <GlobalStyle />
     <Container>
+     
       <Chatting />
     </Container>
     </>
