@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Chatting from './chatting';
 
 import friendListData from '../data/userdata.json';
 
-export default class User extends React.Component {
+export default class Main extends React.Component {
     constructor(props){
         super(props)
         this.state = {

@@ -1,13 +1,13 @@
 const user = [  
     {
-      name: '무지',
-      profileMessage: '무지와 콘 사진',
-      profileImg: 'muzi.PNG',
+      name: '펭귄',
+      profileMessage: "펭귄의 고향은 남극이 아닌 2200만년 전 호주.",
+      profileImg: 'penguin.PNG',
     },
     {
-        name: '콘',
-        profileMessage: '콘만 있는 사진',
-        profileImg: 'corn.PNG',
+        name: '고양이',
+        profileMessage: "고양이는 언짢을 때 하품을 합니다",
+        profileImg: 'cat.PNG',
       },
   ];
   

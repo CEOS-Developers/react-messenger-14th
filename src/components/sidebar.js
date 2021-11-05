@@ -1,8 +1,6 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import User from './main'
-import Chatting from './chatting'
 const MenuContainer = styled.div`
   width: 50px;
   height: 700px;
@@ -11,7 +9,7 @@ const MenuContainer = styled.div`
 `;
 
 const MenuButton = styled.button`
-  width: 6vw;
+  width: 50px;
   height: auto;
   background: none;
   border: none;

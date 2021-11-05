@@ -6,6 +6,7 @@ import { HashRouter, Route } from "react-router-dom";
 import MenuBar from './components/sidebar';
 
 
+
 const GlobalStyle = createGlobalStyle`
   body {
     display:flex;
@@ -32,6 +33,7 @@ function App() {
     <Container>
       <Route path = "/" component = {User} />
       <Route path = "/chatting" component={Chatting} />
+     
     </Container>
     </>
     </HashRouter>
