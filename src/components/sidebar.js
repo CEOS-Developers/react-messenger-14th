@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
+import User from './main'
+import Chatting from './chatting'
 const MenuContainer = styled.div`
-  width: 70px;
+  width: 50px;
   height: 700px;
   position: fixed;
   background-color: #aee295;
@@ -15,8 +16,8 @@ const MenuButton = styled.button`
   background: none;
   border: none;
   padding: 0;
-  margin: 1vw;
-  opacity: ${(props) => (props.clicked === 1 ? "100%" : "40%")};
+  margin: 5px;
+
   &:focus {
     outline: none;
     opacity: 100%;
@@ -37,7 +38,16 @@ const ButtonImage = styled.img`
 function MenuBar() {
   return (
     <MenuContainer>
-     
+      <Link to="/main">
+        <MenuButton>
+          <ButtonImage src={process.env.PUBLIC_URL + "./assets/corn.PNG"} />
+        </MenuButton>
+      </Link>
+      <Link to="/chatting">
+        <MenuButton>
+          <ButtonImage src={process.env.PUBLIC_URL + "./assets/corn.PNG"} />
+        </MenuButton>
+      </Link>
     </MenuContainer>
   );
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 import Chatting from './components/chatting';
-import { Route } from "react-router-dom";
+import User from './components/main'
+import { HashRouter, Route } from "react-router-dom";
 import MenuBar from './components/sidebar';
 
 
@@ -24,14 +25,16 @@ const Container = styled.div`
 `;
 function App() {
   return (
+    <HashRouter>
     <>
      <MenuBar />
     <GlobalStyle />
     <Container>
-     
-      <Chatting />
+      <User />
+      <Route path="./components/chatting" component={Chatting} />
     </Container>
     </>
+    </HashRouter>
   );
 }
 
