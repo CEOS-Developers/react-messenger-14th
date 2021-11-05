@@ -36,6 +36,7 @@ const ModalComponent = ({ messengerData }) => {
     if (text) {
       handleSearch(text);
     }
+    // eslint-disable-next-line
   }, [text]);
 
   useEffect(() => {
