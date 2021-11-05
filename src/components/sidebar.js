@@ -41,7 +41,7 @@ function MenuBar() {
           <ButtonImage src={process.env.PUBLIC_URL + "./assets/humanicon.png"} />
         </MenuButton>
       </Link>
-      <Link to="/chatlist">
+      <Link to="/chattinglist">
         <MenuButton>
           <ButtonImage src={process.env.PUBLIC_URL + "./assets/messageicon.png"} />
         </MenuButton>

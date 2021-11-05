@@ -33,7 +33,6 @@ function App() {
     <Container>
       <Route path = "/" component = {User} />
       <Route path = "/chatting" component={Chatting} />
-     
     </Container>
     </>
     </HashRouter>
