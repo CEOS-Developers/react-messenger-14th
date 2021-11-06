@@ -1,14 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
-import SideBarMenuBtn from './components/SideBarMenuBtn';
+import SideBarMenuBtn from './SideBarMenuBtn';
 
 const Sidebar = () => {
-  const handleUsersMenuClick = () => {};
+  const history = useHistory();
 
-  const handleChatRoomsMenuClick = () => {};
+  const handleUsersMenuClick = () => {
+    history.push('/users');
+  };
 
-  const handleSettingsMenuClick = () => {};
+  const handleChatRoomsMenuClick = () => {
+    history.push('/chat-rooms');
+  };
+
+  const handleSettingsMenuClick = () => {
+    history.push('/setting');
+  };
 
   return (
     <SidebarContainer>

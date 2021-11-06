@@ -70,7 +70,8 @@ export const ChatRoomContextProvider = ({ children }) => {
 
   const initialChatRoom = {
     id: Date.now(),
-    users: [userContext.users],
+    name: 'My First Chat Room',
+    users: userContext.users.map((user) => user.id),
     messages: [],
   };
 

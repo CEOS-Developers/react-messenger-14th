@@ -1,23 +1,44 @@
-import React from 'react';
+import React, { useEffect, Suspense } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import {
+  BrowserRouter,
+  Route,
+  Link,
+  Switch,
+  useHistory,
+} from 'react-router-dom';
 
 import { UserContextProvider } from './@shared/contexts/user';
 import { ChatRoomContextProvider } from './@shared/contexts/chatRoom';
+import Loading from './@shared/components/Loading';
 
-import ChatRoom from './chat-room/ChatRoom';
-import Sidebar from './sidebar/Sidebar';
+const ChatRooms = React.lazy(() => import('./chat-rooms/ChatRooms'));
+const ChatRoom = React.lazy(() => import('./chat-room/ChatRoom'));
+const Users = React.lazy(() => import('./users/Users'));
+const Setting = React.lazy(() => import('./setting/Setting'));
+const Sidebar = React.lazy(() => import('./@shared/components/Sidebar'));
 
 const App = () => {
   return (
-    <UserContextProvider>
-      <ChatRoomContextProvider>
-        <GlobalStyle />
-        <RootContainer>
-          <Sidebar />
-          <ChatRoom />
-        </RootContainer>
-      </ChatRoomContextProvider>
-    </UserContextProvider>
+    <Suspense fallback={<Loading />}>
+      <BrowserRouter>
+        <Switch>
+          <UserContextProvider>
+            <ChatRoomContextProvider>
+              <GlobalStyle />
+              <RootContainer>
+                <Sidebar />
+                <Route exact path={'/chat-rooms'} component={ChatRooms} />
+                <Route exact path={'/users'} component={Users} />
+                <Route exact path={'/setting'} component={Setting} />
+                <Route exact path={'/chat-rooms/:id'} component={ChatRoom} />
+                <Route exact path={'/'} component={ChatRooms} />
+              </RootContainer>
+            </ChatRoomContextProvider>
+          </UserContextProvider>
+        </Switch>
+      </BrowserRouter>
+    </Suspense>
   );
 };
 

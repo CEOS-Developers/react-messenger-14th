@@ -55,7 +55,7 @@ const ProfileHeader = styled.header`
   background: white;
 `;
 
-const ProfileImg = styled.img`
+export const ProfileImg = styled.img`
   width: 50px;
   height: 50px;
 
