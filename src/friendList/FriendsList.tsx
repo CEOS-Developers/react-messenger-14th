@@ -2,6 +2,8 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../base/SearchBar';
 import styled from 'styled-components';
+import useUserContext from '../hooks/useUserContext';
+import { friend } from '../contexts/userContext';
 
 const StyledHeader = styled.div`
   font-size: 25px;
@@ -24,11 +26,12 @@ const FriendListContainer = styled.div`
   height: 100%;
 `;
 
-function FriendsList(props) {
+function FriendsList(props: any) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [friendList, setFriendList] = useState(props.friends);
+  const { getFriendList } = useUserContext();
+  const friendList = getFriendList();
 
-  const handleSearchQueryChange = (e) => {
+  const handleSearchQueryChange = (e: any) => {
     setSearchQuery(e.target.value);
   };
 
@@ -96,8 +99,8 @@ const FriendStatusMsg = styled.div`
   text-decoration: none;
 `;
 
-const FilteredFriendList = (props) => {
-  return props.filteredList.map((item) => {
+const FilteredFriendList = (props: any) => {
+  return props.filteredList.map((item: friend) => {
     return (
       <Link
         to={`/chatlist/${item.id}`}

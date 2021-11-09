@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Chatroom from '../chatRoom/Chatroom.js';
 import styled from 'styled-components';
 import { Route, Link } from 'react-router-dom';
-import SearchBar from '../base/SearchBar.js';
+import SearchBar from '../base/SearchBar.tsx';
 
 const StyledHeader = styled.div`
   font-size: 25px;

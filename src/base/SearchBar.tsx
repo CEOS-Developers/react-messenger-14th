@@ -39,7 +39,13 @@ const InputBoxClear = styled.div`
   }
 `;
 
-const SearchBar = (props) => {
+type SearchBarProps = {
+  onInputChange: React.ChangeEventHandler<HTMLInputElement>,
+  onInputReset: () => void,
+  value: string
+}
+
+const SearchBar: React.FC<SearchBarProps> = (props) => {
   return (
     <StyledInputContainer>
       <StyledInputBox
