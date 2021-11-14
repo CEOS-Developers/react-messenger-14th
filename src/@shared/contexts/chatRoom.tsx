@@ -34,15 +34,18 @@ const ChatRoomReducer = (state: ChatRoomContextI, action: any) => {
         ...state,
         currentChatRoom: {
           ...state.currentChatRoom,
-          users: [...state.currentChatRoom.users, action.payload],
+          users: [...state.currentChatRoom?.users, action.payload],
         },
       };
     case 'chatRoom/postMessage':
+      const newMessages = state.currentChatRoom.messages
+        ? state.currentChatRoom.messages
+        : [];
       return {
         ...state,
         currentChatRoom: {
           ...state.currentChatRoom,
-          messages: [...state.currentChatRoom.messages, action.payload],
+          messages: [...newMessages, action.payload],
         },
       };
 
