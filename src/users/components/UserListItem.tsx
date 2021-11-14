@@ -6,9 +6,9 @@ import {
   ListWrapper,
   ListItemWrapper,
 } from '../../@shared/components/ListItem';
-import { defaultProfileImg } from '../../@shared/contexts/user';
+import { defaultProfileImg, UserI } from '../../@shared/contexts/user';
 
-const UserListItem = (user) => {
+const UserListItem = ({ user }: { user: UserI }) => {
   return (
     <ListWrapper>
       <div>
