@@ -28,7 +28,7 @@ const ChatRoomMessages = () => {
     // document
     //   .querySelector('.messages-list')
     //   .lastChild?.scrollIntoView({ behavior: 'smooth' });
-    lastMesseageRef.current.scrollIntoView({ behavior: 'smooth' });
+    lastMesseageRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
   const renderMessages = () =>
