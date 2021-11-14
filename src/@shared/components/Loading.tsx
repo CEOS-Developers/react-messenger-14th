@@ -5,15 +5,15 @@ const Loading = () => {
   return (
     <Wrapper>
       <AnimationWrapper1 {...scale}>
-        <Img url={dot} />
+        <Img theme={{ url: dot }} />
       </AnimationWrapper1>
 
       <AnimationWrapper2 {...scale}>
-        <Img url={dot} />
+        <Img theme={{ url: dot }} />
       </AnimationWrapper2>
 
       <AnimationWrapper3 {...scale}>
-        <Img url={dot} />
+        <Img theme={{ url: dot }} />
       </AnimationWrapper3>
     </Wrapper>
   );
@@ -32,7 +32,7 @@ const Img = styled.span`
   all: unset;
   width: 12px;
   height: 12px;
-  -webkit-mask: url(${(props) => props.url}) no-repeat 50% 50%;
+  -webkit-mask: url(${(props) => props.theme.url}) no-repeat 50% 50%;
   background-color: white;
 `;
 

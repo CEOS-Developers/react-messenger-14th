@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useUserContext from '../../@shared/hooks/useUser';
 import useChatRoomContext from '../../@shared/hooks/useChatRoom';
@@ -6,21 +6,26 @@ import useChatRoomContext from '../../@shared/hooks/useChatRoom';
 const ChatRoomMessageForm = () => {
   const { getCurrentUser } = useUserContext();
   const { postMessage } = useChatRoomContext();
+  const [message, setMessage] = useState('');
   const currentUser = getCurrentUser();
 
-  const handlePostMessage = (e) => {
+  const handlePostMessage = (e: React.FormEvent<any>) => {
     e.preventDefault();
 
-    if (e.target[0].value === '') {
+    if (message === '') {
       window.alert('내용을 입력해주세요');
       return;
     }
     const newMessage = {
-      content: e.target[0].value,
+      content: message,
       userID: currentUser.id,
     };
     postMessage(newMessage);
-    e.target[0].value = '';
+    setMessage('');
+  };
+
+  const handleChangeMessage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMessage(e.target.value);
   };
 
   return (
@@ -29,7 +34,9 @@ const ChatRoomMessageForm = () => {
         <MessageInput
           type="text"
           placeholder="메세지를 입력해주세요"
-        ></MessageInput>
+          onChange={handleChangeMessage}
+          value={message}
+        />
         <MessageBtn type="submit">전송</MessageBtn>
       </MessageForm>
     </MessageFormContainer>

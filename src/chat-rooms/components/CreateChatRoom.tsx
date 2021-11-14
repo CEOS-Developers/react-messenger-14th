@@ -6,7 +6,7 @@ import { color } from '../../@shared/style/color';
 const CreateChatRoom = () => {
   return (
     <Wrapper>
-      <i class="fas fa-comment-medical"></i>
+      <i className="fas fa-comment-medical"></i>
     </Wrapper>
   );
 };

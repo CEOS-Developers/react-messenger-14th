@@ -1,27 +1,33 @@
 import { useReducer, createContext, useContext } from 'react';
 import { UserContext } from './user';
+import { DispatchT } from '../../hooks';
 
-/** TYPE DEFINITION */
-// chatRoom = {
-//  id: Date.now()
-//  users: [user.id1, user.id2 ... ],
-//  messages: [message1, message2 ... ]
-// }
-//
+export interface MessageI {
+  content: string;
+  userID: number;
+}
 
-// message = {
-//  content: '',
-//  userID: user.id,
-// }
+export interface ChatRoomI {
+  id: number;
+  name?: string;
+  users: number[];
+  messages: MessageI[];
+}
 
-// currentChatRoom = {
-//   id: chatRoom.id,
-//   users: chatRoom.users,
-//   messages: chatRoom.messages,
-// }
-export const ChatRoomContext = createContext();
+export interface ChatRoomContextI {
+  chatRooms: ChatRoomI[];
+  currentChatRoom: ChatRoomI;
+}
 
-const ChatRoomReducer = (state, action) => {
+export const ChatRoomContext = createContext<{
+  chatRoomContext: ChatRoomContextI | null;
+  dispatchChatRoomContext: DispatchT;
+}>({
+  chatRoomContext: null,
+  dispatchChatRoomContext: () => null,
+});
+
+const ChatRoomReducer = (state: ChatRoomContextI, action: any) => {
   switch (action.type) {
     case 'chatRoom/inviteUser':
       return {
@@ -50,7 +56,7 @@ const ChatRoomReducer = (state, action) => {
       return {
         ...state,
         chatRooms: state.chatRooms.filter(
-          (chatRoom) => chatRoom.id !== action.payload.chatRoomID
+          (chatRoom: ChatRoomI) => chatRoom.id !== action.payload.chatRoomID
         ),
       };
 
@@ -61,11 +67,17 @@ const ChatRoomReducer = (state, action) => {
       };
 
     default:
-      break;
+      return state;
   }
 };
 
-export const ChatRoomContextProvider = ({ children }) => {
+interface ChatRoomContextProviderI {
+  children?: React.ReactNode;
+}
+
+export const ChatRoomContextProvider = ({
+  children,
+}: ChatRoomContextProviderI) => {
   const { userContext } = useContext(UserContext);
 
   const initialChatRoom = {

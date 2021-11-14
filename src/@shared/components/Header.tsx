@@ -7,7 +7,7 @@ const Header = () => {
   const users = getUsers();
   const currentUser = getCurrentUser();
 
-  const handleChangeProfile = (e) => {
+  const handleChangeProfile = (e: React.ChangeEvent<any>) => {
     const selectedIdx = e.target.options.selectedIndex;
 
     if (selectedIdx === 0) {
@@ -16,7 +16,9 @@ const Header = () => {
 
     const id = e.target[selectedIdx].id;
 
-    const newCurrentUser = users.find((user) => Number(user.id) === Number(id));
+    const newCurrentUser = users.find(
+      (user: any) => Number(user.id) === Number(id)
+    );
 
     setCurrentUser(newCurrentUser);
   };
@@ -28,7 +30,7 @@ const Header = () => {
         <ProfileText>{currentUser.name}</ProfileText>
         <ChangeProfile onChange={handleChangeProfile}>
           <ProfileOption selected>프로필 바꾸기</ProfileOption>
-          {users.map((user) => (
+          {users.map((user: any) => (
             <ProfileOption id={user.id} value={user}>
               {user.name}
             </ProfileOption>

@@ -1,7 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import useChatRoomContext from '../../@shared/hooks/useChatRoom';
 import useUserContext from '../../@shared/hooks/useUser';
+
+const checkIsLastMessage = ({
+  idx,
+  arrSize,
+}: {
+  idx: number;
+  arrSize: number;
+}) => {
+  if (idx === arrSize) return true;
+  return false;
+};
 
 const ChatRoomMessages = () => {
   const { getUsers, getCurrentUser } = useUserContext();
@@ -11,15 +22,29 @@ const ChatRoomMessages = () => {
   const { getMessages } = useChatRoomContext();
   const messages = getMessages();
 
+  const lastMesseageRef: React.MutableRefObject<any> = useRef(null);
+
   useEffect(() => {
-    document
-      .querySelector('.messages-list')
-      .lastChild?.scrollIntoView({ behavior: 'smooth' });
+    // document
+    //   .querySelector('.messages-list')
+    //   .lastChild?.scrollIntoView({ behavior: 'smooth' });
+    lastMesseageRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
   const renderMessages = () =>
-    messages.map((message) => {
+    messages?.map((message, idx, thisArr) => {
       if (message.userID === currentUser.id) {
+        if (checkIsLastMessage({ idx: idx, arrSize: thisArr.length - 1 })) {
+          return (
+            <RightMessageItem ref={lastMesseageRef}>
+              <ProfileImg src={currentUser.img} />
+              <TextContainer>
+                <RightUserName>{currentUser.name}</RightUserName>
+                <RightUserMessageText>{message.content}</RightUserMessageText>
+              </TextContainer>
+            </RightMessageItem>
+          );
+        }
         return (
           <RightMessageItem>
             <ProfileImg src={currentUser.img} />
@@ -34,9 +59,9 @@ const ChatRoomMessages = () => {
       const leftUser = users.find((user) => user.id === message.userID);
       return (
         <LeftMessageItem>
-          <ProfileImg src={leftUser.img} />
+          <ProfileImg src={leftUser?.img} />
           <TextContainer>
-            <LeftUserName>{leftUser.name}</LeftUserName>
+            <LeftUserName>{leftUser?.name}</LeftUserName>
             <LeftUserMessageText>{message.content}</LeftUserMessageText>
           </TextContainer>
         </LeftMessageItem>

@@ -8,12 +8,16 @@ import Main from '../@shared/components/Main';
 import { useParams } from 'react-router-dom';
 import useChatRoomContext from '../@shared/hooks/useChatRoom';
 
+interface MatchParamI {
+  id: string;
+}
+
 const ChatRoom = () => {
-  const param = useParams().id;
+  const param = useParams<MatchParamI>().id;
   const { getChatRooms, setCurrentChatRoom } = useChatRoomContext();
   const chatRooms = getChatRooms();
-  const newCurrentChatRoom = chatRooms.find((chatRoom) => {
-    return chatRoom.id == param;
+  const newCurrentChatRoom = chatRooms?.find((chatRoom) => {
+    return chatRoom.id == Number(param);
   });
 
   useEffect(() => {

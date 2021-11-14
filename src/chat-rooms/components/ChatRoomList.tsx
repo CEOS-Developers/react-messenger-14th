@@ -11,13 +11,13 @@ const ChatRoomList = () => {
   const currentUser = getCurrentUser();
   const chatRooms = getChatRooms();
 
-  const myChatRooms = chatRooms.map((chatRoom) =>
+  const myChatRooms = chatRooms?.map((chatRoom) =>
     chatRoom.users.includes(currentUser.id) ? chatRoom : undefined
   );
 
   return (
     <Wrapper>
-      {myChatRooms.map((chatRoom) => (
+      {myChatRooms?.map((chatRoom) => (
         <ChatRoomItem chatRoom={chatRoom} />
       ))}
     </Wrapper>

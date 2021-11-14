@@ -7,8 +7,13 @@ import {
   ListItemWrapper,
 } from '../../@shared/components/ListItem';
 import { useHistory } from 'react-router-dom';
+import { ChatRoomI } from '../../@shared/contexts/chatRoom';
 
-const ChatRoomItem = ({ chatRoom }) => {
+interface ChatRoomItemI {
+  chatRoom?: ChatRoomI;
+}
+
+const ChatRoomItem = ({ chatRoom }: ChatRoomItemI) => {
   const { getCurrentUser, getUsers } = useUserContext();
   const history = useHistory();
   const allUsers = getUsers();

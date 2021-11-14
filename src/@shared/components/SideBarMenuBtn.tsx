@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { hoverButtonAnime } from '../style/animation';
 
-const SideBarMenuBtn = ({ img, handleMenuClick }) => {
+interface SidbarMenuBtnI extends React.HTMLAttributes<HTMLElement> {
+  img?: any;
+}
+
+const SideBarMenuBtn = ({ img, onClick: handleMenuClick }: SidbarMenuBtnI) => {
   return <MenuBtn onClick={handleMenuClick}>{img}</MenuBtn>;
 };
 

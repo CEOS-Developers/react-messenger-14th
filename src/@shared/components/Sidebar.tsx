@@ -22,16 +22,16 @@ const Sidebar = () => {
   return (
     <SidebarContainer>
       <SideBarMenuBtn
-        img={<i class="far fa-user"></i>}
-        handleMenuClick={handleUsersMenuClick}
+        img={<i className="far fa-user"></i>}
+        onClick={handleUsersMenuClick}
       />
       <SideBarMenuBtn
-        img={<i class="far fa-comments"></i>}
-        handleMenuClick={handleChatRoomsMenuClick}
+        img={<i className="far fa-comments"></i>}
+        onClick={handleChatRoomsMenuClick}
       />
       <SideBarMenuBtn
-        img={<i class="fas fa-ellipsis-h"></i>}
-        handleMenuClick={handleSettingsMenuClick}
+        img={<i className="fas fa-ellipsis-h"></i>}
+        onClick={handleSettingsMenuClick}
       />
     </SidebarContainer>
   );
