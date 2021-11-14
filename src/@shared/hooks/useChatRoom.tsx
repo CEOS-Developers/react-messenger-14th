@@ -41,15 +41,14 @@ const useChatRoom = () => {
     });
   };
 
-  const addChatRoom = (newChatRoom: any) => {
+  const createChatRoom = (newChatRoom: any) => {
     const payload: ChatRoomI = {
       ...newChatRoom,
       id: Date.now(),
-      users: [userContext.currentUser],
       messages: [],
     };
     dispatchChatRoomContext({
-      type: 'chatRoom/addChatRoom',
+      type: 'chatRoom/createChatRoom',
       payload: newChatRoom,
     });
   };
@@ -63,7 +62,7 @@ const useChatRoom = () => {
     getMessages,
     postMessage,
     inviteUser,
-    addChatRoom,
+    createChatRoom,
     deleteChatRoom,
   };
 };

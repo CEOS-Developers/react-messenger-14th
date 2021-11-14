@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { color } from './color';
 
 export const POPUP_TIME = `0.5s`;
 
@@ -24,5 +25,15 @@ export const hoverButtonAnime = `
     &:hover {
         background-color: rgba(226, 233, 242, 0.9);
         cursor: pointer;
+    }
+`;
+
+export const hoverButtonAnimeGreen = `
+    transition: background 400ms;
+    
+    &:hover {
+        background-color: ${color.selectMenuGreen};
+        cursor: pointer;
+        color: white;
     }
 `;

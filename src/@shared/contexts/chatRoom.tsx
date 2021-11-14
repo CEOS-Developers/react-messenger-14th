@@ -49,7 +49,7 @@ const ChatRoomReducer = (state: ChatRoomContextI, action: any) => {
         },
       };
 
-    case 'chatRoom/addChatRoom':
+    case 'chatRoom/createChatRoom':
       return {
         ...state,
         chatRooms: [...state.chatRooms, action.payload],

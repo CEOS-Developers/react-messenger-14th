@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import useUserContext from '../../@shared/hooks/useUser';
+import { color } from '../style/color';
 
 const Header = () => {
   const { getUsers, getCurrentUser, setCurrentUser } = useUserContext();
@@ -28,14 +29,14 @@ const Header = () => {
       <ProfileImg src={currentUser.img} />
       <ProfileTextContainer>
         <ProfileText>{currentUser.name}</ProfileText>
-        <ChangeProfile onChange={handleChangeProfile}>
+        <SelectProfile onChange={handleChangeProfile}>
           <ProfileOption selected>프로필 바꾸기</ProfileOption>
           {users.map((user: any) => (
             <ProfileOption id={user.id} value={user}>
               {user.name}
             </ProfileOption>
           ))}
-        </ChangeProfile>
+        </SelectProfile>
       </ProfileTextContainer>
     </ProfileHeader>
   );
@@ -79,11 +80,11 @@ const ProfileText = styled.p`
   margin: 0px;
 `;
 
-const ChangeProfile = styled.select`
+export const SelectProfile = styled.select`
   padding: 8px;
   margin: 0;
 
-  border-color: #a1be6c;
+  border-color: ${color.selectMenuGreen};
   border-radius: 30px;
 
   background-color: white;

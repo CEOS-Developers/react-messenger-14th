@@ -25,9 +25,6 @@ const ChatRoomMessages = () => {
   const lastMesseageRef: React.MutableRefObject<any> = useRef(null);
 
   useEffect(() => {
-    // document
-    //   .querySelector('.messages-list')
-    //   .lastChild?.scrollIntoView({ behavior: 'smooth' });
     lastMesseageRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 

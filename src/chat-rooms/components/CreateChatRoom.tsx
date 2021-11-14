@@ -1,12 +1,21 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import { POPUP_TIME, popup } from '../../@shared/style/animation';
-import { color } from '../../@shared/style/color';
+import CreateChatRoomModal from './CreateChatRoomModal';
 
-const CreateChatRoom = () => {
+interface CreateChatRoomI extends React.HTMLAttributes<HTMLElement> {
+  isModalOpen: boolean;
+}
+
+const CreateChatRoom = ({
+  onClick,
+  isModalOpen,
+  ...props
+}: CreateChatRoomI) => {
   return (
-    <Wrapper>
+    <Wrapper onClick={onClick}>
       <i className="fas fa-comment-medical"></i>
+      {isModalOpen && <CreateChatRoomModal onClick={onClick} />}
     </Wrapper>
   );
 };
