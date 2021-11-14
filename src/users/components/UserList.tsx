@@ -5,14 +5,18 @@ import useUserContext from '../../@shared/hooks/useUser';
 import UserListItem from './UserListItem';
 
 const UserList = () => {
-  const { getUsers } = useUserContext();
+  const { getUsers, getCurrentUser } = useUserContext();
+  const currentUser = getCurrentUser();
   const allUsers = getUsers();
 
   return (
     <Wrapper>
-      {allUsers.map((user: UserI) => (
-        <UserListItem user={user} />
-      ))}
+      {allUsers.map((user: UserI) => {
+        if (user.id === currentUser.id) {
+          return;
+        }
+        return <UserListItem user={user} />;
+      })}
     </Wrapper>
   );
 };

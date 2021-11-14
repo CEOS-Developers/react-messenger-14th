@@ -1,5 +1,6 @@
 import React, { useReducer, createContext } from 'react';
 import { DispatchT } from '../../hooks';
+import { usersJson } from '../../static/mock-data/users';
 
 export interface UserI {
   name: string;
@@ -22,14 +23,7 @@ const initialUser: UserI = {
 };
 
 const initialState: UserContextI = {
-  users: [
-    {
-      name: 'test',
-      id: Date.now() + 1,
-      img: defaultProfileImg,
-    },
-    initialUser,
-  ],
+  users: [...JSON.parse(usersJson), initialUser],
   currentUser: initialUser,
 };
 

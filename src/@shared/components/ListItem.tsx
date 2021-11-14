@@ -32,6 +32,7 @@ export const ListItemTitle = styled.div`
 
 export const ListItemWrapper = styled.div`
   all: unset;
+  overflow-x: auto;
 
   display: flex;
   flex-direction: row;
