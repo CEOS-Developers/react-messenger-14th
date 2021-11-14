@@ -11,12 +11,12 @@ import { defaultProfileImg, UserI } from '../../@shared/contexts/user';
 const UserListItem = ({ user }: { user: UserI }) => {
   return (
     <ListWrapper>
-      <div>
+      <ListItemWrapper style={{ margin: '0' }}>
         <ListItemTitle>
           <Img src={defaultProfileImg} />
         </ListItemTitle>
         <ListItemTitle>{user.name}</ListItemTitle>
-      </div>
+      </ListItemWrapper>
     </ListWrapper>
   );
 };

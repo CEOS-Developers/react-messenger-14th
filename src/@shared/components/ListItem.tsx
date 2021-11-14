@@ -35,6 +35,7 @@ export const ListItemWrapper = styled.div`
 
   display: flex;
   flex-direction: row;
+  align-items: center;
 
   margin-top: 10px;
 
