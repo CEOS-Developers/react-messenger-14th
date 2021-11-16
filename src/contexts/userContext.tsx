@@ -1,4 +1,4 @@
-import React, { useReducer, createContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import Friends from '../data/Friends.json';
 import useLocalStorage from '../hooks/useLocalStorage';
 

@@ -28,7 +28,7 @@ const FriendListContainer = styled.div`
 
 function FriendsList(props: any) {
   const [searchQuery, setSearchQuery] = useState('');
-  const { getFriendList } = useUserContext();
+  const [getFriendList] = useUserContext();
   const friendList = getFriendList();
 
   const handleSearchQueryChange = (e: any) => {

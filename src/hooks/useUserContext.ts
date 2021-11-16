@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { friend, UserContext } from '../contexts/userContext';
 
-const useUserContext = () => {
+const useUserContext = (): [() => friend[]] => {
   const friends = useContext(UserContext);
 
   const getFriendList = (): friend[] => friends;
 
-  return { getFriendList };
+  return [getFriendList];
 };
 
 export default useUserContext;
