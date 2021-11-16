@@ -2,7 +2,9 @@ import React, { Fragment, useState } from 'react';
 import Chatroom from '../chatRoom/Chatroom.js';
 import styled from 'styled-components';
 import { Route, Link } from 'react-router-dom';
-import SearchBar from '../base/SearchBar.tsx';
+import SearchBar from '../base/SearchBar';
+import useChatroomContext from '../hooks/useChatroomContext';
+import { chatroom, chatroomList } from '../contexts/chatroomContext';
 
 const StyledHeader = styled.div`
   font-size: 25px;
@@ -68,51 +70,40 @@ const ChatLastMsg = styled.div`
   margin-top: 10px;
 `;
 
-function ChatList(props) {
+function ChatList(props: any) {
   // localStorage에 있는 chatting 목록을 불러온다음, state로 선언
-  const chatroomOnLocalstorage = JSON.parse(localStorage.getItem('ChatList'));
+  const chatroomOnLocalstorage = JSON.parse(localStorage.getItem('ChatList')!);
+  const { getChatroomList, updateChatroomList } = useChatroomContext();
+  const currentChattingRoom = getChatroomList();
   const [searchQuery, setSearchQuery] = useState('');
-
-  const [currentChattingRoom, setCurrentChattingRoom] = useState(
-    // Chats.json은 대화 상대방의 id만 가지고 있기 때문에,
-    // Friends.json에서 프로필 이미지를 가져온다.
-    chatroomOnLocalstorage.map((item) => {
-      const profileImage = props.friends.find((elem) => {
-        return elem.id === item.friendId;
-      }).profileImage;
-
-      return {
-        id: item.friendId,
-        name: props.friends[item.friendId - 1].name,
-        lastMessage: item.chats[item.chats.length - 1].message,
-        profileImage: profileImage,
-      };
-    })
-  );
 
   // 채팅방에서 채팅을 주고받았으면, 채팅방 목록에 마지막 메세지 미리보기가 갱신되어야 한다.
   // 채팅방 목록을 Chatroom 컴포넌트 (특정 채팅방)에 props로 주어서 채팅 내용이 갱신될 때 마다
   // state를 업데이트해서 채팅방 목록에서도 미리보기가 갱신될 수 있도록 한다.
 
-  const handleChatListChange = (chatList) => {
-    setCurrentChattingRoom(
-      chatList.map((item) => {
-        const profileImage = props.friends.find((elem) => {
-          return elem.id === item.friendId;
-        }).profileImage;
-
-        return {
-          id: item.friendId,
-          name: props.friends[item.friendId - 1].name,
-          lastMessage: item.chats[item.chats.length - 1].message,
-          profileImage: profileImage,
-        };
-      })
-    );
+  const handleChatListChange = (chatList: chatroom) => {
+    // setCurrentChattingRoom(
+    //   chatList.map((item) => {
+    //     const profileImage = props.friends.find((elem) => {
+    //       return elem.id === item.friendId;
+    //     }).profileImage;
+    //     return {
+    //       id: item.friendId,
+    //       name: props.friends[item.friendId - 1].name,
+    //       lastMessage: item.chats[item.chats.length - 1].message,
+    //       profileImage: profileImage,
+    //     };
+    //   })
+    // );
+    updateChatroomList(chatList);
   };
 
-  const handleSearchQueryChange = (e) => {
+  const handleSearchQueryChange = (e: any) => {
     setSearchQuery(e.target.value);
+  };
+
+  const handleSearchQueryReset = () => {
+    setSearchQuery('');
   };
 
   // searchQuery에 의해 필터링된 리스트를 채팅 목록 컨테이너로 던진다.
@@ -125,7 +116,10 @@ function ChatList(props) {
       <Route exact path="/chatlist">
         <StyledContainer>
           <StyledHeader>Chats</StyledHeader>
-          <SearchBar onInputChange={handleSearchQueryChange} />
+          <SearchBar
+            onInputChange={handleSearchQueryChange}
+            onInputReset={handleSearchQueryReset}
+          />
           <ChatListContainer>
             <FilteredChatList filteredList={filteredChatList} />
           </ChatListContainer>
@@ -145,17 +139,18 @@ function ChatList(props) {
   );
 }
 
-const FilteredChatList = (props) => {
-  return props.filteredList.map((item) => {
+const FilteredChatList = ({ filteredList }: any) => {
+  return filteredList.map((item: any) => {
+    const { id, profileImage, name, lastMessage } = item;
     return (
-      <Link to={`/chatlist/${item.id}`} style={{ textDecoration: 'none' }}>
+      <Link to={`/chatlist/${id}`} style={{ textDecoration: 'none' }}>
         <SingleChatItem>
           <ChatItemProfileImage
-            src={process.env.PUBLIC_URL + '/images/' + item.profileImage}
+            src={process.env.PUBLIC_URL + '/images/' + profileImage}
           />
           <ChatItemInfo>
-            <FriendName>{item.name}</FriendName>
-            <ChatLastMsg>{item.lastMessage}</ChatLastMsg>
+            <FriendName>{name}</FriendName>
+            <ChatLastMsg>{lastMessage}</ChatLastMsg>
           </ChatItemInfo>
         </SingleChatItem>
       </Link>

@@ -2,7 +2,7 @@ import React, { useEffect, Fragment } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import NavBar from './NavBar.js';
-import ChatList from '../chatList/ChatList.js';
+import ChatList from '../chatList/ChatList';
 import FriendsList from '../friendList/FriendsList';
 import Friends from '../data/Friends.json';
 import Chats from '../data/Chats.json';
