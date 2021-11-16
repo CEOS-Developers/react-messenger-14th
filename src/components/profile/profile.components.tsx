@@ -12,7 +12,7 @@ function Profile() {
       friend.name.includes(searchData) ||
       friend.description.includes(searchData)
   );
-  function onSearchChange(e) {
+  function onSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSearchData(e.target.value);
   }
 

@@ -14,7 +14,7 @@ function Chatroom() {
       chat.chats[chat.chats.length - 1].chat.includes(searchData)
   );
 
-  function onSearchChange(e) {
+  function onSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSearchData(e.target.value);
   }
 

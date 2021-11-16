@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import searchIcon from "./mag.png";
 
-function Header({ onSearchChange }) {
+type HeaderProps = {
+  onSearchChange: React.ChangeEventHandler<HTMLInputElement>;
+};
+
+function Header({ onSearchChange }: HeaderProps) {
   let [searchToggle, setSearchToggle] = useState(false);
 
   return (

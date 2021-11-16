@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./chatlog.chatroom.scss";
 
-function ChatLog({ id, chats, url }) {
+type ChatLogProps = {
+  id: number;
+  chats: any;
+  url: string;
+};
+
+function ChatLog({ id, chats, url }: ChatLogProps) {
   return (
     <div className="chatroom">
-      {chats.map((chat, i) => {
+      {chats.map((chat: { id: number; chat: any }, i: number) => {
         return chat.id === 0 ? (
           <div className="user0">
             <img src="/images/profile1.jpeg" alt="user" />

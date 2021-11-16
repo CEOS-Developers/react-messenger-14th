@@ -4,7 +4,11 @@ import mainProfilePicture from "./profile1.jpeg";
 import searchIcon from "./mag.png";
 import addFriendIcon from "./add.png";
 
-function Header({ onSearchChange }) {
+type HeaderProps = {
+  onSearchChange: React.ChangeEventHandler<HTMLInputElement>;
+};
+
+function Header({ onSearchChange }: HeaderProps) {
   let [searchToggle, setSearchToggle] = useState(false);
   return (
     <>

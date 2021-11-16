@@ -3,7 +3,14 @@ import Data from "../friends";
 import { Link } from "react-router-dom";
 import "./chatlist.chatroom.scss";
 
-function Preview({ user, name, lastChat, url }) {
+type PreviewProps = {
+  user: string;
+  name: string;
+  lastChat: string;
+  url: string;
+};
+
+function Preview({ user, name, lastChat, url }: PreviewProps) {
   return (
     <div className="row">
       <img src={url} alt={user}></img>
@@ -15,26 +22,41 @@ function Preview({ user, name, lastChat, url }) {
   );
 }
 
-function ChatList({ chats, setChats }) {
+type ChatListProps = {
+  chats: any;
+  setChats: Function;
+};
+
+function ChatList({ chats, setChats }: ChatListProps) {
   return (
     <>
       <div className="chatlist">
-        {chats.map((object, i) => {
-          return (
-            <Link
-              to={`/chatroom/${object.id}`}
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <Preview
-                key={i}
-                user={object.id}
-                name={object.name}
-                lastChat={object.chats[object.chats.length - 1].chat}
-                url={object.img}
-              />
-            </Link>
-          );
-        })}
+        {chats.map(
+          (
+            object: {
+              id: string;
+              name: string;
+              chats: string | any[];
+              img: string;
+            },
+            i: number
+          ) => {
+            return (
+              <Link
+                to={`/chatroom/${object.id}`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <Preview
+                  key={i}
+                  user={object.id}
+                  name={object.name}
+                  lastChat={object.chats[object.chats.length - 1].chat}
+                  url={object.img}
+                />
+              </Link>
+            );
+          }
+        )}
       </div>
     </>
   );

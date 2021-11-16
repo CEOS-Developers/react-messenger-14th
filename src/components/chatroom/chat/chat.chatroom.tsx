@@ -3,11 +3,16 @@ import { useParams } from "react-router-dom";
 import "./chat.chatroom.scss";
 import Form from "./form/form.chatroom";
 import ChatLog from "./chatlog/chatlog.chatroom";
-
 import Header from "./header/header.chatroom";
 
-function Chat({ chats, setChats }) {
-  let { id } = useParams();
+type ChatProps = {
+  chats: any;
+  setChats: Function;
+  className?: string;
+};
+
+function Chat({ chats, setChats }: ChatProps) {
+  let { id }: any = useParams();
 
   let [userId, setUserId] = useState(0);
 
@@ -22,7 +27,7 @@ function Chat({ chats, setChats }) {
       />
       <ChatLog id={id} chats={chats[id - 1].chats} url={chats[id - 1].img} />
       <Form
-        className="inputForm"
+        // className="inputForm"
         id={id}
         userId={userId}
         chats={chats}

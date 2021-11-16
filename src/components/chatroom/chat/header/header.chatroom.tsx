@@ -1,7 +1,15 @@
 import React from "react";
 import "./header.chatroom.scss";
 
-function Header({ id, name, img, userId, setUserId }) {
+type HeaderProps = {
+  id: number;
+  name: string;
+  img: string;
+  userId: number;
+  setUserId: Function;
+};
+
+function Header({ id, name, img, userId, setUserId }: HeaderProps) {
   let usericon = "/images/profile1.jpeg";
 
   let username = "";
