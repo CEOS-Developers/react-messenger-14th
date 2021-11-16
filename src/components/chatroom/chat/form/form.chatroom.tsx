@@ -45,10 +45,17 @@ function Buttons() {
   );
 }
 
-function Form({ id, userId, chats, setChats }) {
+type FormProps = {
+  id: number,
+  userId: number,
+  chats: any,
+  setChats: any
+}
+
+function Form({ id, userId, chats, setChats }: FormProps) {
   const [value, setValue] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.ChangeEvent) => {
     //prevent reloading
     e.preventDefault();
     //no submission if empty
