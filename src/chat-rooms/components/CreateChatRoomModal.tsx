@@ -43,7 +43,12 @@ const CreateChatRoomModal = ({ onClick, ...props }: CreateChatRoomModalI) => {
   };
 
   const handleCreateChatRoom = (e: React.MouseEvent<HTMLElement>) => {
-    if (!chatRoomName || selectedUsers.length === 0) return;
+    if (!chatRoomName || selectedUsers.length < 2) {
+      // !shoud be changed
+      // form invalid시 close 안 되게,,
+      e.stopPropagation();
+      return;
+    }
 
     const newChatRoom = {
       name: chatRoomName,
