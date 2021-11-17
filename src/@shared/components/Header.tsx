@@ -1,12 +1,26 @@
 import React from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import useUserContext from '../../@shared/hooks/useUser';
+import { UserI } from '../contexts/user';
+import useChatRoom from '../hooks/useChatRoom';
 import { color } from '../style/color';
 
 const Header = () => {
+  const { pathname } = useLocation();
+
+  const { id } = useParams<{ id: string | undefined }>();
   const { getUsers, getCurrentUser, setCurrentUser } = useUserContext();
-  const users = getUsers();
+  const { getCurrentChatRoom } = useChatRoom();
+  const currentChatroom = getCurrentChatRoom();
   const currentUser = getCurrentUser();
+
+  const users =
+    pathname.includes('/chat-rooms') && id
+      ? getUsers().filter((user: UserI) =>
+          currentChatroom?.users.includes(user.id)
+        )
+      : getUsers();
 
   const handleChangeProfile = (e: React.ChangeEvent<any>) => {
     const selectedIdx = e.target.options.selectedIndex;
