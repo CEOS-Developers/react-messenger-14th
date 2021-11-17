@@ -47,7 +47,7 @@ const CreateChatRoomModal = ({ onClick, ...props }: CreateChatRoomModalI) => {
 
     const newChatRoom = {
       name: chatRoomName,
-      users: [selectedUsers.map((user: UserI) => user.id)],
+      users: selectedUsers.map((user: UserI) => user.id),
     };
 
     createChatRoom(newChatRoom);
@@ -74,7 +74,9 @@ const CreateChatRoomModal = ({ onClick, ...props }: CreateChatRoomModalI) => {
               <SelectedUserItem>{user.name}</SelectedUserItem>
             ))}
           </SelectedUserSection>
-          <Button onClick={handleCreateChatRoom}>채팅방 개설</Button>
+          <Button onClick={handleCreateChatRoom} className="close-modal">
+            채팅방 개설
+          </Button>
         </ModalContainer.middle>
       }
     />

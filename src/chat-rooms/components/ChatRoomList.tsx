@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useChatRoomContext from '../../@shared/hooks/useChatRoom';
 import useUserContext from '../../@shared/hooks/useUser';
@@ -11,15 +11,28 @@ const ChatRoomList = () => {
   const currentUser = getCurrentUser();
   const chatRooms = getChatRooms();
 
-  const myChatRooms = chatRooms?.map((chatRoom) =>
-    chatRoom.users.includes(currentUser.id) ? chatRoom : undefined
-  );
+  const getMyChatRooms = () => {
+    return chatRooms?.map((chatRoom) => {
+      return chatRoom.users.includes(currentUser.id) ? chatRoom : undefined;
+    });
+  };
+
+  const [myChatRooms, setMyChatRooms] = useState(getMyChatRooms());
+
+  useEffect(() => {
+    setMyChatRooms(getMyChatRooms());
+  }, []);
+
+  useEffect(() => {
+    setMyChatRooms(getMyChatRooms());
+  }, [currentUser, chatRooms]);
 
   return (
     <Wrapper>
-      {myChatRooms?.map((chatRoom) => (
-        <ChatRoomItem chatRoom={chatRoom} />
-      ))}
+      {myChatRooms?.map((chatRoom) => {
+        if (!chatRoom) return;
+        return <ChatRoomItem chatRoom={chatRoom} />;
+      })}
     </Wrapper>
   );
 };

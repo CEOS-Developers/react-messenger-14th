@@ -18,10 +18,9 @@ export const defaultProfileImg =
 
 const initialUser: UserI = {
   name: '양기욱',
-  id: Date.now(),
+  id: Date.now() - 1,
   img: defaultProfileImg,
 };
-
 const initialState: UserContextI = {
   users: [...JSON.parse(usersJson), initialUser],
   currentUser: initialUser,

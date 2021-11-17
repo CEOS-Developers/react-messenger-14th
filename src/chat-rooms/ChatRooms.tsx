@@ -6,7 +6,7 @@ import ChatRoomList from './components/ChatRoomList';
 import styled from 'styled-components';
 
 const ChatRooms = () => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSetModal = (e: React.MouseEvent<any>) => {
     const clickedClassName = (e.target as Element).className;

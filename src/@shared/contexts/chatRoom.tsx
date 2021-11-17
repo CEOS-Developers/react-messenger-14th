@@ -59,7 +59,7 @@ const ChatRoomReducer = (state: ChatRoomContextI, action: any) => {
       return {
         ...state,
         chatRooms: state.chatRooms.filter(
-          (chatRoom: ChatRoomI) => chatRoom.id !== action.payload.chatRoomID
+          (chatRoom: ChatRoomI) => chatRoom.id !== action.payload.chatRoomId
         ),
       };
 

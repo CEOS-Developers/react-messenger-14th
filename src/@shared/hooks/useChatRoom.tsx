@@ -49,7 +49,7 @@ const useChatRoom = () => {
     };
     dispatchChatRoomContext({
       type: 'chatRoom/createChatRoom',
-      payload: newChatRoom,
+      payload: payload,
     });
   };
 
