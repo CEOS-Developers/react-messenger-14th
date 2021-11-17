@@ -10,7 +10,7 @@ export interface MessageI {
 export interface ChatRoomI {
   id: number;
   name?: string;
-  users: number[];
+  users: (number | undefined)[];
   messages: MessageI[];
 }
 
@@ -83,16 +83,62 @@ export const ChatRoomContextProvider = ({
 }: ChatRoomContextProviderI) => {
   const { userContext } = useContext(UserContext);
 
-  const initialChatRoom = {
-    id: Date.now(),
-    name: 'My First Chat Room',
-    users: userContext.users.map((user) => user.id),
-    messages: [],
-  };
+  const initialChatRooms = [
+    {
+      id: Date.now(),
+      name: 'Room for All',
+      users: userContext.users.map((user) => user.id),
+      messages: [],
+    },
+    {
+      id: Date.now() + 1,
+      name: 'Room for Danes and Netflix',
+      users: userContext.users.map((user) => {
+        if (user.name === 'Danes' || user.name === 'NEtflix') return user.id;
+      }),
+      messages: [],
+    },
+    {
+      id: Date.now() + 2,
+      name: 'Room for politi & test',
+      users: userContext.users.map((user) => {
+        if (user.name === 'Politi' || user.name === 'test') return user.id;
+      }),
+      messages: [],
+    },
+    {
+      id: Date.now() + 3,
+      name: 'Room 4 Politi, test, Urban',
+      users: userContext.users.map((user) => {
+        if (
+          user.name === 'Politi' ||
+          user.name === 'test' ||
+          user.name === 'Urban'
+        )
+          return user.id;
+      }),
+      messages: [],
+    },
+    {
+      id: Date.now() + 4,
+      name: 'Room 4 Engine, Jake, Abstract and Cordo',
+      users: userContext.users.map((user) => {
+        if (
+          user.name === 'Engine' ||
+          user.name === 'Jake' ||
+          user.name === 'Abstract' ||
+          user.name === 'Cordo'
+        ) {
+          return user.id;
+        }
+      }),
+      messages: [],
+    },
+  ];
 
-  const initialState = {
-    chatRooms: [initialChatRoom],
-    currentChatRoom: initialChatRoom,
+  const initialState: ChatRoomContextI = {
+    chatRooms: initialChatRooms,
+    currentChatRoom: initialChatRooms[0],
   };
 
   const [chatRoomContext, dispatchChatRoomContext] = useReducer(

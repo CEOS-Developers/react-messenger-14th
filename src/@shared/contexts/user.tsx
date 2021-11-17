@@ -17,7 +17,7 @@ export const defaultProfileImg =
   'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg';
 
 const initialUser: UserI = {
-  name: '양기욱',
+  name: 'test',
   id: Date.now() - 1,
   img: defaultProfileImg,
 };

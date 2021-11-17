@@ -3,7 +3,7 @@ export const defaultProfileImg =
 
 export const usersJson = JSON.stringify([
   {
-    name: 'test',
+    name: '양기욱',
     id: Date.now() + 1,
     img: defaultProfileImg,
   },
