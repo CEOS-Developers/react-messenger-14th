@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Chatting from './pages/chatting/chatting';
 import Friends from './pages/friends/friends';
@@ -12,7 +12,7 @@ import Chattingroom from './pages/chatting/chattingroom';
 import Cover from './pages/cover/cover';
 
 const App = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([] as any);
   useEffect(() => {
     setUsers([...data['users']]);
   }, []);
@@ -47,13 +47,10 @@ const App = () => {
             path="/chatting"
             render={() => <Chatting users={users} setUsers={setUsers} />}
           />
-          <Route
-            path="/more"
-            render={() => <More users={users} setUsers={setUsers} />}
-          />
+          <Route path="/more" render={() => <More />} />
           <Route
             // regular expression
-            path={`/chattingroom/:id(\d+)?:id`}
+            path={`/chattingroom/:id`}
             render={() => <Chattingroom users={users} setUsers={setUsers} />}
           />
         </Content>

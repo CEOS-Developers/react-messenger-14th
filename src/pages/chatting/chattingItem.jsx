@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const ChattingItem = ({ textMessage, myData, friendData }) => {
-  const [profilePictureSrc, setProfilePictureSrc] = useState(
+  const [profilePictureSrc] = useState(
     textMessage.isMyDialogue ? myData.profilePicture : friendData.profilePicture
   );
 
