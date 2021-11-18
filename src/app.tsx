@@ -1,18 +1,25 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Chatting from './pages/chatting/chatting';
 import Friends from './pages/friends/friends';
 import More from './pages/more/more';
-import { BsFillPersonFill, BsFillChatFill } from 'react-icons/bs';
-import { FiMoreHorizontal } from 'react-icons/fi';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 import * as data from './data/data.json';
 import Chattingroom from './pages/chatting/chattingroom';
 import Cover from './pages/cover/cover';
+import Sidebar from './pages/sidebar/sidebar';
+
+type user = {
+  id: number;
+  name: string;
+  statusMessage: string;
+  profilePicture: string;
+  dialogue: { time: string; isMyDialogue: boolean; content: string }[];
+};
 
 const App = () => {
-  const [users, setUsers] = useState([] as any);
+  const [users, setUsers] = useState<user[]>([...data['users']]);
   useEffect(() => {
     setUsers([...data['users']]);
   }, []);
@@ -21,18 +28,7 @@ const App = () => {
     <AppContainer>
       <GlobalStyle />
       <Router>
-        <Nav>
-          <StyledLink to="/friends">
-            <BsFillPersonFill />
-          </StyledLink>
-          <StyledLink to="/chatting">
-            <BsFillChatFill />
-          </StyledLink>
-          <StyledLink to="/more">
-            <FiMoreHorizontal />
-          </StyledLink>
-        </Nav>
-        {/* Route에서 inline으로 component를 넘겨주면 렌더링 할 때마다 새로운 컴포넌트를 만든다. 비추천! */}
+        <Sidebar />
         <Content>
           <Route
             exact
@@ -49,7 +45,6 @@ const App = () => {
           />
           <Route path="/more" render={() => <More />} />
           <Route
-            // regular expression
             path={`/chattingroom/:id`}
             render={() => <Chattingroom users={users} setUsers={setUsers} />}
           />
@@ -71,27 +66,12 @@ const GlobalStyle = createGlobalStyle`
   box-sizing:border-box;
 }
 `;
-const Nav = styled.nav`
-  background-color: var(--color-side-bar);
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 7vmax;
-`;
 
 const AppContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 100vh;
   width: 100vw;
-`;
-
-const StyledLink = styled(Link)`
-  color: var(--color-side-bar-icon);
-  width: 100%;
-  text-align: center;
-  font-size: 3vmax;
-  margin-top: 30px;
 `;
 
 const Content = styled.div`
