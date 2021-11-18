@@ -6,20 +6,16 @@ import {
   UserProfile,
   MessengerTextFormContainer,
   Form,
-  TextInput,
   ChatContainer,
-  Chat,
-  ChatBubble,
-  TextBox,
-  TimeBox,
-  HeartContainer,
   GoBack,
   TopContainer,
+  Profile,
+  Input,
 } from './MessengerPresenter';
 
-import { ProfileImage, Button, HeartImg } from '../icons';
-import dateToString from '../../utils/date';
+import { Button, EmojiIcon, GalleryIcon, HeartIcon } from '../icons';
 import { useParams } from 'react-router-dom';
+import { Messages } from './Messages';
 
 const MessengerContainer = ({ messengerData, onSubmit, room, toggleRoom }) => {
   const { path } = useParams();
@@ -64,9 +60,6 @@ const MessengerContainer = ({ messengerData, onSubmit, room, toggleRoom }) => {
     e.preventDefault();
     handleSubmitButtonClick();
   };
-  const onChange = (e) => {
-    setText(e.target.value);
-  };
 
   const onHeartButtonClick = () => {
     // heart submit해야함.
@@ -89,103 +82,6 @@ const MessengerContainer = ({ messengerData, onSubmit, room, toggleRoom }) => {
     }
   }
 
-  function renderForm() {
-    return (
-      <MessengerTextFormContainer>
-        <Form onSubmit={handleSubmit}>
-          <Button paddingLeft="20px">
-            <img
-              className="icon"
-              src="img/emoji.png"
-              width="24px"
-              alt="emoji"
-            />
-          </Button>
-          <TextInput
-            type="text"
-            placeholder="메시지 입력..."
-            onChange={onChange}
-            value={text}
-          />
-          <Button>
-            <img
-              className="icon"
-              src="img/gallery.png"
-              width="24px"
-              alt="emoji"
-            />
-          </Button>
-          <Button onClick={onHeartButtonClick}>
-            <img
-              className="icon"
-              src="img/heart.png"
-              width="24px"
-              alt="emoji"
-            />
-          </Button>
-        </Form>
-      </MessengerTextFormContainer>
-    );
-  }
-
-  function renderHeart() {
-    return (
-      <HeartContainer>
-        <HeartImg
-          alt="profile-img"
-          src="img/redHeart.png"
-          width="44px"
-          height="44px"
-        />
-      </HeartContainer>
-    );
-  }
-
-  function renderMessages() {
-    return messengerData.chatData.map((element) => {
-      return (
-        <Chat isMe={element.userId} key={element.date}>
-          {renderProfile(element.userId)}
-          {element.isHeart ? (
-            renderHeart()
-          ) : (
-            <ChatBubble>
-              <TextBox>{element.text}</TextBox>
-            </ChatBubble>
-          )}
-          <TimeBox>{dateToString(element.date)}</TimeBox>
-        </Chat>
-      );
-    });
-  }
-
-  function renderProfile(prop, isTop) {
-    return (
-      <>
-        {prop ? (
-          <>
-            <ProfileImage
-              alt="profile-img"
-              src={`img/${messengerData.id}.png`}
-              width="22px"
-              height="22px"
-            />
-            <>{isTop ? <h4>{messengerData.name}</h4> : <></>}</>
-          </>
-        ) : (
-          <>
-            <ProfileImage
-              alt="profile-img"
-              src="img/noImg.png"
-              width="22px"
-              height="22px"
-            />
-            <>{isTop ? <h4>n0wkim</h4> : <></>}</>
-          </>
-        )}
-      </>
-    );
-  }
   const handleRoomClick = () => {
     toggleRoom(room);
   };
@@ -203,7 +99,12 @@ const MessengerContainer = ({ messengerData, onSubmit, room, toggleRoom }) => {
             height="22px"
           />
           <UserProfile onClick={onClickToggle}>
-            {renderProfile(isMe, true)}
+            <Profile
+              prop={isMe}
+              isTop={true}
+              id={messengerData.id}
+              name={messengerData.name}
+            />
           </UserProfile>
         </TopContainer>
         <Button>
@@ -211,8 +112,17 @@ const MessengerContainer = ({ messengerData, onSubmit, room, toggleRoom }) => {
         </Button>
       </MessengerHeaderContainer>
       <MessengerContentContainer>
-        <ChatContainer ref={scrollRef}>{renderMessages()}</ChatContainer>
-        {renderForm()}
+        <ChatContainer ref={scrollRef}>
+          <Messages messengerData={messengerData} />
+        </ChatContainer>
+        <MessengerTextFormContainer>
+          <Form onSubmit={handleSubmit}>
+            <EmojiIcon />
+            <Input text={text} handleInput={setText} />
+            <GalleryIcon />
+            <HeartIcon onClick={onHeartButtonClick} />
+          </Form>
+        </MessengerTextFormContainer>
       </MessengerContentContainer>
     </Container>
   );

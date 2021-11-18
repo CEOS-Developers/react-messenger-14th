@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import COLORS from '../../constants/colors';
+import { HeartImg, ProfileImage } from '../icons';
 
 export const Container = styled.div`
   flex-direction: column;
@@ -67,6 +68,7 @@ export const TimeBox = styled.span`
   vertical-align: baseline;
   font-size: 7px;
   margin-left: 10px;
+  margin-right: 10px;
   margin-bottom: 5px;
   color: ${COLORS.grayFont};
 `;
@@ -139,3 +141,59 @@ export const TextInput = styled.input`
   text-align: left;
   //padding-left: 20px;
 `;
+export const Input = ({ text, handleInput }) => {
+  const onChange = (e) => {
+    e.preventDefault();
+    handleInput(e.target.value);
+  };
+  return (
+    <TextInput
+      type="text"
+      placeholder="메시지 입력..."
+      onChange={onChange}
+      value={text}
+    />
+  );
+};
+
+export const Heart = () => {
+  return (
+    <HeartContainer>
+      <HeartImg
+        alt="profile-img"
+        src="img/redHeart.png"
+        width="44px"
+        height="44px"
+      />
+    </HeartContainer>
+  );
+};
+
+export const Profile = ({ prop, isTop, id, name }) => {
+  console.log(name);
+  return (
+    <>
+      {prop ? (
+        <>
+          <ProfileImage
+            alt="profile-img"
+            src={`img/${id}.png`}
+            width="22px"
+            height="22px"
+          />
+          <>{isTop ? <h4>{name}</h4> : <></>}</>
+        </>
+      ) : (
+        <>
+          <ProfileImage
+            alt="profile-img"
+            src="img/noImg.png"
+            width="22px"
+            height="22px"
+          />
+          <>{isTop ? <h4>n0wkim</h4> : <></>}</>
+        </>
+      )}
+    </>
+  );
+};

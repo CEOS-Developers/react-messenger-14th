@@ -26,3 +26,31 @@ export const HeartImg = styled.div`
   height: ${(props) => props.height};
   margin-right: 10px;
 `;
+
+export const EmojiIcon = () => {
+  return (
+    <Button paddingLeft="20px">
+      <img className="icon" src="img/emoji.png" width="24px" alt="emoji" />
+    </Button>
+  );
+};
+export const GalleryIcon = () => {
+  return (
+    <Button>
+      <img
+        className="icon"
+        src="img/gallery.png"
+        width="24px"
+        alt="galleryIcon"
+      />
+    </Button>
+  );
+};
+
+export const HeartIcon = ({ onClick }) => {
+  return (
+    <Button onClick={onClick}>
+      <img className="icon" src="img/heart.png" width="24px" alt="emoji" />
+    </Button>
+  );
+};
