@@ -143,7 +143,6 @@ export const TextInput = styled.input`
 `;
 export const Input = ({ text, handleInput }) => {
   const onChange = (e) => {
-    e.preventDefault();
     handleInput(e.target.value);
   };
   return (
@@ -170,7 +169,6 @@ export const Heart = () => {
 };
 
 export const Profile = ({ prop, isTop, id, name }) => {
-  console.log(name);
   return (
     <>
       {prop ? (

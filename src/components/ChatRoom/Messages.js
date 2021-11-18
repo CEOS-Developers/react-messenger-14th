@@ -9,6 +9,7 @@ import {
 } from './MessengerPresenter';
 
 export const Messages = ({ messengerData }) => {
+  // console.log('hi');
   return messengerData.chatData.map((element) => {
     return (
       <Chat isMe={element.userId} key={element.date}>

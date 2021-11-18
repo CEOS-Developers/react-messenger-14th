@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import {
   Container,
   MessengerHeaderContainer,
@@ -60,7 +60,6 @@ const MessengerContainer = ({ messengerData, onSubmit, room, toggleRoom }) => {
     e.preventDefault();
     handleSubmitButtonClick();
   };
-
   const onHeartButtonClick = () => {
     // heart submit해야함.
     setText('');
@@ -81,7 +80,6 @@ const MessengerContainer = ({ messengerData, onSubmit, room, toggleRoom }) => {
       setIsMe(messengerData.id);
     }
   }
-
   const handleRoomClick = () => {
     toggleRoom(room);
   };
