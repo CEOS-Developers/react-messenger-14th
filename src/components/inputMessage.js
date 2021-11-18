@@ -34,12 +34,13 @@ const InputBox = styled.div`
   position: absolute;
 `;
 const Input = styled.input`
-  width: 85%;
+  width: 75%;
   height: 50px;
   border: 1px solid lightgray;
   border-radius: 20px;
   margin-left: 10px;
-  margin-bottom: 20px;
+  margin-bottom:90px;
+  margin-right: 10px;
   text-align: left;
 `;
 const Button = styled.button`
