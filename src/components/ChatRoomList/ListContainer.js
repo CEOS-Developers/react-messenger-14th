@@ -1,15 +1,11 @@
-import React from 'react';
 import {
   Container,
   ListHeaderContainer,
   ListContentContainer,
   RowContainer,
-  ColContainer,
-  RecentMessageContainer,
 } from './ListPresenter';
-import { Link } from 'react-router-dom';
-import { ProfileImage } from '../icons';
 import ModalComponent from './Modal';
+import { ListContent } from './ListContent';
 
 const ListContainer = ({ messengerData, room, toggleRoom }) => {
   const handleClick = () => {
@@ -25,28 +21,7 @@ const ListContainer = ({ messengerData, room, toggleRoom }) => {
         </RowContainer>
       </ListHeaderContainer>
       <ListContentContainer>
-        <ul>
-          {messengerData.map((element) => {
-            return (
-              <Link to={`/${element.id}`}>
-                <RowContainer key={element.id} onClick={handleClick}>
-                  <ProfileImage
-                    alt="profile-img"
-                    src={`img/${element.id}.png`}
-                    width="56px"
-                    height="56px"
-                  />
-                  <ColContainer>
-                    <p>{element.name}</p>
-                    <RecentMessageContainer>
-                      {element.chatData.slice(-1)[0].text}
-                    </RecentMessageContainer>
-                  </ColContainer>
-                </RowContainer>
-              </Link>
-            );
-          })}
-        </ul>
+        <ListContent handleClick={handleClick} messengerData={messengerData} />
       </ListContentContainer>
     </Container>
   );
