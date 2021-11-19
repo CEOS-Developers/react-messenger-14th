@@ -4,9 +4,14 @@ import Chatcontent from './chatcontent';
 import Inputmessage from './inputmessage';
 import Profile from './profile';
 
-function Chatting() {
+interface ChattingProps{
+  currentUser: string;
+  Profile: any;
+}
+
+function Chatting({currentUser}:ChattingProps) {
     const [chatList, setChatList] = useState([]);
-    const [currentUser, setCurrentUser] = useState(0);
+    const [CurrentUser, setCurrentUser] = useState(0);
     const handleChangeUser = () => {
         currentUser ? setCurrentUser(0) : setCurrentUser(1);
       };

@@ -4,8 +4,14 @@ import styled from 'styled-components';
 
 import friendListData from '../data/userdata.json';
 
-export default class Main extends React.Component {
-    constructor(props){
+interface MyProps{
+
+}
+
+
+export default class Main extends React.Component<{},{friendList:any, searchFriendName: string,}> {
+
+    constructor(props: any){
         super(props)
         this.state = {
             friendList : friendListData,
@@ -14,11 +20,11 @@ export default class Main extends React.Component {
     }
     render(){
    
-        const printFriends = (friends) => {
-            friends = friends.filter((friend) => {
+        const printFriends = (friends:any) => {
+            friends = friends.filter((friend:any) => {
                 return friend.name.indexOf(this.state.searchFriendName) > -1;
             });
-            return friends.map((friend) => {
+            return friends.map((friend:any) => {
                 return (
                     <Link to={{
                         pathname: `/chatting/${friend.id}`,

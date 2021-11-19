@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import user from '../data/user';
 
 interface ProfileProps{
-currentUser: any;
+currentUser: any,
 handleChangeUser: any;
 }
 
