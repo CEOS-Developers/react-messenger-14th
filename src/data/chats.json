@@ -1,0 +1,84 @@
+[
+  {
+    "id": 1,
+    "recentChatSend": 1633667530028,
+    "name": "__kiuk",
+    "chatData": [
+      {
+        "date": 1633624270022,
+        "text": "너가 선택한 코딩이다",
+        "userId": 1,
+        "isHeart": false
+      },
+      {
+        "date": 1633624330022,
+        "text": "악으로 깡으로 버텨라",
+        "userId": 1,
+        "isHeart": false
+      },
+      {
+        "date": 1633624330028,
+        "text": "나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어 나도 자고싶어",
+        "userId": 0,
+        "isHeart": false
+      },
+      {
+        "date": 1633667530028,
+        "text": "❤️",
+        "userId": 1,
+        "isHeart": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "pickyfarm",
+    "recentChatSend": 1636024754036,
+    "chatData": [
+      {
+        "date": 1636024754016,
+        "text": "안녕하세요~",
+        "userId": 2,
+        "isHeart": false
+      },
+      {
+        "date": 1636024754036,
+        "text": "혹시 사과 좋아하세요?",
+        "userId": 2,
+        "isHeart": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "j__hy_n",
+    "recentChatSend": 1636057089143,
+    "chatData": [
+      {
+        "date": 1636055381219,
+        "text": "음",
+        "userId": 3,
+        "isHeart": false
+      },
+      {
+        "date": 1636058030294,
+        "text": "하하하하ㅏ하",
+        "userId": 3,
+        "isHeart": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "자고싶니",
+    "recentChatSend": 1636057100752,
+    "chatData": [
+      {
+        "date": 1636057100752,
+        "text": "어림도없지",
+        "userId": 4,
+        "isHeart": false
+      }
+    ]
+  }
+]
