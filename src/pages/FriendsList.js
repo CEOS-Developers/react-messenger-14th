@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import users from '../data/user';
 import TopBar from '../components/TopBar';
 import SearchBox from '../components/SearchBox';
+import Profile from '../components/Profile';
 function FriendsList() {
   const [searchClick, setSearchClick] = useState(false);
   const [search, setSearch] = useState('');
@@ -28,13 +29,7 @@ function FriendsList() {
         ''
       )}
       {userSearchResult.map((user) => (
-        <Wrapper key={user.id}>
-          <Img src={process.env.PUBLIC_URL + '/img/' + user.profileImg}></Img>
-          <NameWrapper>
-            <Name>{user.name}</Name>
-            <Status>{user.status}</Status>
-          </NameWrapper>
-        </Wrapper>
+        <Profile user={user} text={user.status} />
       ))}
     </Container>
   );

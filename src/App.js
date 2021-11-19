@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import SideBar from './components/SideBar';
 import ChattingList from './pages/ChattingList';
@@ -13,12 +13,12 @@ function App() {
       <Container>
         <SideBar />
         <Body>
-          <Switch>
-            <Route path="/friends" hello={'안녕'} component={FriendsList} />
-            <Route path="/chat" component={ChattingList} />
-            <Route path="/chatroom/:id" component={ChatRoom} />
-            <Route path="/settings" component={Settings} />
-          </Switch>
+          <Routes>
+            <Route path="/friends" element={<FriendsList/>} />
+            <Route path="/chat" element={<ChattingList />} />
+            <Route path="/chatroom/:id" element={<ChatRoom />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
         </Body>
       </Container>
     </>

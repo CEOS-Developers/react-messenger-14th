@@ -1,24 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import user from '../data/user';
-function Profile({ currentUser, setCurrentUser, userId }) {
-  const handleChangeUser = () => {
-    currentUser ? setCurrentUser(0) : setCurrentUser(userId.id);
-  };
-  const { profileImg, name, status } = user[currentUser];
+function Profile({ user, text }) {
   return (
-    <ProfileWrapper onClick={handleChangeUser}>
-      <ProfileImg src={process.env.PUBLIC_URL + '/img/' + profileImg} />
+    <ProfileWrapper key={user.id}>
+      <ProfileImg src={process.env.PUBLIC_URL + '/img/' + user.profileImg} />
       <NameWrapper>
-        <Name>{name}</Name>
-        <Status>{status}</Status>
+        <Name>{user.name}</Name>
+        <div>{text}</div>
       </NameWrapper>
     </ProfileWrapper>
   );
 }
 const ProfileWrapper = styled.div`
   display: flex;
-  height: 15vh;
+  height: 7vh;
   align-items: center;
 `;
 const ProfileImg = styled.img`
@@ -35,5 +31,4 @@ const NameWrapper = styled.div`
 const Name = styled.div`
   font-weight: bold;
 `;
-const Status = styled.div``;
 export default Profile;

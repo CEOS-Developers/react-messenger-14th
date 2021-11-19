@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import user from '../data/user';
 import Profile from '../components/Profile';
 import ChatInput from '../components/Chat/ChatInput';
 import Message from '../components/Chat/Message';
@@ -10,13 +11,19 @@ function ChatRoom() {
   const roomId = userId.id - 1;
   const [chatList, setChatList] = useState(savedChat[roomId].chat);
   const [currentUser, setCurrentUser] = useState(0);
+  const handleChangeUser = () => {
+    currentUser ? setCurrentUser(0) : setCurrentUser(userId.id);
+  };
   return (
     <Wrapper>
-      <Profile
-        currentUser={currentUser}
-        setCurrentUser={setCurrentUser}
-        userId={userId}
-      />
+      <div onClick={handleChangeUser}>
+        <Profile
+          user={user[currentUser]}
+          text={user[currentUser].status}
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+        />
+      </div>
       <Message chatList={chatList} />
       <ChatInput
         currentUser={currentUser}
