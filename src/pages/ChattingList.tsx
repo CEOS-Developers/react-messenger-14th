@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import users from '../data/user';
+import users from '../data/user.json';
 import Profile from '../components/Profile';
-import savedChat from '../data/savedChat';
+import savedChat from '../data/savedChat.json';
 import TopBar from '../components/TopBar';
 import SearchBox from '../components/SearchBox';
 function ChattingList() {
@@ -12,7 +12,7 @@ function ChattingList() {
   const onSearchButtonClicked = () => {
     setSearchClick(!searchClick);
   };
-  const handleSearchInputChange = (e) => {
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
   const searchResult = savedChat.filter((chat) => {
@@ -46,6 +46,7 @@ function ChattingList() {
 }
 const Container = styled.div`
   width: 100%;
+  padding: 0 10px;
 `;
 const StyledLink = styled(Link)`
   text-decoration: none;

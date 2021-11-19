@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-function ChatInput({ currentUser, chatList, setChatList }) {
+function ChatInput({
+  currentUser,
+  chatList,
+  setChatList,
+}: {
+  currentUser: number;
+  chatList: any;
+  setChatList: any;
+}) {
   const [message, setMessage] = useState('');
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value);
   };
-  const handleSendMessageSubmit = (e) => {
+  const handleSendMessageSubmit = (e: React.FormEvent<any>) => {
     e.preventDefault();
     if (message)
       setChatList([

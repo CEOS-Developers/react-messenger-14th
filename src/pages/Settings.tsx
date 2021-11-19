@@ -9,12 +9,12 @@ import {
   AiOutlineInfoCircle,
 } from 'react-icons/ai';
 import TopBar from '../components/TopBar';
-import user from '../data/user';
+import user from '../data/user.json';
 function Settings() {
   const currentUser = user[0];
   return (
     <Container>
-      <TopBar current="settings" />
+      <TopBar current="settings" onSearchButtonClicked />
       <Wrapper>
         <Img src={process.env.PUBLIC_URL + '/img/' + currentUser.profileImg} />
         <Name>{currentUser.name}</Name>
@@ -46,6 +46,7 @@ function Settings() {
 }
 const Container = styled.div`
   width: 100%;
+  padding: 0 10px;
 `;
 
 const Img = styled.img`

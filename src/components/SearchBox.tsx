@@ -1,6 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-function SearchBox({ searchClick, setSearchClick, handleInputChange }) {
+function SearchBox({
+  searchClick,
+  setSearchClick,
+  handleInputChange,
+}: {
+  searchClick: any;
+  setSearchClick: any;
+  handleInputChange: any;
+}) {
   const onExitButtonClicked = () => {
     setSearchClick(!searchClick);
   };

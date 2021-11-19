@@ -1,8 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { AiOutlineSearch } from 'react-icons/ai';
-function TopBar({ current, onSearchButtonClicked }) {
-  const menu = { friends: '친구', chat: '채팅', settings: '설정' };
+interface IMenu {
+  [index: string]: string;
+}
+function TopBar({
+  current,
+  onSearchButtonClicked,
+}: {
+  current: string;
+  onSearchButtonClicked: any;
+}) {
+  const menu: IMenu = { friends: '친구', chat: '채팅', settings: '설정' };
   return (
     <>
       <Wrapper>
