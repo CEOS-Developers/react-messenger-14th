@@ -2,7 +2,17 @@ import styled from 'styled-components';
 import COLORS from '../../constants/colors';
 import { HeartImg, ProfileImage } from '../icons';
 
-export const Container = styled.div`
+interface Props {
+  room: boolean;
+}
+interface ChatProps {
+  isMe: number;
+}
+interface InputProps {
+  text: string;
+  handleInput: (prevState: string) => void;
+}
+export const Container = styled.div<Props>`
   flex-direction: column;
   background-color: white;
   // mobile version
@@ -12,7 +22,7 @@ export const Container = styled.div`
     width: 100vw;
   }
 `;
-export const GoBack = styled.div`
+export const GoBack = styled.img<Props>`
   @media screen and (max-width: 600px) {
     background-image: ${({ src }) => `url(${src})`};
     background-size: contain;
@@ -39,7 +49,8 @@ export const ChatContainer = styled.div`
     display: none;
   }
 `;
-export const Chat = styled.div`
+
+export const Chat = styled.div<ChatProps>`
   display: flex;
   margin-top: 6px;
   margin-bottom: 6px;
@@ -139,11 +150,11 @@ export const TextInput = styled.input`
   margin-left: 10px;
   margin-right: 10px;
   text-align: left;
-  //padding-left: 20px;
 `;
-export const Input = ({ text, handleInput }) => {
-  const onChange = (e) => {
-    handleInput(e.target.value);
+
+export const Input = ({ text, handleInput }: InputProps) => {
+  const onChange = (e: React.FormEvent<HTMLInputElement>) => {
+    handleInput(e.currentTarget.value);
   };
   return (
     <TextInput
@@ -168,7 +179,14 @@ export const Heart = () => {
   );
 };
 
-export const Profile = ({ prop, isTop, id, name }) => {
+interface ProfileProps {
+  prop: number;
+  isTop: boolean;
+  id: number;
+  name?: string;
+}
+
+export const Profile = ({ prop, isTop, id, name }: ProfileProps) => {
   return (
     <>
       {prop ? (

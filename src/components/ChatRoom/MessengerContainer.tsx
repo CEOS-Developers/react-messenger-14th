@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Container,
   MessengerHeaderContainer,
@@ -17,14 +17,46 @@ import { Button, EmojiIcon, GalleryIcon, HeartIcon } from '../icons';
 import { useParams } from 'react-router-dom';
 import { Messages } from './Messages';
 
-const MessengerContainer = ({ messengerData, onSubmit, room, toggleRoom }) => {
+interface ChatProps {
+  date: number;
+  text: string;
+  userId: number;
+  isHeart: boolean;
+}
+
+interface MessengerProps {
+  id: number;
+  recentChatSend: number;
+  name: string;
+  chatData: Array<ChatProps>;
+}
+interface SubmitProps {
+  userId: number;
+  text: string;
+  date: number;
+  isHeart: boolean;
+  with: number;
+}
+
+interface Props {
+  messengerData: MessengerProps;
+  onSubmit: (arg0: SubmitProps) => void;
+  room: boolean;
+  toggleRoom: any;
+}
+const MessengerContainer = ({
+  messengerData,
+  onSubmit,
+  room,
+  toggleRoom,
+}: Props) => {
   const { path } = useParams();
-  const [text, setText] = useState('');
-  const [isMe, setIsMe] = useState(0);
+  const [text, setText] = useState<string>('');
+  const [isMe, setIsMe] = useState<number>(0);
 
   //scroll 조절
-  const scrollRef = useRef();
-  const [chatEdit, setChatEdit] = useState(false);
+  const scrollRef: any = useRef<React.MutableRefObject<undefined>>();
+  const [chatEdit, setChatEdit] = useState<boolean>(false);
 
   function scrollToBottom() {
     scrollRef.current.scrollTo({
@@ -56,7 +88,7 @@ const MessengerContainer = ({ messengerData, onSubmit, room, toggleRoom }) => {
       setChatEdit(!chatEdit);
     }
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     handleSubmitButtonClick();
   };
