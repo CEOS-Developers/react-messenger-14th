@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { AiOutlineSearch } from 'react-icons/ai';
 interface IMenu {

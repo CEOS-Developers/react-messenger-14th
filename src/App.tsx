@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import SideBar from './components/SideBar';
@@ -14,7 +13,7 @@ function App() {
         <SideBar />
         <Body>
           <Routes>
-            <Route path="/friends" element={<FriendsList/>} />
+            <Route path="/friends" element={<FriendsList />} />
             <Route path="/chat" element={<ChattingList />} />
             <Route path="/chatroom/:id" element={<ChatRoom />} />
             <Route path="/settings" element={<Settings />} />
