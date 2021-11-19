@@ -7,7 +7,10 @@ import useCurrentUsers from '../../Hooks/useCurrentUsers';
 import { PageHeader } from '../common/pageHeader';
 
 const Friends = () => {
+  // context로부터 state = users데이터를 받아옴.
   const { state } = useContext(UsersContext);
+
+  // custom Hooks
   const { currentUsers, handleClickSearch, handleChange, isSearching } =
     useCurrentUsers(state);
 

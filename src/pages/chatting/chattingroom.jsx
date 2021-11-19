@@ -92,11 +92,7 @@ const Chattingroom = ({ users, setUsers }) => {
 
   return (
     <ChattingRoomContainer>
-      {/* 로컬 주소로 하면 왜 안될까.. */}
-      <ChangableProfile
-        // onClick={handleChangeProfile}
-        onClick={() => dispatch({ type: 'add_diaglogue' })}
-      >
+      <ChangableProfile onClick={handleChangeProfile}>
         <StyledImg
           src={changableData?.profilePicture || friendData?.profilePicture}
           alt="프로필 사진"
