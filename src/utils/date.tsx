@@ -1,8 +1,8 @@
-function dateToString(timestamp) {
+function dateToString(timestamp: Date) {
   const obj = new Date(timestamp);
 
-  const hour = obj.getHours().toString();
-  let min = obj.getMinutes().toString();
+  const hour: number = obj.getHours();
+  let min: any = obj.getMinutes();
 
   if (0 <= min && min < 10) {
     min = '0' + min;

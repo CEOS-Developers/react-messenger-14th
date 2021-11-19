@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const ProfileImage = styled.div`
+interface ButtonProp {
+  paddingLeft?: number;
+}
+
+export const ProfileImage = styled.img`
   background-image: ${({ src }) => `url(${src})`};
   background-size: cover;
   background-position: center;
@@ -11,12 +15,12 @@ export const ProfileImage = styled.div`
 `;
 
 // props 없을 때 default 설정
-export const Button = styled.div`
+export const Button = styled.div<ButtonProp>`
   padding-right: 10px;
   padding-left: ${(props) => (props ? props.paddingLeft : 10)};
 `;
 
-export const HeartImg = styled.div`
+export const HeartImg = styled.img`
   background-image: ${({ src }) => `url(${src})`};
   background-size: contain;
   background-repeat: no-repeat;
@@ -29,7 +33,7 @@ export const HeartImg = styled.div`
 
 export const EmojiIcon = () => {
   return (
-    <Button paddingLeft="20px">
+    <Button paddingLeft={20}>
       <img className="icon" src="img/emoji.png" width="24px" alt="emoji" />
     </Button>
   );
@@ -47,10 +51,10 @@ export const GalleryIcon = () => {
   );
 };
 
-export const HeartIcon = ({ onClick }) => {
+export const HeartIcon = ({ onClick }: any) => {
   return (
     <Button onClick={onClick}>
-      <img className="icon" src="img/heart.png" width="24px" alt="emoji" />
+      <img className="icon" src="img/heart.png" width="24px" alt="heart icon" />
     </Button>
   );
 };

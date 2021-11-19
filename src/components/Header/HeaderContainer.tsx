@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Form,
   TextInput,
@@ -8,21 +8,20 @@ import {
 import { Link } from 'react-router-dom';
 import { ProfileImage } from '../icons';
 
-const HeaderContainer = () => {
-  const [text, setText] = useState('');
+const HeaderContainer = (): JSX.Element => {
+  const [text, setText] = useState<string>('');
 
   const handleSubmitButtonClick = () => {
     // 일단은 아무일도 안 일어나고 초기화만
     setText('');
     window.alert('집가고싶다 나 자고싶다 이제 그만하고싶어');
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     handleSubmitButtonClick();
   };
-  const onChange = (e) => {
-    const nextForm = e.target.value;
-    setText(nextForm);
+  const onChange = (e: any) => {
+    setText(e.target.value);
   };
 
   return (
@@ -52,7 +51,7 @@ const HeaderContainer = () => {
         <img className="icon" src="img/heart.png" width="22px" alt="heart" />
         <Link to="settings">
           <ProfileImage
-            alt="profile-img"
+            alt="default profile image"
             src="img/noImg.png"
             width="22px"
             height="22px"
