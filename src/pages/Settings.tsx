@@ -9,10 +9,11 @@ import {
 } from 'react-icons/ai';
 import TopBar from '../components/TopBar';
 import user from '../data/user.json';
+import { BodyContainer } from '../components/Styles';
 function Settings() {
   const currentUser = user[0];
   return (
-    <Container>
+    <BodyContainer>
       <TopBar current="settings" onSearchButtonClicked />
       <Wrapper>
         <Img src={process.env.PUBLIC_URL + '/img/' + currentUser.profileImg} />
@@ -40,14 +41,9 @@ function Settings() {
           <AiOutlineInfoCircle size={30} /> 공지사항
         </IconWrapper>
       </MenuWrapper>
-    </Container>
+    </BodyContainer>
   );
 }
-const Container = styled.div`
-  width: 100%;
-  padding: 0 10px;
-`;
-
 const Img = styled.img`
   width: 100px;
 `;

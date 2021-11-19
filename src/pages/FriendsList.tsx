@@ -4,6 +4,7 @@ import users from '../data/user.json';
 import TopBar from '../components/TopBar';
 import SearchBox from '../components/SearchBox';
 import Profile from '../components/Profile';
+import { BodyContainer } from '../components/Styles';
 function FriendsList() {
   const [searchClick, setSearchClick] = useState<boolean>(false);
   const [search, setSearch] = useState<string>('');
@@ -17,25 +18,19 @@ function FriendsList() {
     return user.name.includes(search);
   });
   return (
-    <Container>
+    <BodyContainer>
       <TopBar current="friends" onSearchButtonClicked={onSearchButtonClicked} />
-      {searchClick ? (
+      {searchClick && (
         <SearchBox
           searchClick={searchClick}
           setSearchClick={setSearchClick}
           handleInputChange={handleSearchInputChange}
         />
-      ) : (
-        ''
       )}
       {userSearchResult.map((user) => (
         <Profile user={user} text={user.status} />
       ))}
-    </Container>
+    </BodyContainer>
   );
 }
-const Container = styled.div`
-  width: 100%;
-  padding: 0 10px;
-`;
 export default FriendsList;

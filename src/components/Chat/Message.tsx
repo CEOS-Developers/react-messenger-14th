@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import user from '../../data/user.json';
 import { IChatList } from '../../pages/ChatRoom';
+import { ProfileImg } from '../Styles';
 function Message({ chatList }: { chatList: IChatList[] }) {
   const messageRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -12,11 +13,11 @@ function Message({ chatList }: { chatList: IChatList[] }) {
     <Wrapper ref={messageRef}>
       {chatList.map((message: any) => (
         <MessageContainer key={message.chatId} sender={message.userId}>
-          <Img
+          <ProfileImg
             src={
               process.env.PUBLIC_URL + '/img/' + user[message.userId].profileImg
             }
-          ></Img>
+          ></ProfileImg>
           <MessageContent sender={message.userId}>
             {message.text}
           </MessageContent>
@@ -41,12 +42,6 @@ const MessageContainer = styled.div<ISender>`
   flex-direction: ${(props) => (!props.sender ? 'row-reverse' : 'row')};
   align-items: flex-end;
   margin-bottom: 10px;
-`;
-const Img = styled.img`
-  width: 50px;
-  height: 50px;
-  border-radius: 70%;
-  border: 1px solid lightgray;
 `;
 const MessageContent = styled.div<ISender>`
   display: flex;

@@ -6,6 +6,7 @@ import Profile from '../components/Profile';
 import savedChat from '../data/savedChat.json';
 import TopBar from '../components/TopBar';
 import SearchBox from '../components/SearchBox';
+import { BodyContainer } from '../components/Styles';
 function ChattingList() {
   const [searchClick, setSearchClick] = useState<boolean>(false);
   const [search, setSearch] = useState<string>('');
@@ -19,7 +20,7 @@ function ChattingList() {
     return chat.name.includes(search);
   });
   return (
-    <Container>
+    <BodyContainer>
       <TopBar current="chat" onSearchButtonClicked={onSearchButtonClicked} />
       {searchClick ? (
         <SearchBox
@@ -41,13 +42,9 @@ function ChattingList() {
           </StyledLink>
         );
       })}
-    </Container>
+    </BodyContainer>
   );
 }
-const Container = styled.div`
-  width: 100%;
-  padding: 0 10px;
-`;
 const StyledLink = styled(Link)`
   text-decoration: none;
   &:visited,
