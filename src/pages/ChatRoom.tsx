@@ -12,11 +12,16 @@ export interface IUser {
   status: string;
   profileImg: string;
 }
+export interface IChatList {
+  chatId: number;
+  text: string;
+  userId: number;
+}
 function ChatRoom() {
   const userId = useParams();
   const roomId = parseInt(userId.id!) - 1;
   const [chatList, setChatList] = useState(savedChat[roomId].chat);
-  const [currentUser, setCurrentUser] = useState(0);
+  const [currentUser, setCurrentUser] = useState<number>(0);
   const handleChangeUser = () => {
     console.log(roomId);
     currentUser ? setCurrentUser(0) : setCurrentUser(roomId + 1);

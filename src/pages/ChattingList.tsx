@@ -7,8 +7,8 @@ import savedChat from '../data/savedChat.json';
 import TopBar from '../components/TopBar';
 import SearchBox from '../components/SearchBox';
 function ChattingList() {
-  const [searchClick, setSearchClick] = useState(false);
-  const [search, setSearch] = useState('');
+  const [searchClick, setSearchClick] = useState<boolean>(false);
+  const [search, setSearch] = useState<string>('');
   const onSearchButtonClicked = () => {
     setSearchClick(!searchClick);
   };

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-function Profile({ user, text }: { user: any; text: string }) {
+import { IUser } from '../pages/ChatRoom';
+function Profile({ user, text }: { user: IUser; text: string }) {
   return (
     <ProfileWrapper key={user.id}>
       <ProfileImg src={process.env.PUBLIC_URL + '/img/' + user.profileImg} />
@@ -12,7 +13,7 @@ function Profile({ user, text }: { user: any; text: string }) {
 }
 const ProfileWrapper = styled.div`
   display: flex;
-  height: 10vh;
+  height: 7vh;
   align-items: center;
 `;
 const ProfileImg = styled.img`

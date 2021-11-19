@@ -1,13 +1,14 @@
 import React from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
 function SearchBox({
   searchClick,
   setSearchClick,
   handleInputChange,
 }: {
-  searchClick: any;
-  setSearchClick: any;
-  handleInputChange: any;
+  searchClick: boolean;
+  setSearchClick: Dispatch<SetStateAction<boolean>>;
+  handleInputChange: React.ChangeEventHandler<HTMLInputElement>;
 }) {
   const onExitButtonClicked = () => {
     setSearchClick(!searchClick);

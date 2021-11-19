@@ -5,8 +5,8 @@ import TopBar from '../components/TopBar';
 import SearchBox from '../components/SearchBox';
 import Profile from '../components/Profile';
 function FriendsList() {
-  const [searchClick, setSearchClick] = useState(false);
-  const [search, setSearch] = useState('');
+  const [searchClick, setSearchClick] = useState<boolean>(false);
+  const [search, setSearch] = useState<string>('');
   const onSearchButtonClicked = () => {
     setSearchClick(!searchClick);
   };
@@ -37,29 +37,5 @@ function FriendsList() {
 const Container = styled.div`
   width: 100%;
   padding: 0 10px;
-`;
-const NameWrapper = styled.div`
-  line-height: 25px;
-  margin-left: 10px;
-`;
-const Wrapper = styled.div`
-  display: flex;
-  height: 70px;
-  align-items: center;
-  margin-left: 20px;
-`;
-const Name = styled.p`
-  font-weight: bold;
-  margin: 0;
-`;
-const Status = styled.p`
-  margin: 0;
-`;
-
-const Img = styled.img`
-  width: 50px;
-  height: 50px;
-  border-radius: 70%;
-  border: 1px solid lightgray;
 `;
 export default FriendsList;

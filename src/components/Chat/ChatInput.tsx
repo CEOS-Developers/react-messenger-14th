@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
+import { IChatList } from '../../pages/ChatRoom';
 function ChatInput({
   currentUser,
   chatList,
   setChatList,
 }: {
   currentUser: number;
-  chatList: any;
-  setChatList: any;
+  chatList: IChatList[];
+  setChatList: Dispatch<SetStateAction<IChatList[]>>;
 }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState<string>('');
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value);
   };

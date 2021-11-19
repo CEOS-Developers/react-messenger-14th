@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import user from '../../data/user.json';
-function Message({ chatList }: { chatList: any }) {
+import { IChatList } from '../../pages/ChatRoom';
+function Message({ chatList }: { chatList: IChatList[] }) {
   const messageRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (messageRef.current)
