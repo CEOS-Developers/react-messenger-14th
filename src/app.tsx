@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import * as React from 'react';
+import { useEffect, useState, useReducer, Dispatch, Reducer } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Chatting from './pages/chatting/chatting';
 import Friends from './pages/friends/friends';
@@ -10,7 +11,7 @@ import Chattingroom from './pages/chatting/chattingroom';
 import Cover from './pages/cover/cover';
 import Sidebar from './pages/sidebar/sidebar';
 
-type user = {
+export type User = {
   id: number;
   name: string;
   statusMessage: string;
@@ -18,39 +19,63 @@ type user = {
   dialogue: { time: string; isMyDialogue: boolean; content: string }[];
 };
 
+type State = User[];
+type Action = {
+  type: 'add_diaglogue';
+  literal: string;
+};
+
+const initialState: State = data['users'];
+const defaultDispatch: Dispatch<Action> = () => initialState;
+
+function reducer(state: State, action: Action): State {
+  switch (action.type) {
+    case 'add_diaglogue': {
+      console.log('add_diaglogue');
+      return { ...state };
+    }
+
+    default:
+      throw new Error('undefined action!');
+  }
+}
+
+export const UsersContext = React.createContext({
+  state: initialState,
+  dispatch: defaultDispatch,
+});
+
 const App = () => {
-  const [users, setUsers] = useState<user[]>([...data['users']]);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const [users, setUsers] = useState(initialState);
+
   useEffect(() => {
     setUsers([...data['users']]);
   }, []);
 
   return (
-    <AppContainer>
-      <GlobalStyle />
-      <Router>
-        <Sidebar />
-        <Content>
-          <Route
-            exact
-            path="/"
-            render={() => <Cover users={users} setUsers={setUsers} />}
-          />
-          <Route
-            path="/friends"
-            render={() => <Friends users={users} setUsers={setUsers} />}
-          />
-          <Route
-            path="/chatting"
-            render={() => <Chatting users={users} setUsers={setUsers} />}
-          />
-          <Route path="/more" render={() => <More />} />
-          <Route
-            path={`/chattingroom/:id`}
-            render={() => <Chattingroom users={users} setUsers={setUsers} />}
-          />
-        </Content>
-      </Router>
-    </AppContainer>
+    <UsersContext.Provider value={{ state, dispatch }}>
+      <AppContainer>
+        <GlobalStyle />
+        <Router>
+          <Sidebar />
+          <Content>
+            <Route exact path="/" render={() => <Cover />} />
+            <Route path="/friends" render={() => <Friends />} />
+            <Route
+              path="/chatting"
+              render={() => <Chatting users={users} setUsers={setUsers} />}
+            />
+            <Route path="/more" render={() => <More />} />
+            <Route
+              path={`/chattingroom/:id`}
+              render={() => <Chattingroom users={users} setUsers={setUsers} />}
+            />
+          </Content>
+        </Router>
+      </AppContainer>
+    </UsersContext.Provider>
   );
 };
 

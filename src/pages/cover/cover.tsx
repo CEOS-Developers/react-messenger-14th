@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Cover = (props) => {
+const Cover = () => {
   return (
     <CoverContainer>
       <Img src="./kakao.png" alt="kakao"></Img>

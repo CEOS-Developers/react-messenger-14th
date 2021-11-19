@@ -1,9 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { StyledImg } from '../friends/friendsListItem';
 import { UserName, UserInfo } from '../friends/friendsListItem';
 import ChattingItem from './chattingItem';
+import { UsersContext } from '../../app';
 
 const Chattingroom = ({ users, setUsers }) => {
   const { id } = useParams();
@@ -15,6 +16,9 @@ const Chattingroom = ({ users, setUsers }) => {
   const [text, setText] = useState('');
   const textAreaRef = useRef();
   const mainEndRef = useRef();
+
+  //---------
+  const { state, dispatch } = useContext(UsersContext);
 
   const handleChangeProfile = () => {
     if (friendData.id === 0) {
@@ -89,7 +93,10 @@ const Chattingroom = ({ users, setUsers }) => {
   return (
     <ChattingRoomContainer>
       {/* 로컬 주소로 하면 왜 안될까.. */}
-      <ChangableProfile onClick={handleChangeProfile}>
+      <ChangableProfile
+        // onClick={handleChangeProfile}
+        onClick={() => dispatch({ type: 'add_diaglogue' })}
+      >
         <StyledImg
           src={changableData?.profilePicture || friendData?.profilePicture}
           alt="프로필 사진"

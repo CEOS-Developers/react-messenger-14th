@@ -1,31 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
+import { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import FriendsListItem from './friendsListItem';
 import { BsSearch } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
+import { UsersContext } from '../../app';
+import type { User } from '../../app';
+import useCurrentUsers from '../../Hooks/useCurrentUsers';
 
-const Friends = ({ users, setUsers }) => {
-  const [searchingText, setSearchingText] = useState('');
-  const [isSearching, setIsSearching] = useState(false);
-  const [currentUsers, setCurrentUsers] = useState(users);
-
-  const handleChange = (e) => {
-    setSearchingText(e.target.value);
-    setCurrentUsers(users.filter((e) => e.name.indexOf(searchingText) > -1));
-    return;
-  };
-
-  const handleClickSearch = () => {
-    setIsSearching(!isSearching);
-  };
-
-  useEffect(() => {
-    if (isSearching) {
-    } else {
-      setCurrentUsers(users);
-    }
-  }, [users, isSearching]);
-
+const Friends = () => {
+  const { state } = useContext(UsersContext);
+  const { currentUsers, handleClickSearch, handleChange, isSearching } =
+    useCurrentUsers(state);
   return (
     <FriendsContainer>
       <Header>
@@ -37,7 +23,7 @@ const Friends = ({ users, setUsers }) => {
       {isSearching && (
         <>
           <SearchBar
-            onKeyUp={handleChange}
+            onChange={handleChange}
             placeholder="검색어를 입력하세요."
             onFocus={(e) => (e.target.placeholder = '')}
             onBlur={(e) => (e.target.placeholder = '검색어를 입력하세요.')}
@@ -49,7 +35,7 @@ const Friends = ({ users, setUsers }) => {
       )}
       <FriendsList>
         {currentUsers &&
-          currentUsers.map((element) => (
+          currentUsers.map((element: User) => (
             <FriendsListItem key={element.id} user={element}></FriendsListItem>
           ))}
       </FriendsList>

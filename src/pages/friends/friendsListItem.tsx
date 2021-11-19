@@ -1,8 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import User from '../../app';
+type FriendsListItemProps = {
+  user: {
+    id: number;
+    name: string;
+    statusMessage: string;
+    profilePicture: string;
+    dialogue: { time: string; isMyDialogue: boolean; content: string }[];
+  };
+};
 
-const FriendsListItem = ({ user }) => {
+const FriendsListItem: React.FC<FriendsListItemProps> = ({ user }) => {
   return (
     <FriendsListItemLink to={`/chattingroom/${user.id}`}>
       <ListItem>
