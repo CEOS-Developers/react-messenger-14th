@@ -2,7 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import user from '../data/user';
 
-function Profile({ currentUser, handleChangeUser }) {
+interface ProfileProps{
+currentUser: any;
+handleChangeUser: any;
+}
+
+
+
+export function Profile({ currentUser, handleChangeUser }: ProfileProps) {
   return (
     <Wrap onClick={handleChangeUser}>
       <ProfileImg
