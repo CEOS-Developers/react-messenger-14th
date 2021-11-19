@@ -4,7 +4,7 @@ import chatIcon from "./messenger.png";
 import userIcon from "./user.png";
 import moreIcon from "./more.png";
 
-import { Route, Switch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SideBar() {
   return (

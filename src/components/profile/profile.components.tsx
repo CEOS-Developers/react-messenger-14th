@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Data from "./friends";
 import Header from "./header/header.profile";
 import Friends from "./friends/friends.profile";
-import friends from "../chatroom/friends";
 
 function Profile() {
   let [friendsList, setFriendsList] = useState(Data);

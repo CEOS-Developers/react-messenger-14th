@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import { Switch, Route } from "react-router";
+import { Route } from "react-router";
 import SideBar from "./components/sidebar/sidebar.components";
 import Chatroom from "./components/chatroom/chatroom.components";
 import Profile from "./components/profile/profile.components";

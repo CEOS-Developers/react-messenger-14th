@@ -26,13 +26,7 @@ function Chat({ chats, setChats }: ChatProps) {
         setUserId={setUserId}
       />
       <ChatLog id={id} chats={chats[id - 1].chats} url={chats[id - 1].img} />
-      <Form
-        // className="inputForm"
-        id={id}
-        userId={userId}
-        chats={chats}
-        setChats={setChats}
-      />
+      <Form id={id} userId={userId} chats={chats} setChats={setChats} />
     </div>
   );
 }

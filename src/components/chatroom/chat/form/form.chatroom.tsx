@@ -15,18 +15,21 @@ function Buttons() {
         onClick={() => {
           alert("이모티콘 전송 기능은 아직 준비중입니다!");
         }}
+        alt="emoji"
       />
       <img
         src={clip}
         onClick={() => {
           alert("파일 전송 기능은 아직 준비중입니다!");
         }}
+        alt="clip"
       />
       <img
         src={calendar}
         onClick={() => {
           alert("달력 기능은 아직 준비중입니다!");
         }}
+        alt="calendar"
       />
       <img
         src={call}
@@ -34,12 +37,14 @@ function Buttons() {
         onClick={() => {
           alert("통화 기능은 아직 준비중입니다!");
         }}
+        alt="call"
       />
       <img
         src={videocall}
         onClick={() => {
           alert("영상통화 기능은 아직 준비중입니다!");
         }}
+        alt="videocall"
       />
     </div>
   );
@@ -68,8 +73,6 @@ function Form({ id, userId, chats, setChats }: FormProps) {
       id: userId,
       chat: value,
     });
-    console.log(tempChats);
-    console.log(chats);
     setChats(tempChats);
 
     //reset value
