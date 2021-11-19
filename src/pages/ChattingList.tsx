@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import users from '../data/user.json';
 import Profile from '../components/Profile';
 import savedChat from '../data/savedChat.json';
-import TopBar from '../components/TopBar';
+import TopBar from '../components/Menu/TopBar';
 import SearchBox from '../components/SearchBox';
 import { BodyContainer } from '../components/Styles';
 function ChattingList() {

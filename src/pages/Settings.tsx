@@ -7,7 +7,7 @@ import {
   AiOutlineGithub,
   AiOutlineInfoCircle,
 } from 'react-icons/ai';
-import TopBar from '../components/TopBar';
+import TopBar from '../components/Menu/TopBar';
 import user from '../data/user.json';
 import { BodyContainer } from '../components/Styles';
 function Settings() {

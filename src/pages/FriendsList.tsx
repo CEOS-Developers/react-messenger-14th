@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import users from '../data/user.json';
-import TopBar from '../components/TopBar';
+import TopBar from '../components/Menu/TopBar';
 import SearchBox from '../components/SearchBox';
 import Profile from '../components/Profile';
 import { BodyContainer } from '../components/Styles';
