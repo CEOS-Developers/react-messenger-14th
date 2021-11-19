@@ -9,7 +9,7 @@ import { createGlobalStyle } from 'styled-components';
 import * as data from './data/data.json';
 import Chattingroom from './pages/chatting/chattingroom';
 import Cover from './pages/cover/cover';
-import Sidebar from './pages/sidebar/sidebar';
+import Sidebar from './pages/common/sidebar';
 
 export type User = {
   id: number;
@@ -63,10 +63,7 @@ const App = () => {
           <Content>
             <Route exact path="/" render={() => <Cover />} />
             <Route path="/friends" render={() => <Friends />} />
-            <Route
-              path="/chatting"
-              render={() => <Chatting users={users} setUsers={setUsers} />}
-            />
+            <Route path="/chatting" render={() => <Chatting />} />
             <Route path="/more" render={() => <More />} />
             <Route
               path={`/chattingroom/:id`}
