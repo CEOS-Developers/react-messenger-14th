@@ -1,0 +1,112 @@
+[
+  {
+    "userId": 1,
+    "name": "라이언",
+    "profileImg": "ryan.png",
+    "chat": [
+      {
+        "chatId": 0,
+        "text": "안녕",
+        "userId": 0
+      },
+      {
+        "chatId": 1,
+        "text": "군고구마 사줄래?",
+        "userId": 0
+      },
+      {
+        "chatId": 2,
+        "text": "알았어",
+        "userId": 1
+      }
+    ]
+  },
+  {
+    "userId": 2,
+    "name": "탱",
+    "profileImg": "taeeun.png",
+    "chat": [
+      {
+        "chatId": 0,
+        "text": "안녕",
+        "userId": 2
+      },
+      {
+        "chatId": 1,
+        "text": "춘식아 사랑해",
+        "userId": 2
+      },
+      {
+        "chatId": 2,
+        "text": "나도",
+        "userId": 0
+      }
+    ]
+  },
+  {
+    "userId": 3,
+    "name": "행운의 고양이",
+    "profileImg":"cat.jpg",
+    "chat": [
+      {
+        "chatId": 0,
+        "text": "안녕",
+        "userId": 3
+      },
+      {
+        "chatId": 1,
+        "text": "너도 고양이야?",
+        "userId": 3
+      },
+      {
+        "chatId": 2,
+        "text": "...",
+        "userId": 0
+      }
+    ]
+  },
+  {
+    "userId": 4,
+    "name": "sook",
+    "profileImg":"sook.png",
+    "chat": [
+      {
+        "chatId": 0,
+        "text": "안녕",
+        "userId": 4
+      },
+      {
+        "chatId": 1,
+        "text": "춘식아 사랑해",
+        "userId": 4
+      },
+      {
+        "chatId": 2,
+        "text": "약간 부담..",
+        "userId": 0
+      }
+    ]
+  },
+  {
+    "userId": 5,
+    "name": "옞니",
+    "profileImg":"yejin.png",
+    "chat": [
+      {
+        "chatId": 0,
+        "text": "안녕",
+        "userId": 5
+      },
+      {
+        "chatId": 1,
+        "text": "춘식아 사랑해",
+        "userId": 5
+      },
+      {
+        "chatId": 2,
+        "text": "약간 부담..",
+        "userId": 0
+      }
+    ]
+  }
+]
