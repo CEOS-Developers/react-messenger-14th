@@ -1,14 +1,16 @@
-import React from 'react';
 import styled from 'styled-components';
 import user from '../data/user'
 
+interface ChatProps{
+  chatList: any;
+}
 
-function Chatcontent({chatList}) {
+function Chatcontent({chatList}: ChatProps) {
   return (
     <>
-      {chatList.map((message, i) => (
+      {chatList.map((message:any, i:never) => (
   
-        <MessageContainer sender={message.user}>
+        <MessageContainer>
           <Img
             src={
               process.env.PUBLIC_URL + '/assets/' + user[message.user].profileImg
@@ -22,7 +24,6 @@ function Chatcontent({chatList}) {
 }
 const MessageContainer = styled.div`
   display: flex;
-  flex-direction: ${(props) => (props.sender === 0 ? 'row-reverse' : 'row')};
   align-items: flex-end;
 `;
 
