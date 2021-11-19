@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import COLORS from '../../constants/colors';
 
-export const Container = styled.div`
+interface ContainerProp {
+  room: boolean;
+}
+
+export const Container = styled.div<ContainerProp>`
   flex-direction: column;
   border-right: 1px solid ${COLORS.primary};
   background-color: white;

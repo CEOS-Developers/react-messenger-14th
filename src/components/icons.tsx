@@ -3,8 +3,11 @@ import styled from 'styled-components';
 interface ButtonProp {
   paddingLeft?: number;
 }
+interface ProfileProp {
+  id?: any;
+}
 
-export const ProfileImage = styled.img`
+export const ProfileImage = styled.img<ProfileProp>`
   background-image: ${({ src }) => `url(${src})`};
   background-size: cover;
   background-position: center;

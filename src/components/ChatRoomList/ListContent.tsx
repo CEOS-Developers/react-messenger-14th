@@ -6,7 +6,26 @@ import {
   RecentMessageContainer,
 } from './ListPresenter';
 
-export const ListContent = ({ messengerData, handleClick }) => {
+interface ChatProps {
+  date: number;
+  text: string;
+  userId: number;
+  isHeart: boolean;
+}
+
+interface MessengerProps {
+  id: number;
+  recentChatSend: number;
+  name: string;
+  chatData: Array<ChatProps>;
+}
+
+interface Props {
+  messengerData: Array<MessengerProps>;
+  handleClick: any;
+}
+
+export const ListContent = ({ messengerData, handleClick }: Props) => {
   return (
     <ul>
       {messengerData.map((element) => {

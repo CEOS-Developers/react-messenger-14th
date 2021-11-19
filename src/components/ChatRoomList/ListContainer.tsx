@@ -7,7 +7,27 @@ import {
 import ModalComponent from './Modal';
 import { ListContent } from './ListContent';
 
-const ListContainer = ({ messengerData, room, toggleRoom }) => {
+interface ChatProps {
+  date: number;
+  text: string;
+  userId: number;
+  isHeart: boolean;
+}
+
+interface MessengerProps {
+  id: number;
+  recentChatSend: number;
+  name: string;
+  chatData: Array<ChatProps>;
+}
+
+interface Props {
+  messengerData: Array<MessengerProps>;
+  room: boolean;
+  toggleRoom: any;
+}
+
+const ListContainer = ({ messengerData, room, toggleRoom }: Props) => {
   const handleClick = () => {
     toggleRoom(!room);
   };

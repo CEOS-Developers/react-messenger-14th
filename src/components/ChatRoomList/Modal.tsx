@@ -17,17 +17,35 @@ const customStyles = {
 };
 
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement(document.getElementById('root'));
+//Modal.setAppElement(document.getElementById('root'));
 
-const ModalComponent = ({ messengerData }) => {
-  const [text, setText] = useState('');
+interface ChatProps {
+  date: number;
+  text: string;
+  userId: number;
+  isHeart: boolean;
+}
+
+interface MessengerProps {
+  id: number;
+  recentChatSend: number;
+  name: string;
+  chatData: Array<ChatProps>;
+}
+
+interface Props {
+  messengerData: Array<MessengerProps>;
+}
+
+const ModalComponent = ({ messengerData }: Props) => {
+  const [text, setText] = useState<string>('');
   let navigate = useNavigate();
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [searchedData, setSearchedData] = useState([]);
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+  const [searchedData, setSearchedData] = useState<Array<MessengerProps>>([]);
 
   // 유저의 typing을 받아서 text에 set
-  const onChange = (e) => {
-    const nextForm = e.target.value;
+  const onChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const nextForm = e.currentTarget.value;
     setText(nextForm);
   };
 
@@ -43,7 +61,7 @@ const ModalComponent = ({ messengerData }) => {
     setSearchedData(messengerData);
   }, [messengerData]);
 
-  function handleSearch(input) {
+  function handleSearch(input: string) {
     const result = messengerData.filter((data) => {
       console.log(data.name);
       console.log(input);
@@ -61,7 +79,7 @@ const ModalComponent = ({ messengerData }) => {
     setText('');
   }
 
-  const handleClicked = (e) => {
+  const handleClicked = (e: any) => {
     navigate(`/${e.target.id}`);
     closeModal();
   };
