@@ -1,6 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+function Message({ messageSender, messageContent }) {
+  return (
+    <MessageItem messageSender={messageSender}>
+      <ProfileImage src={messageSender.profileImage} />
+      <MessageBox messageSender={messageSender}>{messageContent}</MessageBox>
+    </MessageItem>
+  );
+}
+
 const MessageItem = styled.div`
   display: flex;
   flex-direction: ${(props) =>
@@ -27,16 +36,5 @@ const MessageBox = styled.span`
   word-break: break-all;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 `;
-
-function Message(props) {
-  const { messageSender, messageContent } = props;
-
-  return (
-    <MessageItem {...props}>
-      <ProfileImage src={messageSender.profileImage} />
-      <MessageBox {...props}>{messageContent}</MessageBox>
-    </MessageItem>
-  );
-}
 
 export default Message;

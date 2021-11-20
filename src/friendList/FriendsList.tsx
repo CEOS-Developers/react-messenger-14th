@@ -5,39 +5,10 @@ import styled from 'styled-components';
 import useUserContext from '../hooks/useUserContext';
 import { friend } from '../contexts/userContext';
 
-const StyledHeader = styled.div`
-  font-size: 25px;
-  font-weight: bolder;
-  background-color: rgba(33, 33, 33, 0.35);
-  padding: 20px;
-  color: whitesmoke;
-`;
-
-const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: rgba(33, 33, 33, 0.05);
-`;
-
-const FriendListContainer = styled.div`
-  background-color: rgba(33, 33, 33, 0.05);
-  padding: 10px;
-  height: 100%;
-`;
-
 function FriendsList(props: any) {
   const [searchQuery, setSearchQuery] = useState('');
   const { getFriendList } = useUserContext();
   const friendList = getFriendList();
-
-  const handleSearchQueryChange = (e: any) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const handleSearchQueryReset = () => {
-    setSearchQuery('');
-  };
 
   const filteredList = friendList.filter((item) => {
     return item.name.indexOf(searchQuery) > -1;
@@ -46,17 +17,34 @@ function FriendsList(props: any) {
   return (
     <StyledContainer>
       <StyledHeader>Friends</StyledHeader>
-      <SearchBar
-        onInputChange={handleSearchQueryChange}
-        onInputReset={handleSearchQueryReset}
-        value={searchQuery}
-      />
+      <SearchBar searchText={searchQuery} />
       <FriendListContainer>
         <FilteredFriendList filteredList={filteredList} />
       </FriendListContainer>
     </StyledContainer>
   );
 }
+
+const FilteredFriendList = (props: any) => {
+  return props.filteredList.map((item: friend) => {
+    return (
+      <Link
+        to={`/chatlist/${item.id}`}
+        style={{ color: 'inherit', textDecoration: 'none' }}
+      >
+        <SingleFriendItem>
+          <FriendItemProfileImage
+            src={process.env.PUBLIC_URL + '/images/' + item.profileImage}
+          />
+          <FriendItemProfileInfo>
+            <FriendName>{item.name}</FriendName>
+            <FriendStatusMsg>{item.statusMessage}</FriendStatusMsg>
+          </FriendItemProfileInfo>
+        </SingleFriendItem>
+      </Link>
+    );
+  });
+};
 
 const SingleFriendItem = styled.div`
   width: 100%;
@@ -98,26 +86,25 @@ const FriendStatusMsg = styled.div`
   font-weight: medium;
   text-decoration: none;
 `;
+const StyledHeader = styled.div`
+  font-size: 25px;
+  font-weight: bolder;
+  background-color: rgba(33, 33, 33, 0.35);
+  padding: 20px;
+  color: whitesmoke;
+`;
 
-const FilteredFriendList = (props: any) => {
-  return props.filteredList.map((item: friend) => {
-    return (
-      <Link
-        to={`/chatlist/${item.id}`}
-        style={{ color: 'inherit', textDecoration: 'none' }}
-      >
-        <SingleFriendItem>
-          <FriendItemProfileImage
-            src={process.env.PUBLIC_URL + '/images/' + item.profileImage}
-          />
-          <FriendItemProfileInfo>
-            <FriendName>{item.name}</FriendName>
-            <FriendStatusMsg>{item.statusMessage}</FriendStatusMsg>
-          </FriendItemProfileInfo>
-        </SingleFriendItem>
-      </Link>
-    );
-  });
-};
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgba(33, 33, 33, 0.05);
+`;
+
+const FriendListContainer = styled.div`
+  background-color: rgba(33, 33, 33, 0.05);
+  padding: 10px;
+  height: 100%;
+`;
 
 export default FriendsList;

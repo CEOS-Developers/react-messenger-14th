@@ -1,6 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-import useChatroomContext from '../hooks/useChatroomContext';
+
+function MessageForm({
+  currentMessage,
+  onCurrentMessageInputChange,
+  onSendMessage,
+}) {
+  return (
+    <MessageSendingForm onSubmit={onSendMessage}>
+      <MessageInputBox
+        type="text"
+        value={currentMessage}
+        placeholder="메세지 입력"
+        onChange={onCurrentMessageInputChange}
+      />
+      <MessageSendingButton type="submit">전송</MessageSendingButton>
+    </MessageSendingForm>
+  );
+}
 
 const MessageSendingForm = styled.form`
   width: 100%;
@@ -35,27 +52,5 @@ const MessageSendingButton = styled.button`
   color: white;
   margin-right: 10px;
 `;
-
-function MessageForm(props) {
-  const {
-    currentMessage,
-    onCurrentMessageInputChange,
-    onSendMessage,
-    messageSender,
-  } = props;
-  const { postMessage } = useChatroomContext();
-
-  return (
-    <MessageSendingForm onSubmit={onSendMessage}>
-      <MessageInputBox
-        type="text"
-        value={currentMessage}
-        placeholder="메세지 입력"
-        onChange={onCurrentMessageInputChange}
-      />
-      <MessageSendingButton type="submit">전송</MessageSendingButton>
-    </MessageSendingForm>
-  );
-}
 
 export default MessageForm;

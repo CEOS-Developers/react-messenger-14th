@@ -1,20 +1,10 @@
-import React, { useContext } from 'react';
-import {
-  chatroomList,
-  ChatroomContext,
-  chatroomReducer,
-  chatroom,
-  chat,
-} from '../contexts/chatroomContext';
+import { useContext } from 'react';
+import { ChatroomContext, chatroom } from '../contexts/chatroomContext';
 import useUserContext from './useUserContext';
 
 const useChatroomContext = () => {
-  const {
-    chatroomListContext,
-    chatroomContext,
-    chatroomListDispatch,
-    chatroomDispatch,
-  } = useContext(ChatroomContext);
+  const { chatroomListContext, chatroomListDispatch } =
+    useContext(ChatroomContext);
   const { getSingleFriend } = useUserContext();
 
   const getChatroomList = () => {
@@ -31,15 +21,6 @@ const useChatroomContext = () => {
         lastMessage: chatroom.chats[chatroom.chats.length - 1].message,
         profileImage: chattingFriend.profileImage,
       };
-    });
-  };
-
-  const setCurrentChatroom = (friendId: number): void => {
-    chatroomDispatch({
-      type: 'chatroom/setChatroom',
-      data: chatroomListContext.find(
-        (chatroom) => chatroom.friendId === friendId
-      )!,
     });
   };
 
@@ -62,25 +43,19 @@ const useChatroomContext = () => {
     chatroomListDispatch({ type: 'chatrooms/updateMessage', data: chatroom });
   };
 
-  const postMessage = (chat: chat) => {
-    chatroomDispatch({ type: 'chatroom/sendMessage', data: chat });
-  };
-
-  const getMessages = (friendId: number): chat[] => {
-    setCurrentChatroom(friendId);
-    // return chatroomListContext.find(
-    //   (chatroom) => chatroom.friendId === friendId
-    // )?.chats!;
-    return chatroomContext.chats;
-  };
+  // const getMessages = (friendId: number): chat[] => {
+  //   setCurrentChatroom(friendId);
+  //   // return chatroomListContext.find(
+  //   //   (chatroom) => chatroom.friendId === friendId
+  //   // )?.chats!;
+  //   return chatroomContext.chats;
+  // };
 
   return {
     getChatroomList,
     getCurrentChatroom,
-    setCurrentChatroom,
     updateChatroomList,
     postMessage,
-    getMessages,
   };
 };
 

@@ -1,6 +1,24 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+function Header({ currentUser, onHeaderClick }) {
+  return (
+    <Fragment>
+      <HeaderMenuBar>
+        <Link to="/chatlist">
+          <HeaderWindowActionButton color={'red'} />
+        </Link>
+        <HeaderWindowActionButton color={'orange'} />
+        <HeaderWindowActionButton color={'lime'} />
+      </HeaderMenuBar>
+      <HeaderContainer onClick={onHeaderClick}>
+        <ProfileImage src={currentUser.profileImage} />
+        <CurrentUserName>{currentUser.name}</CurrentUserName>
+      </HeaderContainer>
+    </Fragment>
+  );
+}
 
 const HeaderMenuBar = styled.div`
   display: flex;
@@ -30,26 +48,6 @@ const CurrentUserName = styled.div`
   font-size: 20px;
   font-weight: bold;
 `;
-
-function Header(props) {
-  const { currentUser, onHeaderClick } = props;
-
-  return (
-    <Fragment>
-      <HeaderMenuBar>
-        <Link to="/chatlist">
-          <HeaderWindowActionButton color={'red'} />
-        </Link>
-        <HeaderWindowActionButton color={'orange'} />
-        <HeaderWindowActionButton color={'lime'} />
-      </HeaderMenuBar>
-      <HeaderContainer onClick={onHeaderClick}>
-        <ProfileImage src={currentUser.profileImage} />
-        <CurrentUserName>{currentUser.name}</CurrentUserName>
-      </HeaderContainer>
-    </Fragment>
-  );
-}
 
 const ProfileImage = styled.img`
   width: 60px;
