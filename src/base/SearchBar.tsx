@@ -1,53 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 type SearchbarProps = {
-  searchQuery: string;
-  onSearchQueryInput: (e: any) => void;
-  onResetButtonClick: () => void;
-};
-
-type ComponentProps = {
-  searchText: string;
-};
-
-const WithSearchBar = (WrappedComponent: React.FC<SearchbarProps>) => {
-  const Component = ({ searchText }: ComponentProps) => {
-    const [searchQuery, setSearchQuery] = useState<string>(searchText);
-
-    const handleSearchQueryChange = (e: any) => {
-      setSearchQuery(e.target.value);
-    };
-
-    const handleSearchQueryReset = () => {
-      setSearchQuery('');
-    };
-
-    return (
-      <WrappedComponent
-        searchQuery={searchQuery}
-        onSearchQueryInput={handleSearchQueryChange}
-        onResetButtonClick={handleSearchQueryReset}
-      />
-    );
-  };
-
-  return Component;
+  value: string;
+  onSearchQueryChange: (e: any) => void;
 };
 
 const SearchBar: React.FC<SearchbarProps> = ({
-  searchQuery,
-  onSearchQueryInput,
-  onResetButtonClick,
+  value,
+  onSearchQueryChange,
 }) => {
+  const handleSearchQueryChange = (e: any) => {
+    onSearchQueryChange(e.target.value);
+  };
+
+  const handleResetButtonClick = () => {
+    onSearchQueryChange('');
+  };
+
   return (
     <StyledInputContainer>
       <StyledInputBox
         placeholder="검색하기"
-        onChange={onSearchQueryInput}
-        value={searchQuery}
+        onChange={handleSearchQueryChange}
+        value={value}
       />
-      <InputBoxClear onClick={onResetButtonClick}>✕</InputBoxClear>
+      <InputBoxClear onClick={handleResetButtonClick}>✕</InputBoxClear>
     </StyledInputContainer>
   );
 };
@@ -90,4 +68,4 @@ const InputBoxClear = styled.div`
   }
 `;
 
-export default WithSearchBar(SearchBar);
+export default SearchBar;

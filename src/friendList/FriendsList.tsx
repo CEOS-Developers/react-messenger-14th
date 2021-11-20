@@ -17,7 +17,7 @@ function FriendsList(props: any) {
   return (
     <StyledContainer>
       <StyledHeader>Friends</StyledHeader>
-      <SearchBar searchText={searchQuery} />
+      <SearchBar value={searchQuery} onSearchQueryChange={setSearchQuery} />
       <FriendListContainer>
         <FilteredFriendList filteredList={filteredList} />
       </FriendListContainer>

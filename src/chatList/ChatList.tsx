@@ -20,7 +20,7 @@ function ChatList(props: any) {
       <Route exact path="/chatlist">
         <StyledContainer>
           <StyledHeader>Chats</StyledHeader>
-          <SearchBar searchText={searchQuery} />
+          <SearchBar value={searchQuery} onSearchQueryChange={setSearchQuery} />
           <ChatListContainer>
             <FilteredChatList filteredList={filteredChatList} />
           </ChatListContainer>
