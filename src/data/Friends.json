@@ -1,5 +1,11 @@
 [
   {
+    "id": 0,
+    "name": "Seon-Jong Kim",
+    "statusMessage":"타입스크립트 죽어라 빵야빵야",
+    "profileImage": "sj.png"
+  },
+  {
     "id": 1,
     "name": "최준",
     "statusMessage": "자꾸 쳐다보지 말아요 키스할뻔 했습니다.",

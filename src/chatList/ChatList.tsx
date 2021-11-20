@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import Chatroom from '../chatRoom/Chatroom.js';
+import Chatroom from '../chatRoom/Chatroom';
 import styled from 'styled-components';
 import { Route, Link } from 'react-router-dom';
 import SearchBar from '../base/SearchBar';
@@ -125,26 +125,23 @@ function ChatList(props: any) {
           </ChatListContainer>
         </StyledContainer>
       </Route>
-      <Route
-        exact
-        path="/chatlist/:friendId"
-        render={() => (
-          <Chatroom
-            chatList={chatroomOnLocalstorage}
-            onChatListChange={handleChatListChange}
-          />
-        )}
-      />
+      <Route exact path="/chatlist/:friendId" render={() => <Chatroom />} />
     </Fragment>
   );
 }
 
 const FilteredChatList = ({ filteredList }: any) => {
+  const { setCurrentChatroom } = useChatroomContext();
+
   return filteredList.map((item: any) => {
     const { id, profileImage, name, lastMessage } = item;
     return (
       <Link to={`/chatlist/${id}`} style={{ textDecoration: 'none' }}>
-        <SingleChatItem>
+        <SingleChatItem
+          onClick={() => {
+            setCurrentChatroom(id);
+          }}
+        >
           <ChatItemProfileImage
             src={process.env.PUBLIC_URL + '/images/' + profileImage}
           />

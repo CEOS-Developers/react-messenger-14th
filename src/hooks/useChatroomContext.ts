@@ -4,11 +4,17 @@ import {
   ChatroomContext,
   chatroomReducer,
   chatroom,
+  chat,
 } from '../contexts/chatroomContext';
 import useUserContext from './useUserContext';
 
 const useChatroomContext = () => {
-  const { chatroomContext, chatroomListDispatch } = useContext(ChatroomContext);
+  const {
+    chatroomListContext,
+    chatroomContext,
+    chatroomListDispatch,
+    chatroomDispatch,
+  } = useContext(ChatroomContext);
   const { getSingleFriend } = useUserContext();
 
   const getChatroomList = () => {
@@ -16,7 +22,7 @@ const useChatroomContext = () => {
     // 따라서 userContext에서 채팅방의 친구 id로 친구의 정보를 가져와서 렌더링한다
     // (chatroom, friend type 참고)
 
-    return chatroomContext.map((chatroom: chatroom) => {
+    return chatroomListContext.map((chatroom: chatroom) => {
       const chattingFriend = getSingleFriend(chatroom.friendId);
 
       return {
@@ -28,15 +34,54 @@ const useChatroomContext = () => {
     });
   };
 
-  const getSingleChatroom = (friendId: number): chatroom => {
-    return chatroomContext.find((chatroom) => chatroom.friendId === friendId)!;
+  const setCurrentChatroom = (friendId: number): void => {
+    chatroomDispatch({
+      type: 'chatroom/setChatroom',
+      data: chatroomListContext.find(
+        (chatroom) => chatroom.friendId === friendId
+      )!,
+    });
+  };
+
+  const getCurrentChatroom = (friendId: number | string): chatroom => {
+    return chatroomListContext.find(
+      (chatroom) => chatroom.friendId === parseInt(friendId as string)
+    )!;
+
+    // chatroomDispatch({
+    //   type: 'chatroom/setChatroom',
+    //   data: chatroomListContext.find(
+    //     (chatroom) => chatroom.friendId === parseInt(friendId as string)
+    //   )!,
+    // });
+
+    // return chatroomContext;
   };
 
   const updateChatroomList = (chatroom: chatroom) => {
     chatroomListDispatch({ type: 'chatrooms/updateMessage', data: chatroom });
   };
 
-  return { getChatroomList, getSingleChatroom, updateChatroomList };
+  const postMessage = (chat: chat) => {
+    chatroomDispatch({ type: 'chatroom/sendMessage', data: chat });
+  };
+
+  const getMessages = (friendId: number): chat[] => {
+    setCurrentChatroom(friendId);
+    // return chatroomListContext.find(
+    //   (chatroom) => chatroom.friendId === friendId
+    // )?.chats!;
+    return chatroomContext.chats;
+  };
+
+  return {
+    getChatroomList,
+    getCurrentChatroom,
+    setCurrentChatroom,
+    updateChatroomList,
+    postMessage,
+    getMessages,
+  };
 };
 
 export default useChatroomContext;

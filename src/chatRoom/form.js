@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import useChatroomContext from '../hooks/useChatroomContext';
 
 const MessageSendingForm = styled.form`
   width: 100%;
   height: 50px;
   display: flex !important;
   align-content: center !important;
-  justify-content: space-around;
+  justify-content: space-import;
   padding: 10px 0;
 `;
 
@@ -36,7 +37,13 @@ const MessageSendingButton = styled.button`
 `;
 
 function MessageForm(props) {
-  const { currentMessage, onCurrentMessageInputChange, onSendMessage } = props;
+  const {
+    currentMessage,
+    onCurrentMessageInputChange,
+    onSendMessage,
+    messageSender,
+  } = props;
+  const { postMessage } = useChatroomContext();
 
   return (
     <MessageSendingForm onSubmit={onSendMessage}>

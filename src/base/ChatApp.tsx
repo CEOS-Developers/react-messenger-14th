@@ -8,6 +8,7 @@ import Friends from '../data/Friends.json';
 import Chats from '../data/Chats.json';
 import Settings from '../setting/Settings.js';
 import UserContextProvider from '../contexts/userContext';
+import ChatroomContextProvider from '../contexts/chatroomContext';
 
 const GlobalStyle = createGlobalStyle`
   display: flex;
@@ -37,26 +38,28 @@ const ChatApp: React.FC = () => {
     <Fragment>
       <GlobalStyle />
       <UserContextProvider>
-        <ChatAppContainer>
-          <Router>
-            <Route
-              exact
-              path={['/', '/chatlist', '/settings']}
-              component={NavBar}
-            />
-            <Switch>
-              <Route exact path="/">
-                <FriendsList friends={Friends} />
-              </Route>
-              <Route path="/chatlist">
-                <ChatList friends={Friends} key={Date.now()} />
-              </Route>
-              <Route path="/settings">
-                <Settings />
-              </Route>
-            </Switch>
-          </Router>
-        </ChatAppContainer>
+        <ChatroomContextProvider>
+          <ChatAppContainer>
+            <Router>
+              <Route
+                exact
+                path={['/', '/chatlist', '/settings']}
+                component={NavBar}
+              />
+              <Switch>
+                <Route exact path="/">
+                  <FriendsList friends={Friends} />
+                </Route>
+                <Route path="/chatlist">
+                  <ChatList friends={Friends} key={Date.now()} />
+                </Route>
+                <Route path="/settings">
+                  <Settings />
+                </Route>
+              </Switch>
+            </Router>
+          </ChatAppContainer>
+        </ChatroomContextProvider>
       </UserContextProvider>
     </Fragment>
   );
