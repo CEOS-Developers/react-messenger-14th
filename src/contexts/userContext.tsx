@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useReducer, Dispatch } from 'react';
 import Friends from '../data/Friends.json';
 import useLocalStorage from '../hooks/useLocalStorage';
 
@@ -9,21 +9,43 @@ type friend = {
   profileImage: string;
 };
 
-const UserContext: React.Context<friend[]> = createContext([
+type userReducerAction = {
+  type: 'user/addFriend';
+  data: friend;
+};
+
+const initialFriends: friend[] = [
   {
     id: 0,
     name: '',
     statusMessage: '',
     profileImage: '',
   },
-]);
+];
+
+const UserContext = createContext<{
+  friends: friend[];
+  friendsDispatch: Dispatch<userReducerAction>;
+}>({
+  friends: initialFriends,
+  friendsDispatch: () => null,
+});
 
 const UserContextProvider = ({ children }: any) => {
-  const [friends] = useState(Friends);
+  const [friends, friendsDispatch] = useReducer(userReducer, Friends);
 
   return (
-    <UserContext.Provider value={friends}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ friends, friendsDispatch }}>
+      {children}
+    </UserContext.Provider>
   );
+};
+
+const userReducer = (state: friend[], action: userReducerAction): friend[] => {
+  switch (action.type) {
+    case 'user/addFriend':
+      return [...state, action.data];
+  }
 };
 
 export default UserContextProvider;

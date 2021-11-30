@@ -16,17 +16,8 @@ function Chatroom() {
   const currentChatroom = getCurrentChatroom(friendId);
 
   const user = {
-    you: {
-      id: currentFriend.id,
-      name: currentFriend.name,
-      profileImage:
-        process.env.PUBLIC_URL + '/images/' + currentFriend.profileImage,
-    },
-    me: {
-      id: 0,
-      name: 'Seon-Jong Kim',
-      profileImage: process.env.PUBLIC_URL + '/images/sj.png',
-    },
+    you: currentFriend,
+    me: getSingleFriend(0),
   };
 
   const [currentMessage, setCurrentMessage] = useState('');
