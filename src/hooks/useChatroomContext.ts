@@ -13,7 +13,7 @@ const useChatroomContext = () => {
     // (chatroom, friend type 참고)
 
     return chatroomListContext.map((chatroom: chatroom) => {
-      const chattingFriend = getSingleFriend(chatroom.friendId);
+      const chattingFriend = getSingleFriend(chatroom.friendId)!;
 
       return {
         id: chattingFriend.id,
@@ -25,6 +25,17 @@ const useChatroomContext = () => {
   };
 
   const getCurrentChatroom = (friendId: number | string): chatroom => {
+    const chatroom = chatroomListContext.find(
+      (chatroom) => chatroom.friendId === parseInt(friendId as string)
+    );
+
+    if (!chatroom) {
+      chatroomListDispatch({
+        type: 'chatrooms/createChatroom',
+        data: friendId as number,
+      });
+    }
+
     return chatroomListContext.find(
       (chatroom) => chatroom.friendId === parseInt(friendId as string)
     )!;

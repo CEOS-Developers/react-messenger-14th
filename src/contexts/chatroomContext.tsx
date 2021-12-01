@@ -2,10 +2,15 @@ import React, { createContext, useReducer } from 'react';
 import { Dispatch } from 'react';
 import CHATTINGS from '../data/Chats.json';
 
-type chatroomListAction = {
-  type: 'chatrooms/updateMessage';
-  data: chatroom;
-};
+type chatroomListAction =
+  | {
+      type: 'chatrooms/updateMessage';
+      data: chatroom;
+    }
+  | {
+      type: 'chatrooms/createChatroom';
+      data: number;
+    };
 
 export type chat = {
   senderId: number;
@@ -55,6 +60,9 @@ const chatroomListReducer = (
         (chatroom) => chatroom.friendId !== action.data.friendId
       );
       return [action.data, ...restChatrooms];
+
+    case 'chatrooms/createChatroom':
+      return [...state, { friendId: action.data, chats: [] }];
     default:
       return state;
   }
