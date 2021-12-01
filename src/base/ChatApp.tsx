@@ -9,11 +9,16 @@ import Chats from '../data/Chats.json';
 import Settings from '../setting/Settings.js';
 import UserContextProvider from '../contexts/userContext';
 import ChatroomContextProvider from '../contexts/chatroomContext';
+import AddFriend from '../friendList/AddFriend';
 
 const GlobalStyle = createGlobalStyle`
   display: flex;
   body {
     margin: 0;
+  }
+
+  input:focus{
+    outline: none;
   }
 `;
 
@@ -43,15 +48,18 @@ const ChatApp: React.FC = () => {
             <Router>
               <Route
                 exact
-                path={['/', '/chatlist', '/settings']}
+                path={['/', '/chatlist', '/settings', '/new']}
                 component={NavBar}
               />
               <Switch>
                 <Route exact path="/">
-                  <FriendsList friends={Friends} />
+                  <FriendsList />
+                </Route>
+                <Route path="/new">
+                  <AddFriend />
                 </Route>
                 <Route path="/chatlist">
-                  <ChatList friends={Friends} key={Date.now()} />
+                  <ChatList key={Date.now()} />
                 </Route>
                 <Route path="/settings">
                   <Settings />

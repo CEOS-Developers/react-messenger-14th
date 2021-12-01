@@ -1,14 +1,16 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import SearchBar from '../base/SearchBar';
 import styled from 'styled-components';
 import useUserContext from '../hooks/useUserContext';
 import { friend } from '../contexts/userContext';
+import { Button } from '@nextui-org/react';
 
 function FriendsList(props: any) {
   const [searchQuery, setSearchQuery] = useState('');
   const { getFriendList } = useUserContext();
   const friendList = getFriendList();
+  const history = useHistory();
 
   const filteredList = friendList.filter((item) => {
     return item.name.indexOf(searchQuery) > -1;
@@ -21,6 +23,13 @@ function FriendsList(props: any) {
       <FriendListContainer>
         <FilteredFriendList filteredList={filteredList} />
       </FriendListContainer>
+      <FriendAddButton
+        color="#858585"
+        size="large"
+        onClick={() => history.push('/new')}
+      >
+        Add new friend
+      </FriendAddButton>
     </StyledContainer>
   );
 }
@@ -105,6 +114,10 @@ const FriendListContainer = styled.div`
   background-color: rgba(33, 33, 33, 0.05);
   padding: 10px;
   height: 100%;
+`;
+
+const FriendAddButton = styled(Button)`
+  margin: 10px;
 `;
 
 export default FriendsList;
