@@ -9,10 +9,15 @@ type friend = {
   profileImage: string;
 };
 
-type userReducerAction = {
-  type: 'user/addFriend';
-  data: friend;
-};
+type userReducerAction =
+  | {
+      type: 'user/addFriend';
+      data: friend;
+    }
+  | {
+      type: 'user/deleteFriend';
+      data: number;
+    };
 
 const initialFriends: friend[] = [
   {
@@ -45,6 +50,9 @@ const userReducer = (state: friend[], action: userReducerAction): friend[] => {
   switch (action.type) {
     case 'user/addFriend':
       return [...state, action.data];
+
+    case 'user/deleteFriend':
+      return state.filter((friend) => friend.id !== action.data);
   }
 };
 
