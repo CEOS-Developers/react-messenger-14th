@@ -18,26 +18,31 @@ const useChatroomContext = () => {
       return {
         id: chattingFriend.id,
         name: chattingFriend.name,
-        lastMessage: chatroom.chats[chatroom.chats.length - 1].message,
+        lastMessage: chatroom.chats[chatroom.chats.length - 1]?.message,
         profileImage: chattingFriend.profileImage,
       };
     });
   };
 
-  const getCurrentChatroom = (friendId: number | string): chatroom => {
+  const getCurrentChatroom = (friendId: number): chatroom => {
     const chatroom = chatroomListContext.find(
-      (chatroom) => chatroom.friendId === parseInt(friendId as string)
-    );
+      (chatroom) => chatroom.friendId === friendId
+    )!;
 
     if (!chatroom) {
       chatroomListDispatch({
         type: 'chatrooms/createChatroom',
         data: friendId as number,
       });
+
+      return {
+        friendId: friendId,
+        chats: [],
+      } as chatroom;
     }
 
     return chatroomListContext.find(
-      (chatroom) => chatroom.friendId === parseInt(friendId as string)
+      (chatroom) => chatroom.friendId === friendId
     )!;
 
     // chatroomDispatch({

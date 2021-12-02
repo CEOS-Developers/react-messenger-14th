@@ -13,7 +13,9 @@ function Header({ currentUser, onHeaderClick }) {
         <HeaderWindowActionButton color={'lime'} />
       </HeaderMenuBar>
       <HeaderContainer onClick={onHeaderClick}>
-        <ProfileImage src={currentUser.profileImage} />
+        <ProfileImage
+          src={process.env.PUBLIC_URL + '/images/' + currentUser.profileImage}
+        />
         <CurrentUserName>{currentUser.name}</CurrentUserName>
       </HeaderContainer>
     </Fragment>

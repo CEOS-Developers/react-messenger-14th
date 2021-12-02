@@ -114,6 +114,7 @@ const FriendListContainer = styled.div`
   background-color: rgba(33, 33, 33, 0.05);
   padding: 10px;
   height: 100%;
+  overflow: scroll;
 `;
 
 const FriendAddButton = styled(Button)`

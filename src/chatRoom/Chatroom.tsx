@@ -13,7 +13,7 @@ function Chatroom() {
   const { getCurrentChatroom, updateChatroomList } = useChatroomContext();
   // 채팅방의 parameter로 받은 id는 곧 친구의 id이다.
   const currentFriend = getSingleFriend(parseInt(friendId));
-  const currentChatroom = getCurrentChatroom(friendId);
+  const currentChatroom = getCurrentChatroom(parseInt(friendId));
 
   const user = {
     you: currentFriend,

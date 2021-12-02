@@ -4,7 +4,9 @@ import styled from 'styled-components';
 function Message({ messageSender, messageContent }) {
   return (
     <MessageItem messageSender={messageSender}>
-      <ProfileImage src={messageSender.profileImage} />
+      <ProfileImage
+        src={process.env.PUBLIC_URL + '/images/' + messageSender.profileImage}
+      />
       <MessageBox messageSender={messageSender}>{messageContent}</MessageBox>
     </MessageItem>
   );
